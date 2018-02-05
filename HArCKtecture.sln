@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HArCKtecture", "HArCKtecture\HArCKtecture.csproj", "{8999DFEE-B7C0-4A34-A03F-C9FE8158AB66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsInterface", "WindowsAPI\WindowsInterface.csproj", "{A4C4281D-F3C8-4E1F-842F-F4640DED91F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsInterface", "WindowsInterface\WindowsInterface.csproj", "{A4C4281D-F3C8-4E1F-842F-F4640DED91F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

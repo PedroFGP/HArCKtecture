@@ -82,7 +82,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WindowsAPI\WindowsInterface.csproj">
+    <ProjectReference Include="..\WindowsInterface\WindowsInterface.csproj">
       <Project>{a4c4281d-f3c8-4e1f-842f-f4640ded91f6}</Project>
       <Name>WindowsInterface</Name>
     </ProjectReference>
