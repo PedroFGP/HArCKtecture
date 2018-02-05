@@ -57,6 +57,14 @@ namespace WindowsAPI
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern uint ResumeThread(IntPtr hThread);
 
+        /// <summary>
+        /// Reads the value of an address from a process.
+        /// </summary>
+        /// <typeparam name="T">Type to convert the read bytes.</typeparam>
+        /// <param name="process">The process handle.</param>
+        /// <param name="address">The address pointer to be read.</param>
+        /// <param name="size">The quantity of bytes to read.</param>
+        /// <returns>The typed array of bytes read.</returns>
         public static T ReadMemory<T>(IntPtr process, IntPtr address, int size)
         {
             if (process == IntPtr.Zero || address == IntPtr.Zero || size == 0)
@@ -82,6 +90,14 @@ namespace WindowsAPI
             }
         }
 
+        /// <summary>
+        /// Reads the value of a pointer from a process.
+        /// </summary>
+        /// <typeparam name="T">Type to convert the read bytes.</typeparam>
+        /// <param name="process">The process handle.</param>
+        /// <param name="address">The address pointer to be read.</param>
+        /// <param name="size">The quantity of bytes to read.</param>
+        /// <returns>The typed array of bytes read.</returns>
         public static T ReadMemoryPointer<T>(IntPtr process, IntPtr address, int size)
         {
             IntPtr ptrAddress = ReadMemory<IntPtr>(process, address, Marshal.SizeOf(address));
@@ -94,6 +110,14 @@ namespace WindowsAPI
             return ReadMemory<T>(process, ptrAddress, size);
         }
 
+        /// <summary>
+        /// Writes a value to an address from a process.
+        /// </summary>
+        /// <typeparam name="T">Value type.</typeparam>
+        /// <param name="process">The process handle.</param>
+        /// <param name="address">The address to be writen to.</param>
+        /// <param name="value">The value to write to the address.</param>
+        /// <returns>Returns true on success, false on error.</returns>
         public static bool WriteMemory<T>(IntPtr process, IntPtr address, T value)
         {
             if (process == IntPtr.Zero || address == IntPtr.Zero)
@@ -121,6 +145,14 @@ namespace WindowsAPI
             return true;
         }
 
+        /// <summary>
+        /// Writes a value to a pointer from a process.
+        /// </summary>
+        /// <typeparam name="T">Value Type.</typeparam>
+        /// <param name="process">The process handle.</param>
+        /// <param name="address">The address pointer to be writen to.</param>
+        /// <param name="value">The value to write to the address.</param>
+        /// <returns>Returns true on success, false on error.</returns>
         public static bool WriteMemoryPointer<T>(IntPtr process, IntPtr address, T value)
         {
             IntPtr ptrAddress = ReadMemory<IntPtr>(process, address, Marshal.SizeOf(address));

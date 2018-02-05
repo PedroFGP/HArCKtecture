@@ -8,6 +8,10 @@ namespace WindowsAPI
         public Process ProcessInstance { get; }
         public IntPtr Handle { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WindowsProcess"/> class.
+        /// </summary>
+        /// <param name="name">The process name without '.exe'.</param>
         public WindowsProcess(string name)
         {
             Process[] processesByName = Process.GetProcessesByName(name);
@@ -24,6 +28,10 @@ namespace WindowsAPI
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WindowsProcess"/> class.
+        /// </summary>
+        /// <param name="id">The process id.</param>
         public WindowsProcess(int id)
         {
             ProcessInstance = Process.GetProcessById(id);
@@ -38,6 +46,9 @@ namespace WindowsAPI
             }
         }
 
+        /// <summary>
+        /// Suspends all threads from current process.
+        /// </summary>
         public void SuspendAllThreads()
         {
             if (ProcessInstance == null)
@@ -58,6 +69,9 @@ namespace WindowsAPI
             }
         }
 
+        /// <summary>
+        /// Resumes all threads from current process.
+        /// </summary>
         public void ResumeAllThreads()
         {
             if (ProcessInstance == null)
