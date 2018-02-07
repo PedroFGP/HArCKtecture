@@ -48,10 +48,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmMain.cs">
+    <Compile Include="Classes\Challenge.cs" />
+    <Compile Include="Classes\EnumExtensions.cs" />
+    <Compile Include="Classes\Enums.cs" />
+    <Compile Include="Interfaces\IChallenge.cs" />
+    <Compile Include="Forms\FrmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain.Designer.cs">
+    <Compile Include="Forms\FrmAbout.Designer.cs">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -62,7 +72,10 @@
     <Compile Include="User Controls\Challenge.Designer.cs">
       <DependentUpon>Challenge.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmMain.resx">
+    <EmbeddedResource Include="Forms\FrmAbout.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -73,6 +86,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="User Controls\Challenge.resx">
       <DependentUpon>Challenge.cs</DependentUpon>
@@ -95,6 +109,15 @@
       <Project>{a4c4281d-f3c8-4e1f-842f-f4640ded91f6}</Project>
       <Name>WindowsInterface</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FormLogo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoTaskBar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FormLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

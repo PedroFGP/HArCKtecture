@@ -1,0 +1,23 @@
+﻿using System;
+using System.ComponentModel;
+using System.Reflection;
+
+namespace HArCKtecture.Classes
+{
+    public static class EnumExtensions
+    {
+        public static string GetDescription(this Enum value)
+        {
+            FieldInfo fieldInfo = value.GetType().GetField(value.ToString());
+
+            if (fieldInfo == null)
+            {
+                return null;
+            }
+
+            var attribute = fieldInfo.GetCustomAttribute(typeof(DescriptionAttribute)) as DescriptionAttribute;
+
+            return attribute.Description;
+        }
+    }
+}

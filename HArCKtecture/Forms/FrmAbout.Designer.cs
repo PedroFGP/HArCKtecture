@@ -1,6 +1,6 @@
-﻿namespace HArCKtecture
+﻿namespace HArCKtecture.Forms
 {
-    partial class FrmMain
+    partial class FrmAbout
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbout));
             VisualPlus.Structure.TextStyle textStyle1 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle2 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle4 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle5 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle6 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
             this.visualControlBox1 = new VisualPlus.Toolkit.Controls.Interactivity.VisualControlBox();
+            this.RTbxAbout = new VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox();
+            this.BtnBack = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.SuspendLayout();
             // 
             // visualControlBox1
@@ -68,7 +72,7 @@
             textStyle1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.visualControlBox1.HelpButton.TextStyle = textStyle1;
             this.visualControlBox1.HelpButton.Visible = false;
-            this.visualControlBox1.Location = new System.Drawing.Point(560, 5);
+            this.visualControlBox1.Location = new System.Drawing.Point(340, 5);
             // 
             // 
             // 
@@ -130,7 +134,68 @@
             textStyle4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.visualControlBox1.TextStyle = textStyle4;
             // 
-            // FrmMain
+            // RTbxAbout
+            // 
+            this.RTbxAbout.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.RTbxAbout.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.RTbxAbout.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.RTbxAbout.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.RTbxAbout.Border.HoverVisible = true;
+            this.RTbxAbout.Border.Rounding = 6;
+            this.RTbxAbout.Border.Thickness = 1;
+            this.RTbxAbout.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.RTbxAbout.Border.Visible = true;
+            this.RTbxAbout.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RTbxAbout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.RTbxAbout.Location = new System.Drawing.Point(10, 41);
+            this.RTbxAbout.MaxLength = 2147483647;
+            this.RTbxAbout.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.RTbxAbout.Name = "RTbxAbout";
+            this.RTbxAbout.ReadOnly = true;
+            this.RTbxAbout.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
+            this.RTbxAbout.ShowSelectionMargin = false;
+            this.RTbxAbout.Size = new System.Drawing.Size(400, 210);
+            this.RTbxAbout.TabIndex = 1;
+            this.RTbxAbout.Text = resources.GetString("RTbxAbout.Text");
+            textStyle5.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle5.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle5.Hover = System.Drawing.Color.Empty;
+            textStyle5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.RTbxAbout.TextStyle = textStyle5;
+            // 
+            // BtnBack
+            // 
+            this.BtnBack.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnBack.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.BtnBack.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnBack.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnBack.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.BtnBack.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.BtnBack.Border.HoverVisible = true;
+            this.BtnBack.Border.Rounding = 6;
+            this.BtnBack.Border.Thickness = 1;
+            this.BtnBack.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.BtnBack.Border.Visible = true;
+            this.BtnBack.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BtnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnBack.Image = null;
+            this.BtnBack.Location = new System.Drawing.Point(10, 260);
+            this.BtnBack.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.BtnBack.Name = "BtnBack";
+            this.BtnBack.Size = new System.Drawing.Size(75, 28);
+            this.BtnBack.TabIndex = 2;
+            this.BtnBack.Text = "Voltar";
+            this.BtnBack.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BtnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.BtnBack.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            textStyle6.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle6.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle6.Hover = System.Drawing.Color.Empty;
+            textStyle6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnBack.TextStyle = textStyle6;
+            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
+            // 
+            // FrmAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,7 +206,9 @@
             this.Border.Thickness = 3;
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
-            this.ClientSize = new System.Drawing.Size(640, 480);
+            this.ClientSize = new System.Drawing.Size(420, 300);
+            this.Controls.Add(this.BtnBack);
+            this.Controls.Add(this.RTbxAbout);
             this.Controls.Add(this.visualControlBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             border1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
@@ -152,12 +219,13 @@
             border1.Type = VisualPlus.Enumerators.ShapeType.Rounded;
             border1.Visible = false;
             this.Image.Border = border1;
-            this.Image.Image = ((System.Drawing.Bitmap)(resources.GetObject("resource.Image3")));
+            this.Image.Image = global::HArCKtecture.Properties.Resources.FormLogo1;
             this.Image.Point = new System.Drawing.Point(5, 7);
             this.Image.Size = new System.Drawing.Size(16, 16);
             this.Image.Visible = true;
-            this.Name = "FrmMain";
-            this.Text = "HArCKtecture";
+            this.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.Name = "FrmAbout";
+            this.Text = "Sobre";
             this.ResumeLayout(false);
 
         }
@@ -165,6 +233,7 @@
         #endregion
 
         private VisualPlus.Toolkit.Controls.Interactivity.VisualControlBox visualControlBox1;
+        private VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox RTbxAbout;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnBack;
     }
 }
-
