@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
+using System.Linq;
 
 namespace HArCKtecture.Classes
 {
@@ -18,6 +20,13 @@ namespace HArCKtecture.Classes
             var attribute = fieldInfo.GetCustomAttribute(typeof(DescriptionAttribute)) as DescriptionAttribute;
 
             return attribute.Description;
+        }
+
+        public static Dictionary<string, TEnum> GetDescriptionList<TEnum>()
+            where TEnum : struct
+        {
+            return ((TEnum[])Enum.GetValues(typeof(TEnum)))
+               .ToDictionary(k => ((Enum)(object)k).GetDescription(), v => v);
         }
     }
 }

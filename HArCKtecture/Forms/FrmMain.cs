@@ -48,7 +48,5 @@ namespace HArCKtecture.Forms
         }
 
         #endregion
-
-       
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HArCKtecture.User_Controls
 {
-    public partial class Challenge : UserControl
+    public partial class UcChallenge : UserControl
     {
-        public Challenge()
+        public UcChallenge()
         {
             InitializeComponent();
         }

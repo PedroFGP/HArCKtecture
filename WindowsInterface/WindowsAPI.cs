@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -67,7 +68,7 @@ namespace WindowsAPI
         /// <returns>The typed array of bytes read.</returns>
         public static T ReadMemory<T>(IntPtr process, IntPtr address, int size)
         {
-            if (process == IntPtr.Zero || address == IntPtr.Zero || size == 0)
+            if (process == IntPtr.Zero || address == IntPtr.Zero)
             {
                 //Error
             }
@@ -90,6 +91,11 @@ namespace WindowsAPI
             }
         }
 
+        public static T ReadMemory<T>(IntPtr process, IntPtr address)
+        {
+            return ReadMemory<T>(process, address, SizeOf<T>());
+        }
+
         /// <summary>
         /// Reads the value of a pointer from a process.
         /// </summary>
@@ -108,6 +114,11 @@ namespace WindowsAPI
             }
 
             return ReadMemory<T>(process, ptrAddress, size);
+        }
+
+        public static T ReadMemoryPointer<T>(IntPtr process, IntPtr address)
+        {
+            return ReadMemoryPointer<T>(process, address, SizeOf<T>());
         }
 
         /// <summary>
@@ -159,6 +170,30 @@ namespace WindowsAPI
 
             return WriteMemory(process, ptrAddress, value);
         }
+
+        public static int SizeOf<T>()
+        {
+            return SizeOfCache<T>.SizeOf;
+        }
+
+        private static class SizeOfCache<T>
+        {
+            public static readonly int SizeOf;
+
+            static SizeOfCache()
+            {
+                var dm = new DynamicMethod("func", typeof(int),
+                                           Type.EmptyTypes, typeof(WindowsAPI));
+
+                ILGenerator il = dm.GetILGenerator();
+                il.Emit(OpCodes.Sizeof, typeof(T));
+                il.Emit(OpCodes.Ret);
+
+                var func = (Func<int>)dm.CreateDelegate(typeof(Func<int>));
+                SizeOf = func();
+            }
+        }
+
     }
 
     public static class Disasm

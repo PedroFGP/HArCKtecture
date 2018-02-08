@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace WindowsAPI
 {
@@ -36,7 +37,7 @@ namespace WindowsAPI
         {
             ProcessInstance = Process.GetProcessById(id);
 
-            if(ProcessInstance != null)
+            if (ProcessInstance != null)
             {
                 Handle = WindowsAPI.OpenProcess(ProcessAccessFlags.All, false, ProcessInstance.Id);
             }
@@ -90,6 +91,32 @@ namespace WindowsAPI
 
                 WindowsAPI.ResumeThread(openThread);
             }
+        }
+    }
+
+    public static class ProcessExtensions
+    {
+        public static IntPtr StringToAddress(string address)
+        {
+            IntPtr value = IntPtr.Zero;
+
+            var hexResult = int.TryParse(address, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out int outputHex);
+
+            if (hexResult)
+            {
+                value = (IntPtr)outputHex;
+            }
+            else
+            {
+                var decResult = int.TryParse(address, out int outputDecimal);
+
+                if (hexResult)
+                {
+                    value = (IntPtr)outputDecimal;
+                }
+            }
+
+            return value;
         }
     }
 }

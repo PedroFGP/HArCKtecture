@@ -15,4 +15,20 @@ namespace HArCKtecture.Classes
         [Description("Muito Difícil")]
         VERY_HARD
     }
+
+    public enum DataTypes
+    {
+        [Description("Inteiro")]
+        INTEGER,
+        [Description("Real")]
+        FLOAT,
+        [Description("Booleano/bit")]
+        BIT,
+        [Description("Caractere")]
+        CHAR,
+        [Description("Texto")]
+        STRING,
+        [Description("Byte")]
+        BYTE
+    }
 }
