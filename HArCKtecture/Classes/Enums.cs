@@ -31,4 +31,11 @@ namespace HArCKtecture.Classes
         [Description("Byte")]
         BYTE
     }
+
+    public enum ArchitectureMode
+    {
+        x86_16 = 16,
+        x86_32 = 32,
+        x86_64 = 64
+    }
 }

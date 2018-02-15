@@ -11,6 +11,7 @@ namespace HArCKtecture.Classes
         public string Description { get; set; }
         public string FileLocation { get; set; }
         public bool DynamicBase { get; set; }
+        public ArchitectureMode Architecture { get; set; }
         public DificultyLevel Dificulty { get; set; }
         public IntPtr BaseAddress { get; set; }
         public Dictionary<string, IntPtr> Addresses;

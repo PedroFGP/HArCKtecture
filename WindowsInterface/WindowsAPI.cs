@@ -1,5 +1,8 @@
-﻿using System;
+﻿using SharpDisasm;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -36,6 +39,23 @@ namespace WindowsAPI
         SET_THREAD_TOKEN = 0x0080,
         IMPERSONATE = 0x0100,
         DIRECT_IMPERSONATION = 0x0200
+    }
+
+    public static class SizeOfCache<T>
+    {
+        public static readonly int SizeOf;
+
+        static SizeOfCache()
+        {
+            var dynamicMethod = new DynamicMethod("func", typeof(int), Type.EmptyTypes, typeof(WindowsAPI));
+
+            ILGenerator intermediateLanguage = dynamicMethod.GetILGenerator();
+            intermediateLanguage.Emit(OpCodes.Sizeof, typeof(T));
+            intermediateLanguage.Emit(OpCodes.Ret);
+
+            var func = (Func<int>)dynamicMethod.CreateDelegate(typeof(Func<int>));
+            SizeOf = func();
+        }
     }
 
     public static class WindowsAPI
@@ -175,29 +195,35 @@ namespace WindowsAPI
         {
             return SizeOfCache<T>.SizeOf;
         }
-
-        private static class SizeOfCache<T>
-        {
-            public static readonly int SizeOf;
-
-            static SizeOfCache()
-            {
-                var dm = new DynamicMethod("func", typeof(int),
-                                           Type.EmptyTypes, typeof(WindowsAPI));
-
-                ILGenerator il = dm.GetILGenerator();
-                il.Emit(OpCodes.Sizeof, typeof(T));
-                il.Emit(OpCodes.Ret);
-
-                var func = (Func<int>)dm.CreateDelegate(typeof(Func<int>));
-                SizeOf = func();
-            }
-        }
-
     }
 
     public static class Disasm
     {
+        static byte[] HexStringToByteArray(string hex)
+        {
+            return Enumerable.Range(0, hex.Length)
+                             .Where(x => x % 2 == 0)
+                             .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                             .ToArray();
+        }
 
+        public static List<string> DisassembleBytes(string bytes)
+        {
+            return DisassembleBytes(HexStringToByteArray(bytes.Trim()));
+        }
+
+        public static List<string> DisassembleBytes(byte[] bytes)
+        {
+            var disasm = new Disassembler(bytes, ArchitectureMode.x86_32, 0, true);
+
+            List<string> output = new List<string>();
+
+            foreach (var line in disasm.Disassemble())
+            {
+                output.Add(line.ToString());
+            }
+
+            return output;
+        }
     }
 }
