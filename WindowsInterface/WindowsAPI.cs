@@ -47,7 +47,7 @@ namespace WindowsAPI
 
         static SizeOfCache()
         {
-            var dynamicMethod = new DynamicMethod("func", typeof(int), Type.EmptyTypes, typeof(WindowsAPI));
+            var dynamicMethod = new DynamicMethod("func", typeof(int), Type.EmptyTypes, typeof(WindowsApi));
 
             ILGenerator intermediateLanguage = dynamicMethod.GetILGenerator();
             intermediateLanguage.Emit(OpCodes.Sizeof, typeof(T));
@@ -58,7 +58,7 @@ namespace WindowsAPI
         }
     }
 
-    public static class WindowsAPI
+    public static class WindowsApi
     {
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern IntPtr OpenProcess(ProcessAccessFlags processAccess, bool bInheritHandle, int processId);
@@ -168,12 +168,7 @@ namespace WindowsAPI
 
             WriteProcessMemory(process, address, valueByte, (uint)valueByte.Length, out UIntPtr bytesWritten);
 
-            if (valueByte.Length != bytesWritten.ToUInt32())
-            {
-                return false;
-            }
-
-            return true;
+            return valueByte.Length == bytesWritten.ToUInt32();
         }
 
         /// <summary>
@@ -199,7 +194,7 @@ namespace WindowsAPI
 
     public static class Disasm
     {
-        static byte[] HexStringToByteArray(string hex)
+        private static byte[] HexStringToByteArray(string hex)
         {
             return Enumerable.Range(0, hex.Length)
                              .Where(x => x % 2 == 0)

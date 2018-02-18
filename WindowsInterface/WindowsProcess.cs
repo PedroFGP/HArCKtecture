@@ -21,7 +21,7 @@ namespace WindowsAPI
             {
                 ProcessInstance = processesByName[0];
 
-                Handle = WindowsAPI.OpenProcess(ProcessAccessFlags.All, false, ProcessInstance.Id);
+                Handle = WindowsApi.OpenProcess(ProcessAccessFlags.All, false, ProcessInstance.Id);
             }
             else
             {
@@ -39,7 +39,7 @@ namespace WindowsAPI
 
             if (ProcessInstance != null)
             {
-                Handle = WindowsAPI.OpenProcess(ProcessAccessFlags.All, false, ProcessInstance.Id);
+                Handle = WindowsApi.OpenProcess(ProcessAccessFlags.All, false, ProcessInstance.Id);
             }
             else
             {
@@ -59,14 +59,14 @@ namespace WindowsAPI
 
             foreach (ProcessThread thread in ProcessInstance.Threads)
             {
-                IntPtr openThread = WindowsAPI.OpenThread(ThreadAccess.SUSPEND_RESUME, false, (uint)thread.Id);
+                IntPtr openThread = WindowsApi.OpenThread(ThreadAccess.SUSPEND_RESUME, false, (uint)thread.Id);
 
                 if (openThread == IntPtr.Zero)
                 {
                     break;
                 }
 
-                WindowsAPI.SuspendThread(openThread);
+                WindowsApi.SuspendThread(openThread);
             }
         }
 
@@ -82,14 +82,14 @@ namespace WindowsAPI
 
             foreach (ProcessThread thread in ProcessInstance.Threads)
             {
-                IntPtr openThread = WindowsAPI.OpenThread(ThreadAccess.SUSPEND_RESUME, false, (uint)thread.Id);
+                IntPtr openThread = WindowsApi.OpenThread(ThreadAccess.SUSPEND_RESUME, false, (uint)thread.Id);
 
                 if (openThread == IntPtr.Zero)
                 {
                     break;
                 }
 
-                WindowsAPI.ResumeThread(openThread);
+                WindowsApi.ResumeThread(openThread);
             }
         }
     }
