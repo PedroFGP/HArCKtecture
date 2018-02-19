@@ -1,122 +1,49 @@
-﻿using System;
+﻿using Binarysharp.MemoryManagement;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace WindowsAPI
 {
     public class WindowsProcess
     {
-        public Process ProcessInstance { get; }
-        public IntPtr Handle { get; }
+        public MemorySharp Memory { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WindowsProcess"/> class.
         /// </summary>
-        /// <param name="name">The process name without '.exe'.</param>
-        public WindowsProcess(string name)
+        /// <param name="processName">Name of the target process.</param>
+        /// <param name="startProcess">if set to <c>true</c> [start process] then starts the process by it's path.</param>
+        public WindowsProcess(string processName, bool startProcess)
         {
-            Process[] processesByName = Process.GetProcessesByName(name);
-
-            if (processesByName.Length > 0)
+            if(startProcess && File.Exists(processName))
             {
-                ProcessInstance = processesByName[0];
-
-                Handle = WindowsApi.OpenProcess(ProcessAccessFlags.All, false, ProcessInstance.Id);
+                Memory = new MemorySharp(Process.Start(processName));
             }
             else
             {
-                ProcessInstance = null;
+                processName = processName.Replace(".exe", "");
+
+                var procHandle = Process.GetProcessesByName(processName).FirstOrDefault();
+
+                if (procHandle != null)
+                {
+                    Memory = new MemorySharp(procHandle);
+                }
             }
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WindowsProcess"/> class.
+        /// Initializes a new instance of the <see cref="WindowsProcess"/> class using the target process identifier.
         /// </summary>
-        /// <param name="id">The process id.</param>
-        public WindowsProcess(int id)
+        /// <param name="processId">The target process identifier.</param>
+        public WindowsProcess(int processId)
         {
-            ProcessInstance = Process.GetProcessById(id);
-
-            if (ProcessInstance != null)
-            {
-                Handle = WindowsApi.OpenProcess(ProcessAccessFlags.All, false, ProcessInstance.Id);
-            }
-            else
-            {
-                //Error
-            }
-        }
-
-        /// <summary>
-        /// Suspends all threads from current process.
-        /// </summary>
-        public void SuspendAllThreads()
-        {
-            if (ProcessInstance == null)
-            {
-                //Error
-            }
-
-            foreach (ProcessThread thread in ProcessInstance.Threads)
-            {
-                IntPtr openThread = WindowsApi.OpenThread(ThreadAccess.SUSPEND_RESUME, false, (uint)thread.Id);
-
-                if (openThread == IntPtr.Zero)
-                {
-                    break;
-                }
-
-                WindowsApi.SuspendThread(openThread);
-            }
-        }
-
-        /// <summary>
-        /// Resumes all threads from current process.
-        /// </summary>
-        public void ResumeAllThreads()
-        {
-            if (ProcessInstance == null)
-            {
-                //Error
-            }
-
-            foreach (ProcessThread thread in ProcessInstance.Threads)
-            {
-                IntPtr openThread = WindowsApi.OpenThread(ThreadAccess.SUSPEND_RESUME, false, (uint)thread.Id);
-
-                if (openThread == IntPtr.Zero)
-                {
-                    break;
-                }
-
-                WindowsApi.ResumeThread(openThread);
-            }
-        }
-    }
-
-    public static class ProcessExtensions
-    {
-        public static IntPtr StringToAddress(string address)
-        {
-            IntPtr value = IntPtr.Zero;
-
-            var hexResult = int.TryParse(address, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out int outputHex);
-
-            if (hexResult)
-            {
-                value = (IntPtr)outputHex;
-            }
-            else
-            {
-                var decResult = int.TryParse(address, out int outputDecimal);
-
-                if (hexResult)
-                {
-                    value = (IntPtr)outputDecimal;
-                }
-            }
-
-            return value;
+            Memory = new MemorySharp(processId);
         }
     }
 }

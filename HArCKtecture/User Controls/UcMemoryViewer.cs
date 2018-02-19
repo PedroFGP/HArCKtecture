@@ -33,17 +33,12 @@ namespace HArCKtecture.User_Controls
             SetupMemoryView();
         }
 
-        private void BtnSearch_Click(object sender, System.EventArgs e)
-        {
-            IntPtr address = ProcessExtensions.StringToAddress(TbxReadAddress.Text);
-        }
-
-        private void BtnVisualize_Click(object sender, System.EventArgs e)
+        private void TbxMemoryAddress_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void BtnWriteMemory_Click(object sender, System.EventArgs e)
+        private void TbxMemoryValue_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -56,8 +51,7 @@ namespace HArCKtecture.User_Controls
         {
             var types = EnumExtensions.GetDescriptionList<DataTypes>();
 
-            CbxReadType.SetDictionaryDataSource(types);
-            CbxWriteType.SetDictionaryDataSource(types);
+            CbxMemoryType.SetDictionaryDataSource(types);
         }
 
         private void SetupMemoryView()
