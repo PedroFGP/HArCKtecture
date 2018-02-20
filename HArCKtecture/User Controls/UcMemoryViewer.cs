@@ -26,11 +26,13 @@ namespace HArCKtecture.User_Controls
 
         #region Events
 
-        private void UcMemoryViewer_Load(object sender, System.EventArgs e)
+        private void UcMemoryViewer_Load(object sender, EventArgs e)
         {
             LoadTypeComboboxes();
 
             SetupMemoryView();
+
+            String.Format(LblMemoryView.Text, Process.Memory.Windows.MainWindow.Title + ", 0x" + Process.Memory.Peb.BaseAddress.ToString());
         }
 
         private void TbxMemoryAddress_TextChanged(object sender, EventArgs e)
@@ -39,6 +41,11 @@ namespace HArCKtecture.User_Controls
         }
 
         private void TbxMemoryValue_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnInjectAsmCode_Click(object sender, EventArgs e)
         {
 
         }

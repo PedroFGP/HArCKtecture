@@ -9,6 +9,11 @@ namespace WindowsAPI
 {
     public static class Disasm
     {
+        /// <summary>
+        /// Transforms the hexadecimal string into a byte array.
+        /// </summary>
+        /// <param name="hex">The hexadecimal string.</param>
+        /// <returns>Byte array that represents the hexadecimal string.</returns>
         private static byte[] HexStringToByteArray(string hex)
         {
             return Enumerable.Range(0, hex.Length)
