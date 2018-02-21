@@ -1,18 +1,20 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 
 namespace HArCKtecture.Classes
 {
     public enum DificultyLevel
     {
-        [Description("Muito Fácil")]
+        [DescriptionList("Muito Fácil", "#29C5FF")]
         VERY_EASY = 1,
-        [Description("Fácil")]
+        [DescriptionList("Fácil", "#51F5EA")]
         EASY,
-        [Description("Médio")]
+        [DescriptionList("Médio", "#5EFCA1")]
         MEDIUM,
-        [Description("Difícil")]
+        [DescriptionList("Difícil", "#FFCF4B")]
         HARD,
-        [Description("Muito Difícil")]
+        [DescriptionList("Muito Difícil", "#FFAC9C")]
         VERY_HARD
     }
 

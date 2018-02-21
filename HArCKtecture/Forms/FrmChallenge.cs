@@ -1,20 +1,20 @@
-﻿using VisualPlus.Toolkit.Controls.Layout;
+﻿using HArCKtecture.Classes;
+using VisualPlus.Toolkit.Controls.Layout;
 
 namespace HArCKtecture.Forms
 {
     public partial class FrmChallenge : VisualForm
     {
+        Challenge LoadedChallenge;
+
         #region Constructor
 
-        public FrmChallenge()
-        {
-            InitializeComponent();
-        }
-
-        public FrmChallenge(string title)
+        public FrmChallenge(Challenge challenge)
             :base()
         {
+            LoadedChallenge = challenge;
 
+            InitializeComponent();
         }
 
         #endregion

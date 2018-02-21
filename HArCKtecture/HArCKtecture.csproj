@@ -52,6 +52,12 @@
     <Reference Include="VisualPlus">
       <HintPath>Libs\VisualPlus.dll</HintPath>
     </Reference>
+    <Reference Include="ZeroFormatter, Version=1.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZeroFormatter.1.6.4\lib\net45\ZeroFormatter.dll</HintPath>
+    </Reference>
+    <Reference Include="ZeroFormatter.Interfaces, Version=1.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZeroFormatter.Interfaces.1.6.4\lib\net45\ZeroFormatter.Interfaces.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Challenge.cs" />
@@ -64,12 +70,17 @@
     <Compile Include="Forms\FrmChallenge.Designer.cs">
       <DependentUpon>FrmChallenge.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IChallenge.cs" />
     <Compile Include="Forms\FrmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmAbout.Designer.cs">
       <DependentUpon>FrmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCreateChallenge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCreateChallenge.Designer.cs">
+      <DependentUpon>FrmCreateChallenge.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmMain.cs">
       <SubType>Form</SubType>
@@ -96,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmChallenge.resx">
       <DependentUpon>FrmChallenge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCreateChallenge.resx">
+      <DependentUpon>FrmCreateChallenge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -147,6 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\right-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

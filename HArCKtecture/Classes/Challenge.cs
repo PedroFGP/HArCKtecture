@@ -1,39 +1,33 @@
-﻿using HArCKtecture.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using System;
+using ZeroFormatter;
 
 namespace HArCKtecture.Classes
 {
-    public class Challenge : IChallenge, ISerializable
+    [ZeroFormattable]
+    public class Challenge
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string FileLocation { get; set; }
-        public bool DynamicBase { get; set; }
-        public ArchitectureMode Architecture { get; set; }
-        public DificultyLevel Dificulty { get; set; }
-        public IntPtr BaseAddress { get; set; }
-        public Dictionary<string, IntPtr> Addresses;
+        [Index(0)]
+        public virtual string Name { get; set; }
 
-        public Challenge()
-        {
-            Addresses = new Dictionary<string, IntPtr>();
-        }
+        [Index(1)]
+        public virtual string Description { get; set; }
 
-        public void Run()
-        {
+        [Index(2)]
+        public virtual string FileLocation { get; set; }
 
-        }
+        [Index(3)]
+        public virtual bool DynamicBase { get; set; }
 
-        public string ShowHelp()
-        {
-            return Description;
-        }
+        [Index(4)]
+        public virtual ArchitectureMode Architecture { get; set; }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            throw new NotImplementedException();
-        }
+        [Index(5)]
+        public virtual DificultyLevel Dificulty { get; set; }
+
+        [Index(6)]
+        public virtual uint BaseAddress { get; set; }
+
+        [Index(7)]
+        public virtual ILazyDictionary<string, uint> Addresses { get; set; }
     }
 }
