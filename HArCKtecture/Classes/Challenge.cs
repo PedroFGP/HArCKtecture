@@ -25,9 +25,6 @@ namespace HArCKtecture.Classes
         public virtual DificultyLevel Dificulty { get; set; }
 
         [Index(6)]
-        public virtual uint BaseAddress { get; set; }
-
-        [Index(7)]
         public virtual ILazyDictionary<string, uint> Addresses { get; set; }
     }
 }

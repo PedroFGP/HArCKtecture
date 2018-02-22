@@ -37,7 +37,8 @@
             VisualPlus.Structure.TextStyle textStyle5 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
             this.LblAbout = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
-            this.visualListView1 = new VisualPlus.Toolkit.Controls.DataManagement.VisualListView();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.LblAvailableChallenges = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.SuspendLayout();
             // 
             // _visualControlBox
@@ -152,43 +153,42 @@
             this.LblAbout.TextStyle = textStyle4;
             this.LblAbout.Click += new System.EventHandler(this.LblAbout_Click);
             // 
-            // visualListView1
+            // flowLayoutPanel1
             // 
-            this.visualListView1.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.visualListView1.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.visualListView1.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.visualListView1.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.visualListView1.Border.HoverVisible = true;
-            this.visualListView1.Border.Rounding = 6;
-            this.visualListView1.Border.Thickness = 1;
-            this.visualListView1.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.visualListView1.Border.Visible = true;
-            this.visualListView1.ColumnHeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.visualListView1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.visualListView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.visualListView1.HeaderFont = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.visualListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.visualListView1.HeaderText = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.visualListView1.ItemBackground = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.visualListView1.ItemPadding = 12;
-            this.visualListView1.ItemSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.visualListView1.LabelWrap = true;
-            this.visualListView1.LargeImageList = null;
-            this.visualListView1.Location = new System.Drawing.Point(24, 81);
-            this.visualListView1.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.visualListView1.Name = "visualListView1";
-            this.visualListView1.ShowGroups = true;
-            this.visualListView1.Size = new System.Drawing.Size(589, 367);
-            this.visualListView1.SmallImageList = null;
-            this.visualListView1.Sorting = System.Windows.Forms.SortOrder.None;
-            this.visualListView1.TabIndex = 2;
-            this.visualListView1.Text = "visualListView1";
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 80);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(600, 380);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // LblAvailableChallenges
+            // 
+            this.LblAvailableChallenges.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.LblAvailableChallenges.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblAvailableChallenges.Location = new System.Drawing.Point(20, 51);
+            this.LblAvailableChallenges.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.LblAvailableChallenges.Name = "LblAvailableChallenges";
+            this.LblAvailableChallenges.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.LblAvailableChallenges.Outline = false;
+            this.LblAvailableChallenges.OutlineColor = System.Drawing.Color.Red;
+            this.LblAvailableChallenges.OutlineLocation = new System.Drawing.Point(0, 0);
+            this.LblAvailableChallenges.ReflectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblAvailableChallenges.ReflectionSpacing = 0;
+            this.LblAvailableChallenges.ShadowColor = System.Drawing.Color.Black;
+            this.LblAvailableChallenges.ShadowDirection = 315;
+            this.LblAvailableChallenges.ShadowLocation = new System.Drawing.Point(0, 0);
+            this.LblAvailableChallenges.ShadowOpacity = 100;
+            this.LblAvailableChallenges.Size = new System.Drawing.Size(118, 23);
+            this.LblAvailableChallenges.TabIndex = 3;
+            this.LblAvailableChallenges.Text = "Desafios Disponíveis:";
+            this.LblAvailableChallenges.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.LblAvailableChallenges.TextLineAlignment = System.Drawing.StringAlignment.Center;
             textStyle5.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             textStyle5.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             textStyle5.Hover = System.Drawing.Color.Empty;
             textStyle5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.visualListView1.TextStyle = textStyle5;
-            this.visualListView1.TileSize = new System.Drawing.Size(0, 0);
+            this.LblAvailableChallenges.TextStyle = textStyle5;
             // 
             // FrmMain
             // 
@@ -203,7 +203,8 @@
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
             this.ClientSize = new System.Drawing.Size(640, 480);
-            this.Controls.Add(this.visualListView1);
+            this.Controls.Add(this.LblAvailableChallenges);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.LblAbout);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             border1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
@@ -223,15 +224,16 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.Controls.SetChildIndex(this.LblAbout, 0);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
-            this.Controls.SetChildIndex(this.visualListView1, 0);
+            this.Controls.SetChildIndex(this.flowLayoutPanel1, 0);
+            this.Controls.SetChildIndex(this.LblAvailableChallenges, 0);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private VisualPlus.Toolkit.Controls.Interactivity.VisualLabel LblAbout;
-        private VisualPlus.Toolkit.Controls.DataManagement.VisualListView visualListView1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualLabel LblAvailableChallenges;
     }
 }
 

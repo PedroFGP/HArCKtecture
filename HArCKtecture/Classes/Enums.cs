@@ -36,8 +36,13 @@ namespace HArCKtecture.Classes
 
     public enum ArchitectureMode
     {
+        [Description("16 bit")]
         x86_16 = 16,
+
+        [Description("32 bit")]
         x86_32 = 32,
+
+        [Description("64 bit")]
         x86_64 = 64
     }
 }

@@ -27,6 +27,8 @@ namespace HArCKtecture.User_Controls
         {
             var descriptions = LoadedChallenge.Dificulty.GetDescriptionsList();
 
+            LblChallengeTitle.Text = LoadedChallenge.Name;
+
             BgeLevel.Background = ColorTranslator.FromHtml(descriptions[1]);
             BgeLevel.Text = descriptions[0];
         }

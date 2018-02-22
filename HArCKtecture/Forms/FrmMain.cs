@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using HArCKtecture.Classes;
 using ZeroFormatter;
 using HArCKtecture.User_Controls;
-using System;
+using System.Drawing;
 
 namespace HArCKtecture.Forms
 {
@@ -34,7 +34,6 @@ namespace HArCKtecture.Forms
                 Description = @" Com esse desafio o objetivo é enteder um pouco mais sobre adição em assembly x86.",
                 Architecture = ArchitectureMode.x86_32,
                 DynamicBase = false,
-                BaseAddress = 0x0,
                 FileLocation = @"Challenges/Challenge01.exe",
                 Addresses = new Dictionary<string, uint>() { { "Principal", 0x0 } }.AsLazyDictionary()
             };
@@ -46,14 +45,13 @@ namespace HArCKtecture.Forms
                 Description = @" Com esse desafio o objetivo é enteder um pouco mais sobre adição em assembly x86.",
                 Architecture = ArchitectureMode.x86_32,
                 DynamicBase = false,
-                BaseAddress = 0x0,
                 FileLocation = @"Challenges/Challenge02.exe",
                 Addresses = new Dictionary<string, uint>() { { "Principal", 0x0 } }.AsLazyDictionary()
             };
 
             var data = ZeroFormatterSerializer.Serialize(chl02);
 
-            File.WriteAllBytes(chl01.FileLocation.Replace(".exe", ".hck"), data);
+            File.WriteAllBytes(chl02.FileLocation.Replace(".exe", ".hck"), data);
         }
 
         private void LblAbout_Click(object sender, System.EventArgs e)
@@ -88,10 +86,14 @@ namespace HArCKtecture.Forms
             {
                 UcChallenge challengeUc = new UcChallenge(clg);
 
-                Controls.Add(challengeUc);
+                challengeUc.Width = flowLayoutPanel1.Size.Width - 10;
 
-                challengeUc.Top = 60;
-                challengeUc.Left = 30;
+                if(flowLayoutPanel1.Controls.Count % 2 == 0)
+                {
+                    challengeUc.BackColor = Color.LightGray;
+                }
+
+                flowLayoutPanel1.Controls.Add(challengeUc);
             }
         }
 
