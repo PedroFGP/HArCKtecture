@@ -6,13 +6,13 @@ using HArCKtecture.Forms;
 
 namespace HArCKtecture.User_Controls
 {
-    public partial class UcChallenge : UserControl
+    public partial class UcChallengeItem : UserControl
     {
         private Challenge LoadedChallenge;
 
         #region Constructor
 
-        public UcChallenge(Challenge challenge)
+        public UcChallengeItem(Challenge challenge)
         {
             LoadedChallenge = challenge;
 

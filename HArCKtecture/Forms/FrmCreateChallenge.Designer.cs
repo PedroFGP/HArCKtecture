@@ -47,23 +47,29 @@
             VisualPlus.Structure.TextStyle textStyle15 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle16 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle17 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle18 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle19 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
             this.LblName = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.TbxTitle = new VisualPlus.Toolkit.Controls.Editors.VisualTextBox();
             this.LblHelp = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.RtbxHelp = new VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox();
-            this.visualTextBox1 = new VisualPlus.Toolkit.Controls.Editors.VisualTextBox();
+            this.TbxFilePath = new VisualPlus.Toolkit.Controls.Editors.VisualTextBox();
             this.LblPath = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
-            this.visualCheckBox1 = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
+            this.ChkDynamicBase = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.BtnFilePath = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.CbxArchType = new System.Windows.Forms.ComboBox();
-            this.visualLabel1 = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
+            this.LblArchType = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.visualLabel2 = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.CbxDificulty = new System.Windows.Forms.ComboBox();
             this.GbxProcess = new VisualPlus.Toolkit.Controls.Layout.VisualGroupBox();
-            this.visualListView1 = new VisualPlus.Toolkit.Controls.DataManagement.VisualListView();
+            this.LsvAddresses = new VisualPlus.Toolkit.Controls.DataManagement.VisualListView();
             this.visualLabel3 = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.BtnRemove = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
+            this.BtnCancel = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
+            this.BtnSave = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
+            this.ClhDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ClhAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GbxProcess.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -285,56 +291,56 @@
             textStyle7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.RtbxHelp.TextStyle = textStyle7;
             // 
-            // visualTextBox1
+            // TbxFilePath
             // 
-            this.visualTextBox1.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.visualTextBox1.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.visualTextBox1.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.visualTextBox1.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.visualTextBox1.Border.HoverVisible = true;
-            this.visualTextBox1.Border.Rounding = 6;
-            this.visualTextBox1.Border.Thickness = 1;
-            this.visualTextBox1.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.visualTextBox1.Border.Visible = true;
-            this.visualTextBox1.ButtonBorder.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.visualTextBox1.ButtonBorder.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.visualTextBox1.ButtonBorder.HoverVisible = true;
-            this.visualTextBox1.ButtonBorder.Rounding = 6;
-            this.visualTextBox1.ButtonBorder.Thickness = 1;
-            this.visualTextBox1.ButtonBorder.Type = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.visualTextBox1.ButtonBorder.Visible = true;
-            this.visualTextBox1.ButtonColor.Disabled = System.Drawing.Color.Empty;
-            this.visualTextBox1.ButtonColor.Enabled = System.Drawing.Color.Empty;
-            this.visualTextBox1.ButtonColor.Hover = System.Drawing.Color.Empty;
-            this.visualTextBox1.ButtonColor.Pressed = System.Drawing.Color.Empty;
-            this.visualTextBox1.ButtonFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visualTextBox1.ButtonIndent = 3;
-            this.visualTextBox1.ButtonText = "visualButton";
-            this.visualTextBox1.ButtonVisible = false;
-            this.visualTextBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.visualTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.visualTextBox1.ImageSize = new System.Drawing.Size(16, 16);
-            this.visualTextBox1.ImageVisible = false;
-            this.visualTextBox1.ImageWidth = 35;
-            this.visualTextBox1.Location = new System.Drawing.Point(20, 297);
-            this.visualTextBox1.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.visualTextBox1.Name = "visualTextBox1";
-            this.visualTextBox1.PasswordChar = '\0';
-            this.visualTextBox1.ReadOnly = false;
-            this.visualTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.visualTextBox1.Size = new System.Drawing.Size(554, 25);
-            this.visualTextBox1.TabIndex = 7;
-            this.visualTextBox1.TextBoxWidth = 544;
+            this.TbxFilePath.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.TbxFilePath.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.TbxFilePath.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.TbxFilePath.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.TbxFilePath.Border.HoverVisible = true;
+            this.TbxFilePath.Border.Rounding = 6;
+            this.TbxFilePath.Border.Thickness = 1;
+            this.TbxFilePath.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.TbxFilePath.Border.Visible = true;
+            this.TbxFilePath.ButtonBorder.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.TbxFilePath.ButtonBorder.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.TbxFilePath.ButtonBorder.HoverVisible = true;
+            this.TbxFilePath.ButtonBorder.Rounding = 6;
+            this.TbxFilePath.ButtonBorder.Thickness = 1;
+            this.TbxFilePath.ButtonBorder.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.TbxFilePath.ButtonBorder.Visible = true;
+            this.TbxFilePath.ButtonColor.Disabled = System.Drawing.Color.Empty;
+            this.TbxFilePath.ButtonColor.Enabled = System.Drawing.Color.Empty;
+            this.TbxFilePath.ButtonColor.Hover = System.Drawing.Color.Empty;
+            this.TbxFilePath.ButtonColor.Pressed = System.Drawing.Color.Empty;
+            this.TbxFilePath.ButtonFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TbxFilePath.ButtonIndent = 3;
+            this.TbxFilePath.ButtonText = "visualButton";
+            this.TbxFilePath.ButtonVisible = false;
+            this.TbxFilePath.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.TbxFilePath.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TbxFilePath.ImageSize = new System.Drawing.Size(16, 16);
+            this.TbxFilePath.ImageVisible = false;
+            this.TbxFilePath.ImageWidth = 35;
+            this.TbxFilePath.Location = new System.Drawing.Point(20, 297);
+            this.TbxFilePath.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.TbxFilePath.Name = "TbxFilePath";
+            this.TbxFilePath.PasswordChar = '\0';
+            this.TbxFilePath.ReadOnly = false;
+            this.TbxFilePath.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TbxFilePath.Size = new System.Drawing.Size(554, 25);
+            this.TbxFilePath.TabIndex = 7;
+            this.TbxFilePath.TextBoxWidth = 544;
             textStyle8.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             textStyle8.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             textStyle8.Hover = System.Drawing.Color.Empty;
             textStyle8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.visualTextBox1.TextStyle = textStyle8;
-            this.visualTextBox1.Watermark.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.visualTextBox1.Watermark.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.visualTextBox1.Watermark.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
-            this.visualTextBox1.Watermark.Text = "Watermark text";
-            this.visualTextBox1.Watermark.Visible = false;
+            this.TbxFilePath.TextStyle = textStyle8;
+            this.TbxFilePath.Watermark.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TbxFilePath.Watermark.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.TbxFilePath.Watermark.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
+            this.TbxFilePath.Watermark.Text = "Watermark text";
+            this.TbxFilePath.Watermark.Visible = false;
             // 
             // LblPath
             // 
@@ -365,48 +371,48 @@
             textStyle9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.LblPath.TextStyle = textStyle9;
             // 
-            // visualCheckBox1
+            // ChkDynamicBase
             // 
-            this.visualCheckBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.visualCheckBox1.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.visualCheckBox1.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.visualCheckBox1.Border.HoverVisible = true;
-            this.visualCheckBox1.Border.Rounding = 3;
-            this.visualCheckBox1.Border.Thickness = 1;
-            this.visualCheckBox1.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.visualCheckBox1.Border.Visible = true;
-            this.visualCheckBox1.Box = new System.Drawing.Size(14, 14);
-            this.visualCheckBox1.BoxColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.visualCheckBox1.BoxColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.visualCheckBox1.BoxColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.visualCheckBox1.BoxColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.visualCheckBox1.BoxSpacing = 2;
-            this.visualCheckBox1.CheckStyle.AutoSize = true;
-            this.visualCheckBox1.CheckStyle.Bounds = new System.Drawing.Rectangle(0, 0, 125, 23);
-            this.visualCheckBox1.CheckStyle.Character = '✔';
-            this.visualCheckBox1.CheckStyle.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(136)))), ((int)(((byte)(45)))));
-            this.visualCheckBox1.CheckStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.visualCheckBox1.CheckStyle.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-            this.visualCheckBox1.CheckStyle.ShapeRounding = 3;
-            this.visualCheckBox1.CheckStyle.ShapeType = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.visualCheckBox1.CheckStyle.Style = VisualPlus.Structure.CheckStyle.CheckType.Checkmark;
-            this.visualCheckBox1.CheckStyle.Thickness = 2F;
-            this.visualCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.visualCheckBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.visualCheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.visualCheckBox1.IsBoxLarger = false;
-            this.visualCheckBox1.Location = new System.Drawing.Point(25, 125);
-            this.visualCheckBox1.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.visualCheckBox1.Name = "visualCheckBox1";
-            this.visualCheckBox1.Size = new System.Drawing.Size(125, 23);
-            this.visualCheckBox1.TabIndex = 8;
-            this.visualCheckBox1.Text = "Base Dinâmica";
-            this.visualCheckBox1.TextSize = new System.Drawing.Size(76, 16);
+            this.ChkDynamicBase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.ChkDynamicBase.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.ChkDynamicBase.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.ChkDynamicBase.Border.HoverVisible = true;
+            this.ChkDynamicBase.Border.Rounding = 3;
+            this.ChkDynamicBase.Border.Thickness = 1;
+            this.ChkDynamicBase.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.ChkDynamicBase.Border.Visible = true;
+            this.ChkDynamicBase.Box = new System.Drawing.Size(14, 14);
+            this.ChkDynamicBase.BoxColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ChkDynamicBase.BoxColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.ChkDynamicBase.BoxColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ChkDynamicBase.BoxColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ChkDynamicBase.BoxSpacing = 2;
+            this.ChkDynamicBase.CheckStyle.AutoSize = true;
+            this.ChkDynamicBase.CheckStyle.Bounds = new System.Drawing.Rectangle(0, 0, 125, 23);
+            this.ChkDynamicBase.CheckStyle.Character = '✔';
+            this.ChkDynamicBase.CheckStyle.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(136)))), ((int)(((byte)(45)))));
+            this.ChkDynamicBase.CheckStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ChkDynamicBase.CheckStyle.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            this.ChkDynamicBase.CheckStyle.ShapeRounding = 3;
+            this.ChkDynamicBase.CheckStyle.ShapeType = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.ChkDynamicBase.CheckStyle.Style = VisualPlus.Structure.CheckStyle.CheckType.Checkmark;
+            this.ChkDynamicBase.CheckStyle.Thickness = 2F;
+            this.ChkDynamicBase.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChkDynamicBase.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ChkDynamicBase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ChkDynamicBase.IsBoxLarger = false;
+            this.ChkDynamicBase.Location = new System.Drawing.Point(25, 125);
+            this.ChkDynamicBase.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.ChkDynamicBase.Name = "ChkDynamicBase";
+            this.ChkDynamicBase.Size = new System.Drawing.Size(125, 23);
+            this.ChkDynamicBase.TabIndex = 8;
+            this.ChkDynamicBase.Text = "Base Dinâmica";
+            this.ChkDynamicBase.TextSize = new System.Drawing.Size(76, 16);
             textStyle10.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             textStyle10.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             textStyle10.Hover = System.Drawing.Color.Empty;
             textStyle10.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.visualCheckBox1.TextStyle = textStyle10;
+            this.ChkDynamicBase.TextStyle = textStyle10;
             // 
             // BtnFilePath
             // 
@@ -438,6 +444,7 @@
             textStyle11.Hover = System.Drawing.Color.Empty;
             textStyle11.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.BtnFilePath.TextStyle = textStyle11;
+            this.BtnFilePath.Click += new System.EventHandler(this.BtnFilePath_Click);
             // 
             // CbxArchType
             // 
@@ -450,34 +457,34 @@
             this.CbxArchType.TabIndex = 10;
             this.CbxArchType.Text = "32 bits (x86)";
             // 
-            // visualLabel1
+            // LblArchType
             // 
-            this.visualLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.visualLabel1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.visualLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.visualLabel1.Location = new System.Drawing.Point(25, 37);
-            this.visualLabel1.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.visualLabel1.Name = "visualLabel1";
-            this.visualLabel1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.visualLabel1.Outline = false;
-            this.visualLabel1.OutlineColor = System.Drawing.Color.Red;
-            this.visualLabel1.OutlineLocation = new System.Drawing.Point(0, 0);
-            this.visualLabel1.ReflectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.visualLabel1.ReflectionSpacing = 0;
-            this.visualLabel1.ShadowColor = System.Drawing.Color.Black;
-            this.visualLabel1.ShadowDirection = 315;
-            this.visualLabel1.ShadowLocation = new System.Drawing.Point(0, 0);
-            this.visualLabel1.ShadowOpacity = 100;
-            this.visualLabel1.Size = new System.Drawing.Size(105, 25);
-            this.visualLabel1.TabIndex = 11;
-            this.visualLabel1.Text = "Tipo da arquitetura:";
-            this.visualLabel1.TextAlignment = System.Drawing.StringAlignment.Near;
-            this.visualLabel1.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            this.LblArchType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.LblArchType.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.LblArchType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblArchType.Location = new System.Drawing.Point(25, 37);
+            this.LblArchType.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.LblArchType.Name = "LblArchType";
+            this.LblArchType.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.LblArchType.Outline = false;
+            this.LblArchType.OutlineColor = System.Drawing.Color.Red;
+            this.LblArchType.OutlineLocation = new System.Drawing.Point(0, 0);
+            this.LblArchType.ReflectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblArchType.ReflectionSpacing = 0;
+            this.LblArchType.ShadowColor = System.Drawing.Color.Black;
+            this.LblArchType.ShadowDirection = 315;
+            this.LblArchType.ShadowLocation = new System.Drawing.Point(0, 0);
+            this.LblArchType.ShadowOpacity = 100;
+            this.LblArchType.Size = new System.Drawing.Size(105, 25);
+            this.LblArchType.TabIndex = 11;
+            this.LblArchType.Text = "Tipo da arquitetura:";
+            this.LblArchType.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.LblArchType.TextLineAlignment = System.Drawing.StringAlignment.Center;
             textStyle12.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             textStyle12.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             textStyle12.Hover = System.Drawing.Color.Empty;
             textStyle12.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.visualLabel1.TextStyle = textStyle12;
+            this.LblArchType.TextStyle = textStyle12;
             // 
             // visualLabel2
             // 
@@ -532,10 +539,10 @@
             this.GbxProcess.Border.Visible = true;
             this.GbxProcess.BoxStyle = VisualPlus.Toolkit.Controls.Layout.VisualGroupBox.GroupBoxStyle.Default;
             this.GbxProcess.Controls.Add(this.visualLabel2);
-            this.GbxProcess.Controls.Add(this.visualCheckBox1);
+            this.GbxProcess.Controls.Add(this.ChkDynamicBase);
             this.GbxProcess.Controls.Add(this.CbxDificulty);
             this.GbxProcess.Controls.Add(this.CbxArchType);
-            this.GbxProcess.Controls.Add(this.visualLabel1);
+            this.GbxProcess.Controls.Add(this.LblArchType);
             this.GbxProcess.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.GbxProcess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.GbxProcess.Image = null;
@@ -558,43 +565,46 @@
             this.GbxProcess.TextStyle = textStyle14;
             this.GbxProcess.TitleBoxHeight = 25;
             // 
-            // visualListView1
+            // LsvAddresses
             // 
-            this.visualListView1.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.visualListView1.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.visualListView1.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.visualListView1.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.visualListView1.Border.HoverVisible = true;
-            this.visualListView1.Border.Rounding = 6;
-            this.visualListView1.Border.Thickness = 1;
-            this.visualListView1.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.visualListView1.Border.Visible = true;
-            this.visualListView1.ColumnHeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.visualListView1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.visualListView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.visualListView1.HeaderFont = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.visualListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.visualListView1.HeaderText = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.visualListView1.ItemBackground = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.visualListView1.ItemPadding = 12;
-            this.visualListView1.ItemSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.visualListView1.LabelWrap = true;
-            this.visualListView1.LargeImageList = null;
-            this.visualListView1.Location = new System.Drawing.Point(294, 381);
-            this.visualListView1.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.visualListView1.Name = "visualListView1";
-            this.visualListView1.ShowGroups = true;
-            this.visualListView1.Size = new System.Drawing.Size(326, 135);
-            this.visualListView1.SmallImageList = null;
-            this.visualListView1.Sorting = System.Windows.Forms.SortOrder.None;
-            this.visualListView1.TabIndex = 15;
-            this.visualListView1.Text = "visualListView1";
+            this.LsvAddresses.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.LsvAddresses.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.LsvAddresses.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.LsvAddresses.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.LsvAddresses.Border.HoverVisible = true;
+            this.LsvAddresses.Border.Rounding = 6;
+            this.LsvAddresses.Border.Thickness = 1;
+            this.LsvAddresses.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.LsvAddresses.Border.Visible = true;
+            this.LsvAddresses.ColumnHeaderColor = System.Drawing.Color.Gainsboro;
+            this.LsvAddresses.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ClhDescription,
+            this.ClhAddress});
+            this.LsvAddresses.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.LsvAddresses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LsvAddresses.HeaderFont = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.LsvAddresses.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.LsvAddresses.HeaderText = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LsvAddresses.ItemBackground = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.LsvAddresses.ItemPadding = 12;
+            this.LsvAddresses.ItemSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.LsvAddresses.LabelEdit = true;
+            this.LsvAddresses.LabelWrap = true;
+            this.LsvAddresses.LargeImageList = null;
+            this.LsvAddresses.Location = new System.Drawing.Point(294, 381);
+            this.LsvAddresses.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.LsvAddresses.Name = "LsvAddresses";
+            this.LsvAddresses.ShowGroups = true;
+            this.LsvAddresses.Size = new System.Drawing.Size(326, 135);
+            this.LsvAddresses.SmallImageList = null;
+            this.LsvAddresses.Sorting = System.Windows.Forms.SortOrder.None;
+            this.LsvAddresses.TabIndex = 15;
             textStyle15.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             textStyle15.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             textStyle15.Hover = System.Drawing.Color.Empty;
             textStyle15.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.visualListView1.TextStyle = textStyle15;
-            this.visualListView1.TileSize = new System.Drawing.Size(0, 0);
+            this.LsvAddresses.TextStyle = textStyle15;
+            this.LsvAddresses.TileSize = new System.Drawing.Size(0, 0);
             // 
             // visualLabel3
             // 
@@ -655,6 +665,81 @@
             textStyle17.Hover = System.Drawing.Color.Empty;
             textStyle17.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.BtnRemove.TextStyle = textStyle17;
+            this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
+            // 
+            // BtnCancel
+            // 
+            this.BtnCancel.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnCancel.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.BtnCancel.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnCancel.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnCancel.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.BtnCancel.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.BtnCancel.Border.HoverVisible = true;
+            this.BtnCancel.Border.Rounding = 6;
+            this.BtnCancel.Border.Thickness = 1;
+            this.BtnCancel.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.BtnCancel.Border.Visible = true;
+            this.BtnCancel.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BtnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnCancel.Image = null;
+            this.BtnCancel.Location = new System.Drawing.Point(468, 522);
+            this.BtnCancel.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(73, 25);
+            this.BtnCancel.TabIndex = 18;
+            this.BtnCancel.Text = "Cancelar";
+            this.BtnCancel.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BtnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.BtnCancel.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            textStyle18.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle18.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle18.Hover = System.Drawing.Color.Empty;
+            textStyle18.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnCancel.TextStyle = textStyle18;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // BtnSave
+            // 
+            this.BtnSave.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnSave.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.BtnSave.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnSave.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnSave.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.BtnSave.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.BtnSave.Border.HoverVisible = true;
+            this.BtnSave.Border.Rounding = 6;
+            this.BtnSave.Border.Thickness = 1;
+            this.BtnSave.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.BtnSave.Border.Visible = true;
+            this.BtnSave.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BtnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnSave.Image = null;
+            this.BtnSave.Location = new System.Drawing.Point(547, 522);
+            this.BtnSave.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(73, 25);
+            this.BtnSave.TabIndex = 19;
+            this.BtnSave.Text = "Criar";
+            this.BtnSave.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.BtnSave.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            textStyle19.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle19.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle19.Hover = System.Drawing.Color.Empty;
+            textStyle19.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnSave.TextStyle = textStyle19;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // ClhDescription
+            // 
+            this.ClhDescription.Text = "Descrição";
+            this.ClhDescription.Width = 80;
+            // 
+            // ClhAddress
+            // 
+            this.ClhAddress.Text = "Endereço";
+            this.ClhAddress.Width = 236;
             // 
             // FrmCreateChallenge
             // 
@@ -667,13 +752,15 @@
             this.Border.Thickness = 3;
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
-            this.ClientSize = new System.Drawing.Size(640, 540);
+            this.ClientSize = new System.Drawing.Size(640, 560);
+            this.Controls.Add(this.BtnSave);
+            this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnRemove);
             this.Controls.Add(this.visualLabel3);
-            this.Controls.Add(this.visualListView1);
+            this.Controls.Add(this.LsvAddresses);
             this.Controls.Add(this.GbxProcess);
             this.Controls.Add(this.BtnFilePath);
-            this.Controls.Add(this.visualTextBox1);
+            this.Controls.Add(this.TbxFilePath);
             this.Controls.Add(this.LblPath);
             this.Controls.Add(this.RtbxHelp);
             this.Controls.Add(this.LblHelp);
@@ -693,19 +780,22 @@
             this.Image.Size = new System.Drawing.Size(16, 16);
             this.Image.Visible = true;
             this.Name = "FrmCreateChallenge";
-            this.Text = "Criar Desafios";
+            this.Text = "Criar Desafio";
+            this.Load += new System.EventHandler(this.FrmCreateChallenge_Load);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
             this.Controls.SetChildIndex(this.LblName, 0);
             this.Controls.SetChildIndex(this.TbxTitle, 0);
             this.Controls.SetChildIndex(this.LblHelp, 0);
             this.Controls.SetChildIndex(this.RtbxHelp, 0);
             this.Controls.SetChildIndex(this.LblPath, 0);
-            this.Controls.SetChildIndex(this.visualTextBox1, 0);
+            this.Controls.SetChildIndex(this.TbxFilePath, 0);
             this.Controls.SetChildIndex(this.BtnFilePath, 0);
             this.Controls.SetChildIndex(this.GbxProcess, 0);
-            this.Controls.SetChildIndex(this.visualListView1, 0);
+            this.Controls.SetChildIndex(this.LsvAddresses, 0);
             this.Controls.SetChildIndex(this.visualLabel3, 0);
             this.Controls.SetChildIndex(this.BtnRemove, 0);
+            this.Controls.SetChildIndex(this.BtnCancel, 0);
+            this.Controls.SetChildIndex(this.BtnSave, 0);
             this.GbxProcess.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -718,17 +808,21 @@
         private VisualPlus.Toolkit.Controls.Editors.VisualTextBox TbxTitle;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualLabel LblHelp;
         private VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox RtbxHelp;
-        private VisualPlus.Toolkit.Controls.Editors.VisualTextBox visualTextBox1;
+        private VisualPlus.Toolkit.Controls.Editors.VisualTextBox TbxFilePath;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualLabel LblPath;
-        private VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox visualCheckBox1;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox ChkDynamicBase;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnFilePath;
         private System.Windows.Forms.ComboBox CbxArchType;
-        private VisualPlus.Toolkit.Controls.Interactivity.VisualLabel visualLabel1;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualLabel LblArchType;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualLabel visualLabel2;
         private System.Windows.Forms.ComboBox CbxDificulty;
         private VisualPlus.Toolkit.Controls.Layout.VisualGroupBox GbxProcess;
-        private VisualPlus.Toolkit.Controls.DataManagement.VisualListView visualListView1;
+        private VisualPlus.Toolkit.Controls.DataManagement.VisualListView LsvAddresses;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualLabel visualLabel3;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnRemove;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnCancel;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnSave;
+        private System.Windows.Forms.ColumnHeader ClhDescription;
+        private System.Windows.Forms.ColumnHeader ClhAddress;
     }
 }

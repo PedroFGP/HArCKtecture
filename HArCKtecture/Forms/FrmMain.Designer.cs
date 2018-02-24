@@ -35,10 +35,12 @@
             VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle4 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle5 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle6 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
             this.LblAbout = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.FlpChallenges = new System.Windows.Forms.FlowLayoutPanel();
             this.LblAvailableChallenges = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
+            this.BtnCreateChallenge = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.SuspendLayout();
             // 
             // _visualControlBox
@@ -153,20 +155,25 @@
             this.LblAbout.TextStyle = textStyle4;
             this.LblAbout.Click += new System.EventHandler(this.LblAbout_Click);
             // 
-            // flowLayoutPanel1
+            // FlpChallenges
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 80);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(600, 380);
-            this.flowLayoutPanel1.TabIndex = 2;
+            this.FlpChallenges.AutoScroll = true;
+            this.FlpChallenges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.FlpChallenges.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FlpChallenges.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.FlpChallenges.Location = new System.Drawing.Point(20, 100);
+            this.FlpChallenges.Name = "FlpChallenges";
+            this.FlpChallenges.Size = new System.Drawing.Size(600, 360);
+            this.FlpChallenges.TabIndex = 2;
+            this.FlpChallenges.WrapContents = false;
             // 
             // LblAvailableChallenges
             // 
+            this.LblAvailableChallenges.BackColor = System.Drawing.Color.Transparent;
             this.LblAvailableChallenges.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.LblAvailableChallenges.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblAvailableChallenges.Location = new System.Drawing.Point(20, 51);
+            this.LblAvailableChallenges.Location = new System.Drawing.Point(20, 74);
+            this.LblAvailableChallenges.Margin = new System.Windows.Forms.Padding(0);
             this.LblAvailableChallenges.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.LblAvailableChallenges.Name = "LblAvailableChallenges";
             this.LblAvailableChallenges.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -190,10 +197,43 @@
             textStyle5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.LblAvailableChallenges.TextStyle = textStyle5;
             // 
+            // BtnCreateChallenge
+            // 
+            this.BtnCreateChallenge.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnCreateChallenge.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.BtnCreateChallenge.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnCreateChallenge.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnCreateChallenge.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.BtnCreateChallenge.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.BtnCreateChallenge.Border.HoverVisible = true;
+            this.BtnCreateChallenge.Border.Rounding = 6;
+            this.BtnCreateChallenge.Border.Thickness = 1;
+            this.BtnCreateChallenge.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.BtnCreateChallenge.Border.Visible = true;
+            this.BtnCreateChallenge.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BtnCreateChallenge.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnCreateChallenge.Image = null;
+            this.BtnCreateChallenge.Location = new System.Drawing.Point(522, 74);
+            this.BtnCreateChallenge.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.BtnCreateChallenge.Name = "BtnCreateChallenge";
+            this.BtnCreateChallenge.Size = new System.Drawing.Size(98, 20);
+            this.BtnCreateChallenge.TabIndex = 4;
+            this.BtnCreateChallenge.Text = "Criar Desafio";
+            this.BtnCreateChallenge.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BtnCreateChallenge.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.BtnCreateChallenge.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            textStyle6.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle6.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle6.Hover = System.Drawing.Color.Empty;
+            textStyle6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnCreateChallenge.TextStyle = textStyle6;
+            this.BtnCreateChallenge.Click += new System.EventHandler(this.BtnCreateChallenge_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
@@ -203,8 +243,9 @@
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
             this.ClientSize = new System.Drawing.Size(640, 480);
+            this.Controls.Add(this.BtnCreateChallenge);
             this.Controls.Add(this.LblAvailableChallenges);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.FlpChallenges);
             this.Controls.Add(this.LblAbout);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             border1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
@@ -224,16 +265,18 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.Controls.SetChildIndex(this.LblAbout, 0);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
-            this.Controls.SetChildIndex(this.flowLayoutPanel1, 0);
+            this.Controls.SetChildIndex(this.FlpChallenges, 0);
             this.Controls.SetChildIndex(this.LblAvailableChallenges, 0);
+            this.Controls.SetChildIndex(this.BtnCreateChallenge, 0);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private VisualPlus.Toolkit.Controls.Interactivity.VisualLabel LblAbout;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel FlpChallenges;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualLabel LblAvailableChallenges;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnCreateChallenge;
     }
 }
 

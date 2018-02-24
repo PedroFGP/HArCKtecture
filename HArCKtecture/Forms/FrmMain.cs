@@ -12,6 +12,8 @@ namespace HArCKtecture.Forms
 {
     public partial class FrmMain : VisualForm
     {
+        private const string DIRECTORY_NAME = "Desafios";
+
         #region Constructor
 
         public FrmMain()
@@ -31,10 +33,10 @@ namespace HArCKtecture.Forms
             {
                 Name = "Desafio 01 - Adição em Assembly",
                 Dificulty = DificultyLevel.VERY_EASY,
-                Description = @" Com esse desafio o objetivo é enteder um pouco mais sobre adição em assembly x86.",
+                Description = "Com esse desafio o objetivo é enteder um pouco mais sobre adição em assembly x86.",
                 Architecture = ArchitectureMode.x86_32,
                 DynamicBase = false,
-                FileLocation = @"Challenges/Challenge01.exe",
+                FileLocation = "Challenges/Challenge01.exe",
                 Addresses = new Dictionary<string, uint>() { { "Principal", 0x0 } }.AsLazyDictionary()
             };
 
@@ -42,10 +44,10 @@ namespace HArCKtecture.Forms
             {
                 Name = "Desafio 02 - Adição em Assembly",
                 Dificulty = DificultyLevel.MEDIUM,
-                Description = @" Com esse desafio o objetivo é enteder um pouco mais sobre adição em assembly x86.",
+                Description = "Com esse desafio o objetivo é enteder um pouco mais sobre adição em assembly x86.",
                 Architecture = ArchitectureMode.x86_32,
                 DynamicBase = false,
-                FileLocation = @"Challenges/Challenge02.exe",
+                FileLocation = "Challenges/Challenge02.exe",
                 Addresses = new Dictionary<string, uint>() { { "Principal", 0x0 } }.AsLazyDictionary()
             };
 
@@ -67,36 +69,42 @@ namespace HArCKtecture.Forms
             aboutForm.Focus();
         }
 
+        private void BtnCreateChallenge_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
         #endregion
 
         #region Methods
 
         private void LoadChallenges()
         {
-            Directory.CreateDirectory("Challenges");
+            Directory.CreateDirectory(DIRECTORY_NAME);
 
             List<Challenge> challenges = new List<Challenge>();
 
-            foreach (string file in Directory.EnumerateFiles("Challenges", "*.hck*", SearchOption.AllDirectories))
+            foreach (string file in Directory.EnumerateFiles(DIRECTORY_NAME, "*.hck*", SearchOption.AllDirectories))
             {
                 challenges.Add(ZeroFormatterSerializer.Deserialize<Challenge>(File.ReadAllBytes(file)));
             }
 
             foreach (Challenge clg in challenges)
             {
-                UcChallenge challengeUc = new UcChallenge(clg);
+                UcChallengeItem challengeUc = new UcChallengeItem(clg)
+                {
+                    Width = FlpChallenges.Size.Width - 25
+                };
 
-                challengeUc.Width = flowLayoutPanel1.Size.Width - 10;
-
-                if(flowLayoutPanel1.Controls.Count % 2 == 0)
+                if (FlpChallenges.Controls.Count % 2 == 0)
                 {
                     challengeUc.BackColor = Color.LightGray;
                 }
 
-                flowLayoutPanel1.Controls.Add(challengeUc);
+                FlpChallenges.Controls.Add(challengeUc);
             }
         }
 
-        #endregion
+        #endregion 
     }
 }

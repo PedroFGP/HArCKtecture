@@ -1,6 +1,6 @@
 ﻿namespace HArCKtecture.User_Controls
 {
-    partial class UcChallenge
+    partial class UcChallengeItem
     {
         /// <summary> 
         /// Required designer variable.

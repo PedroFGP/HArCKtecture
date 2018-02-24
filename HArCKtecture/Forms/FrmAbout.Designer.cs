@@ -210,6 +210,7 @@
             this.Image.Size = new System.Drawing.Size(16, 16);
             this.Image.Visible = true;
             this.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.Magnetic = false;
             this.Name = "FrmAbout";
             this.Text = "Sobre";
             this.Controls.SetChildIndex(this.RTbxAbout, 0);
