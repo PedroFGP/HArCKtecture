@@ -64,12 +64,12 @@
             this.CbxDificulty = new System.Windows.Forms.ComboBox();
             this.GbxProcess = new VisualPlus.Toolkit.Controls.Layout.VisualGroupBox();
             this.LsvAddresses = new VisualPlus.Toolkit.Controls.DataManagement.VisualListView();
+            this.ClhDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ClhAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.visualLabel3 = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.BtnRemove = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.BtnCancel = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.BtnSave = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
-            this.ClhDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ClhAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GbxProcess.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -606,6 +606,16 @@
             this.LsvAddresses.TextStyle = textStyle15;
             this.LsvAddresses.TileSize = new System.Drawing.Size(0, 0);
             // 
+            // ClhDescription
+            // 
+            this.ClhDescription.Text = "Descrição";
+            this.ClhDescription.Width = 80;
+            // 
+            // ClhAddress
+            // 
+            this.ClhAddress.Text = "Endereço";
+            this.ClhAddress.Width = 236;
+            // 
             // visualLabel3
             // 
             this.visualLabel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
@@ -730,16 +740,6 @@
             textStyle19.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.BtnSave.TextStyle = textStyle19;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
-            // 
-            // ClhDescription
-            // 
-            this.ClhDescription.Text = "Descrição";
-            this.ClhDescription.Width = 80;
-            // 
-            // ClhAddress
-            // 
-            this.ClhAddress.Text = "Endereço";
-            this.ClhAddress.Width = 236;
             // 
             // FrmCreateChallenge
             // 
