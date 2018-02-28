@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            VisualPlus.Structure.TextStyle textStyle1 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle2 = new VisualPlus.Structure.TextStyle();
-            VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
             this.BtnPlay = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.BgeLevel = new VisualPlus.Toolkit.Components.VisualBadge(this.components);
             this.LblChallengeTitle = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
@@ -53,20 +53,20 @@
             this.BtnPlay.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.BtnPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnPlay.Image = null;
-            this.BtnPlay.Location = new System.Drawing.Point(432, 3);
+            this.BtnPlay.Location = new System.Drawing.Point(418, 3);
             this.BtnPlay.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.BtnPlay.Name = "BtnPlay";
-            this.BtnPlay.Size = new System.Drawing.Size(98, 20);
+            this.BtnPlay.Size = new System.Drawing.Size(112, 20);
             this.BtnPlay.TabIndex = 1;
-            this.BtnPlay.Text = "Jogar";
+            this.BtnPlay.Text = "Jogar Novamente";
             this.BtnPlay.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BtnPlay.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.BtnPlay.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle2.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle2.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle2.Hover = System.Drawing.Color.Empty;
-            textStyle2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.BtnPlay.TextStyle = textStyle2;
+            textStyle1.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle1.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle1.Hover = System.Drawing.Color.Empty;
+            textStyle1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnPlay.TextStyle = textStyle1;
             this.BtnPlay.Click += new System.EventHandler(this.BtnPlay_Click);
             // 
             // BgeLevel
@@ -102,25 +102,25 @@
             this.LblChallengeTitle.ShadowDirection = 315;
             this.LblChallengeTitle.ShadowLocation = new System.Drawing.Point(0, 0);
             this.LblChallengeTitle.ShadowOpacity = 100;
-            this.LblChallengeTitle.Size = new System.Drawing.Size(333, 20);
+            this.LblChallengeTitle.Size = new System.Drawing.Size(319, 20);
             this.LblChallengeTitle.TabIndex = 2;
             this.LblChallengeTitle.Text = "visualLabel1";
             this.LblChallengeTitle.TextAlignment = System.Drawing.StringAlignment.Near;
             this.LblChallengeTitle.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle3.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle3.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle3.Hover = System.Drawing.Color.Empty;
-            textStyle3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.LblChallengeTitle.TextStyle = textStyle3;
+            textStyle2.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle2.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle2.Hover = System.Drawing.Color.Empty;
+            textStyle2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.LblChallengeTitle.TextStyle = textStyle2;
             // 
-            // UcChallenge
+            // UcChallengeItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.Controls.Add(this.LblChallengeTitle);
             this.Controls.Add(this.BtnPlay);
-            this.Name = "UcChallenge";
+            this.Name = "UcChallengeItem";
             this.Size = new System.Drawing.Size(535, 28);
             this.Load += new System.EventHandler(this.UcChallenge_Load);
             this.ResumeLayout(false);

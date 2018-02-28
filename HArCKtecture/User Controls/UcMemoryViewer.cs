@@ -1,5 +1,6 @@
 ﻿using HArCKtecture.Classes;
 using System;
+using System.IO;
 using System.Windows.Forms;
 using WindowsAPI;
 
@@ -9,15 +10,19 @@ namespace HArCKtecture.User_Controls
     {
         #region Properties
 
+        private Challenge Current { get; set; }
+
         private WindowsProcess Process { get; set; }
 
         #endregion
 
         #region Constructor
 
-        public UcMemoryViewer(WindowsProcess process)
+        public UcMemoryViewer(Challenge challenge)
         {
-            Process = process;
+            Current = challenge;
+
+            Process = new WindowsProcess(challenge.FileLocation, true);
 
             InitializeComponent();
         }
@@ -48,6 +53,23 @@ namespace HArCKtecture.User_Controls
         private void BtnInjectAsmCode_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnOverwriteAsm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TmrCheckAnswer_Tick(object sender, EventArgs e)
+        {
+            if(Process.Memory.Read<bool>((IntPtr)Current.AnswerAddress, false))
+            {
+                Current.Finished = true;
+
+                File.WriteAllBytes
+
+                TmrCheckAnswer.Stop();
+            }
         }
 
         #endregion

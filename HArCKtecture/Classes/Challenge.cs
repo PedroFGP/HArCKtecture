@@ -28,6 +28,17 @@ namespace HArCKtecture.Classes
         public virtual ILazyDictionary<string, uint> Addresses { get; set; }
 
         [Index(7)]
-        public virtual int Order { get; set; }
+        public virtual long Order { get; set; }
+
+        [Index(8)]
+        public virtual uint AnswerAddress { get; set; }
+
+        [Index(9)]
+        public virtual bool Finished { get; set; }
+
+        public void Save()
+        {
+
+        }
     }
 }

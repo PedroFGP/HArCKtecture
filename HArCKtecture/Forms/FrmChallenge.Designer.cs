@@ -36,6 +36,7 @@
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.TabIntroduction = new VisualPlus.Toolkit.Controls.Navigation.VisualTabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.TabIntroduction.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,6 +138,7 @@
             this.TabIntroduction.ArrowThickness = 5;
             this.TabIntroduction.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.TabIntroduction.Controls.Add(this.tabPage1);
+            this.TabIntroduction.Controls.Add(this.tabPage2);
             this.TabIntroduction.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.TabIntroduction.ItemSize = new System.Drawing.Size(100, 25);
             this.TabIntroduction.Location = new System.Drawing.Point(3, 28);
@@ -170,6 +172,16 @@
             this.TabIntroduction.TextNormal = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(181)))), ((int)(((byte)(187)))));
             this.TabIntroduction.TextRendering = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.TabIntroduction.TextSelected = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1266, 656);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
             // 
             // FrmChallenge
             // 
@@ -211,5 +223,6 @@
 
         private System.Windows.Forms.TabPage tabPage1;
         private VisualPlus.Toolkit.Controls.Navigation.VisualTabControl TabIntroduction;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

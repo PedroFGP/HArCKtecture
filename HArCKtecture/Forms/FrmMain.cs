@@ -28,32 +28,6 @@ namespace HArCKtecture.Forms
         private void FrmMain_Load(object sender, System.EventArgs e)
         {
             LoadChallenges();
-
-            Challenge chl01 = new Challenge()
-            {
-                Name = "Desafio 01 - Adição em Assembly",
-                Dificulty = DificultyLevel.VERY_EASY,
-                Description = "Com esse desafio o objetivo é enteder um pouco mais sobre adição em assembly x86.",
-                Architecture = ArchitectureMode.x86_32,
-                DynamicBase = false,
-                FileLocation = "Challenges/Challenge01.exe",
-                Addresses = new Dictionary<string, uint>() { { "Principal", 0x0 } }.AsLazyDictionary()
-            };
-
-            Challenge chl02 = new Challenge()
-            {
-                Name = "Desafio 02 - Adição em Assembly",
-                Dificulty = DificultyLevel.MEDIUM,
-                Description = "Com esse desafio o objetivo é enteder um pouco mais sobre adição em assembly x86.",
-                Architecture = ArchitectureMode.x86_32,
-                DynamicBase = false,
-                FileLocation = "Challenges/Challenge02.exe",
-                Addresses = new Dictionary<string, uint>() { { "Principal", 0x0 } }.AsLazyDictionary()
-            };
-
-            var data = ZeroFormatterSerializer.Serialize(chl02);
-
-            File.WriteAllBytes(chl02.FileLocation.Replace(".exe", ".hck"), data);
         }
 
         private void LblAbout_Click(object sender, System.EventArgs e)
@@ -71,7 +45,12 @@ namespace HArCKtecture.Forms
 
         private void BtnCreateChallenge_Click(object sender, System.EventArgs e)
         {
+            FrmCreateChallenge createForm = new FrmCreateChallenge();
 
+            createForm.Show();
+            createForm.Focus();
+
+            this.Hide();
         }
 
         #endregion
@@ -89,6 +68,15 @@ namespace HArCKtecture.Forms
                 challenges.Add(ZeroFormatterSerializer.Deserialize<Challenge>(File.ReadAllBytes(file)));
             }
 
+            var highestChallengeOrder = challenges.Where(chl => chl.Finished == true).OrderByDescending(chl => chl.Order).FirstOrDefault();
+
+            long highestOrder = 0;
+
+            if(highestChallengeOrder != null)
+            {
+                highestOrder = highestChallengeOrder.Order;
+            }
+
             foreach (Challenge clg in challenges)
             {
                 UcChallengeItem challengeUc = new UcChallengeItem(clg)
@@ -99,6 +87,21 @@ namespace HArCKtecture.Forms
                 if (FlpChallenges.Controls.Count % 2 == 0)
                 {
                     challengeUc.BackColor = Color.LightGray;
+                }
+
+                if(clg.Finished)
+                {
+                    var btn = challengeUc.Controls.Find("BtnPlay", true).First();
+
+                    if(btn != null)
+                    {
+                        btn.Text = "Jogar Novamente";
+                    }
+                }
+
+                if(clg.Order > highestOrder)
+                {
+                    challengeUc.Enabled = false;
                 }
 
                 FlpChallenges.Controls.Add(challengeUc);

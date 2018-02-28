@@ -25,12 +25,12 @@ namespace HArCKtecture.Forms
 
         private void FrmCreateChallenge_Load(object sender, System.EventArgs e)
         {
-            SetupAddressesList();
+            
         }
 
         private void BtnRemove_Click(object sender, System.EventArgs e)
         {
-
+            LsvAddresses.Items.Remove(LsvAddresses.SelectedItems[0]);
         }
 
         private void BtnFilePath_Click(object sender, System.EventArgs e)
@@ -57,7 +57,7 @@ namespace HArCKtecture.Forms
 
         private void BtnSave_Click(object sender, System.EventArgs e)
         {
-            var message = IsValidInput(
+            var message = IsEmptyInput(
                 new KeyValuePair<Control, string>(CbxDificulty, CbxDificulty.Text), 
                 new KeyValuePair<Control, string>(TbxTitle, LblName.Text),
                 new KeyValuePair<Control, string>(TbxFilePath, LblPath.Text),
@@ -77,7 +77,7 @@ namespace HArCKtecture.Forms
 
         #region Methods
 
-        private string IsValidInput(params KeyValuePair<Control, string>[] list)
+        private string IsEmptyInput(params KeyValuePair<Control, string>[] list)
         {
             StringBuilder invalidMessage = new StringBuilder();
 
@@ -114,15 +114,13 @@ namespace HArCKtecture.Forms
                 Architecture = ArchitectureMode.x86_32,
                 DynamicBase = ChkDynamicBase.Checked,
                 FileLocation = TbxFilePath.Text,
-                Addresses = new Dictionary<string, uint>() { { "Principal", 0x0 } }.AsLazyDictionary()
+                AnswerAddress = Convert.ToUInt32(TbxAnswerAddress.Text),
+                Order = NupOrder.Value,
+                Finished = false,
+                Addresses = new Dictionary<string, uint>().AsLazyDictionary()
             };
 
             File.WriteAllBytes(newChallenge.FileLocation.Replace(".exe", ".hck"), ZeroFormatterSerializer.Serialize(newChallenge));
-        }
-
-        private void SetupAddressesList()
-        {
-            LsvAddresses.Items.Add(new ListViewItem(new string[] { "Resposta", "" }));
         }
 
         #endregion
