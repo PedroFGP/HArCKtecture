@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using ZeroFormatter;
 
 namespace HArCKtecture.Classes
@@ -38,7 +39,7 @@ namespace HArCKtecture.Classes
 
         public void Save()
         {
-
+            File.WriteAllBytes(Globals.DIRECTORY_NAME + "//" + Path.GetFileName(FileLocation).Replace(".exe", ".hck"), ZeroFormatterSerializer.Serialize(this));
         }
     }
 }

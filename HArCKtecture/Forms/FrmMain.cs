@@ -12,8 +12,6 @@ namespace HArCKtecture.Forms
 {
     public partial class FrmMain : VisualForm
     {
-        private const string DIRECTORY_NAME = "Desafios";
-
         #region Constructor
 
         public FrmMain()
@@ -49,8 +47,6 @@ namespace HArCKtecture.Forms
 
             createForm.Show();
             createForm.Focus();
-
-            this.Hide();
         }
 
         #endregion
@@ -59,11 +55,11 @@ namespace HArCKtecture.Forms
 
         private void LoadChallenges()
         {
-            Directory.CreateDirectory(DIRECTORY_NAME);
+            Directory.CreateDirectory(Globals.DIRECTORY_NAME);
 
             List<Challenge> challenges = new List<Challenge>();
 
-            foreach (string file in Directory.EnumerateFiles(DIRECTORY_NAME, "*.hck*", SearchOption.AllDirectories))
+            foreach (string file in Directory.EnumerateFiles(Globals.DIRECTORY_NAME, "*.hck*", SearchOption.AllDirectories))
             {
                 challenges.Add(ZeroFormatterSerializer.Deserialize<Challenge>(File.ReadAllBytes(file)));
             }

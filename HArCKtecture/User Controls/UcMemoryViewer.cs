@@ -66,7 +66,7 @@ namespace HArCKtecture.User_Controls
             {
                 Current.Finished = true;
 
-                File.WriteAllBytes
+                Current.Save();
 
                 TmrCheckAnswer.Stop();
             }

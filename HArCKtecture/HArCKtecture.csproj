@@ -67,7 +67,7 @@
     <Compile Include="Classes\ControlExtensions.cs" />
     <Compile Include="Classes\EnumExtensions.cs" />
     <Compile Include="Classes\Enums.cs" />
-    <Compile Include="Classes\Savegame.cs" />
+    <Compile Include="Classes\Globals.cs" />
     <Compile Include="Forms\FrmChallenge.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -25,7 +25,7 @@ namespace HArCKtecture.User_Controls
 
         private void UcChallenge_Load(object sender, EventArgs e)
         {
-            var descriptions = LoadedChallenge.Dificulty.GetDescriptionsList();
+            var descriptions = LoadedChallenge.Dificulty.GetDescriptionList();
 
             LblChallengeTitle.Text = LoadedChallenge.Name;
 

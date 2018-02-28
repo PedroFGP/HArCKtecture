@@ -18,7 +18,7 @@ namespace HArCKtecture.Classes
 
     public static class EnumExtensions
     {
-        public static List<string> GetDescriptionsList(this Enum value)
+        public static List<string> GetDescriptionList(this Enum value)
         {
             FieldInfo fieldInfo = value.GetType().GetField(value.ToString());
 
@@ -51,6 +51,13 @@ namespace HArCKtecture.Classes
         {
             return ((TEnum[])Enum.GetValues(typeof(TEnum)))
                .ToDictionary(k => ((Enum)(object)k).GetDescription(), v => v);
+        }
+
+        public static Dictionary<string, TEnum> GetDescriptionsList<TEnum>()
+            where TEnum : struct
+        {
+            return ((TEnum[])Enum.GetValues(typeof(TEnum)))
+               .ToDictionary(k => ((Enum)(object)k).GetDescriptionList()[0], v => v);
         }
     }
 }

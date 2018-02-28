@@ -1,7 +1,6 @@
 ﻿using HArCKtecture.Classes;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using VisualPlus.Toolkit.Controls.Editors;
@@ -25,7 +24,7 @@ namespace HArCKtecture.Forms
 
         private void FrmCreateChallenge_Load(object sender, System.EventArgs e)
         {
-            
+            FillComboboxes();
         }
 
         private void BtnRemove_Click(object sender, System.EventArgs e)
@@ -37,9 +36,7 @@ namespace HArCKtecture.Forms
         {
             OpenFileDialog openExecutable = new OpenFileDialog
             {
-                CheckFileExists = true,
-                Multiselect = false,
-                Filter = "Executáveis (*.exe)| *.exe | Todos os arquivos (*.*) | *.* "
+                Multiselect = false
             };
 
             var dialogResult = openExecutable.ShowDialog();
@@ -63,13 +60,20 @@ namespace HArCKtecture.Forms
                 new KeyValuePair<Control, string>(TbxFilePath, LblPath.Text),
                 new KeyValuePair<Control, string>(RtbxHelp, LblHelp.Text));
 
-            if(String.IsNullOrEmpty(message))
+            StringBuilder invalidMessage = new StringBuilder();
+
+            invalidMessage.AppendLine("Favor preencher corretamente os seguintes campos:" + Environment.NewLine);
+            invalidMessage.AppendLine(message);
+
+            if (String.IsNullOrEmpty(message))
             {
                 CreateChallenge();
+
+                this.Close();
             }
             else
             {
-                MessageBox.Show(this, message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, invalidMessage.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -77,24 +81,29 @@ namespace HArCKtecture.Forms
 
         #region Methods
 
+        private void FillComboboxes()
+        {
+            var types = EnumExtensions.GetDescriptionsList<DificultyLevel>();
+
+            CbxDificulty.SetDictionaryDataSource(types);
+        }
+
         private string IsEmptyInput(params KeyValuePair<Control, string>[] list)
         {
             StringBuilder invalidMessage = new StringBuilder();
-
-            invalidMessage.AppendLine("Favor preencher corretamente os seguintes campos:" + Environment.NewLine);
 
             foreach (var item in list)
             {
                 if (item.Key is ComboBox)
                 {
-                    if (((ComboBox)item.Key).SelectedIndex != -1)
+                    if (((ComboBox)item.Key).SelectedIndex == -1)
                     {
                         invalidMessage.AppendLine(item.Value);
                     }
                 }
                 else if (item.Key is VisualTextBox)
                 {
-                    if (String.IsNullOrEmpty(item.Key.Text))
+                    if (String.IsNullOrEmpty(((VisualTextBox)item.Key).Text))
                     {
                         invalidMessage.AppendLine(item.Value);
                     }
@@ -109,7 +118,7 @@ namespace HArCKtecture.Forms
             Challenge newChallenge = new Challenge()
             {
                 Name = TbxTitle.Text,
-                Dificulty = (DificultyLevel)CbxDificulty.SelectedItem,
+                Dificulty = ((KeyValuePair<string, DificultyLevel>)CbxDificulty.SelectedItem).Value,
                 Description = RtbxHelp.Text,
                 Architecture = ArchitectureMode.x86_32,
                 DynamicBase = ChkDynamicBase.Checked,
@@ -120,7 +129,7 @@ namespace HArCKtecture.Forms
                 Addresses = new Dictionary<string, uint>().AsLazyDictionary()
             };
 
-            File.WriteAllBytes(newChallenge.FileLocation.Replace(".exe", ".hck"), ZeroFormatterSerializer.Serialize(newChallenge));
+            newChallenge.Save();
         }
 
         #endregion

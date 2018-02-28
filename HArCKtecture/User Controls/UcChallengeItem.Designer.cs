@@ -58,7 +58,7 @@
             this.BtnPlay.Name = "BtnPlay";
             this.BtnPlay.Size = new System.Drawing.Size(112, 20);
             this.BtnPlay.TabIndex = 1;
-            this.BtnPlay.Text = "Jogar Novamente";
+            this.BtnPlay.Text = "Jogar";
             this.BtnPlay.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BtnPlay.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.BtnPlay.TextLineAlignment = System.Drawing.StringAlignment.Center;
