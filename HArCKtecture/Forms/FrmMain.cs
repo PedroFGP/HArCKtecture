@@ -1,12 +1,13 @@
 ﻿using System.Windows.Forms;
 using System.Linq;
-using VisualPlus.Toolkit.Controls.Layout;
 using System.IO;
 using System.Collections.Generic;
 using HArCKtecture.Classes;
 using ZeroFormatter;
 using HArCKtecture.User_Controls;
 using System.Drawing;
+using VisualPlus.Toolkit.Dialogs;
+using System;
 
 namespace HArCKtecture.Forms
 {
@@ -47,6 +48,11 @@ namespace HArCKtecture.Forms
 
             createForm.Show();
             createForm.Focus();
+
+            createForm.FormClosed += (s, eventArgs) =>
+            {
+                LoadChallenges();
+            };
         }
 
         #endregion
@@ -55,6 +61,8 @@ namespace HArCKtecture.Forms
 
         private void LoadChallenges()
         {
+            FlpChallenges.Controls.Clear();
+
             Directory.CreateDirectory(Globals.DIRECTORY_NAME);
 
             List<Challenge> challenges = new List<Challenge>();

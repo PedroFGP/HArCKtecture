@@ -1,5 +1,6 @@
 ﻿using HArCKtecture.Classes;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using WindowsAPI;
@@ -79,8 +80,12 @@ namespace HArCKtecture.User_Controls
         private void LoadTypeComboboxes()
         {
             var types = EnumExtensions.GetDescriptionList<DataTypes>();
-
+            
             CbxMemoryType.SetDictionaryDataSource(types);
+
+            Dictionary<string, uint> addresses = new Dictionary<string, uint>(Current.Addresses);
+
+            CbxMemoryAddress.SetDictionaryDataSource(addresses);
         }
 
         private void SetupMemoryView()

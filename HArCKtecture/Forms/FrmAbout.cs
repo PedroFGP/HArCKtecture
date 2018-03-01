@@ -1,4 +1,4 @@
-﻿using VisualPlus.Toolkit.Controls.Layout;
+﻿using VisualPlus.Toolkit.Dialogs;
 
 namespace HArCKtecture.Forms
 {

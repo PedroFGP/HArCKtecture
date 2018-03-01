@@ -38,9 +38,6 @@
     <Reference Include="MemorySharp, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MemorySharp.1.2.0\lib\MemorySharp.dll</HintPath>
     </Reference>
-    <Reference Include="MetroFramework">
-      <HintPath>..\..\..\harcktecture\HArCKtecture\Libs\MetroFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -166,9 +163,6 @@
   <ItemGroup>
     <None Include="Resources\right-arrow.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Custom Controls\" />
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

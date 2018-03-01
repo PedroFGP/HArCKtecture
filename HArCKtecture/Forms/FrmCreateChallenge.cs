@@ -1,21 +1,30 @@
 ﻿using HArCKtecture.Classes;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 using VisualPlus.Toolkit.Controls.Editors;
-using VisualPlus.Toolkit.Controls.Layout;
+using VisualPlus.Toolkit.Dialogs;
 using ZeroFormatter;
 
 namespace HArCKtecture.Forms
 {
     public partial class FrmCreateChallenge : VisualForm
     {
+        #region Properties
+
+        Dictionary<string, uint> Addresses { get; set; }
+
+        #endregion
+
         #region Constructor
 
         public FrmCreateChallenge()
         {
             InitializeComponent();
+
+            Addresses = new Dictionary<string, uint>();
         }
 
         #endregion
@@ -29,7 +38,23 @@ namespace HArCKtecture.Forms
 
         private void BtnRemove_Click(object sender, System.EventArgs e)
         {
+            Addresses.Remove(LsvAddresses.SelectedItems[0].GetSubItemAt(1, 0).Text);
+
             LsvAddresses.Items.Remove(LsvAddresses.SelectedItems[0]);
+        }
+
+        private void BtnAddAddress_Click(object sender, EventArgs e)
+        {
+            if(!UInt32.TryParse(TbxNewAddress.Text, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint newAddress))
+            {
+                MessageBox.Show(null, "Favor escrever um endereço válido (somente números)!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            LsvAddresses.Items.Add(new ListViewItem(new string[] { TbxNewAddress.Text, TbxNewDescription.Text }));
+
+            Addresses.Add(TbxNewDescription.Text, newAddress);
         }
 
         private void BtnFilePath_Click(object sender, System.EventArgs e)
@@ -55,10 +80,10 @@ namespace HArCKtecture.Forms
         private void BtnSave_Click(object sender, System.EventArgs e)
         {
             var message = IsEmptyInput(
-                new KeyValuePair<Control, string>(CbxDificulty, CbxDificulty.Text), 
+                new KeyValuePair<Control, string>(CbxDificulty, CbxDificulty.Text),
                 new KeyValuePair<Control, string>(TbxTitle, LblName.Text),
                 new KeyValuePair<Control, string>(TbxFilePath, LblPath.Text),
-                new KeyValuePair<Control, string>(RtbxHelp, LblHelp.Text));
+                new KeyValuePair<Control, string>(RtbxHelp, GbxDescription.Text));
 
             StringBuilder invalidMessage = new StringBuilder();
 
@@ -126,12 +151,14 @@ namespace HArCKtecture.Forms
                 AnswerAddress = Convert.ToUInt32(TbxAnswerAddress.Text),
                 Order = NupOrder.Value,
                 Finished = false,
-                Addresses = new Dictionary<string, uint>().AsLazyDictionary()
+                Addresses = Addresses.AsLazyDictionary()
             };
 
             newChallenge.Save();
         }
 
         #endregion
+
+
     }
 }
