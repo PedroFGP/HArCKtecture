@@ -35,9 +35,10 @@
             VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.TabIntroduction = new VisualPlus.Toolkit.Controls.Navigation.VisualTabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.TabIntroduction.SuspendLayout();
+            this.MainTabControl = new VisualPlus.Toolkit.Controls.Navigation.VisualTabControl();
+            this.MemoryTabPage = new VisualPlus.Toolkit.Child.VisualTabPage();
+            this.MainTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // _visualControlBox
@@ -123,65 +124,70 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1266, 656);
+            this.tabPage1.Size = new System.Drawing.Size(200, 100);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Introdução";
-            // 
-            // TabIntroduction
-            // 
-            this.TabIntroduction.ArrowSelectorVisible = true;
-            this.TabIntroduction.ArrowSpacing = 10;
-            this.TabIntroduction.ArrowThickness = 5;
-            this.TabIntroduction.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.TabIntroduction.Controls.Add(this.tabPage1);
-            this.TabIntroduction.Controls.Add(this.tabPage2);
-            this.TabIntroduction.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.TabIntroduction.ItemSize = new System.Drawing.Size(100, 25);
-            this.TabIntroduction.Location = new System.Drawing.Point(3, 28);
-            this.TabIntroduction.MinimumSize = new System.Drawing.Size(144, 85);
-            this.TabIntroduction.Name = "TabIntroduction";
-            this.TabIntroduction.SelectedIndex = 0;
-            this.TabIntroduction.SelectorAlignment = System.Windows.Forms.TabAlignment.Top;
-            this.TabIntroduction.SelectorAlignment2 = System.Windows.Forms.TabAlignment.Bottom;
-            this.TabIntroduction.SelectorThickness = 4;
-            this.TabIntroduction.SelectorVisible = false;
-            this.TabIntroduction.SelectorVisible2 = false;
-            this.TabIntroduction.Separator = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(222)))), ((int)(((byte)(220)))));
-            this.TabIntroduction.SeparatorSpacing = 2;
-            this.TabIntroduction.SeparatorThickness = 2F;
-            this.TabIntroduction.Size = new System.Drawing.Size(1274, 689);
-            this.TabIntroduction.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.TabIntroduction.State = VisualPlus.Enumerators.MouseStates.Normal;
-            this.TabIntroduction.TabHover = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
-            this.TabIntroduction.TabIndex = 1;
-            this.TabIntroduction.TabMenu = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(61)))), ((int)(((byte)(73)))));
-            this.TabIntroduction.TabNormal = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(61)))), ((int)(((byte)(73)))));
-            this.TabIntroduction.TabPageBorder.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.TabIntroduction.TabPageBorder.Rounding = 6;
-            this.TabIntroduction.TabPageBorder.Thickness = 1;
-            this.TabIntroduction.TabPageBorder.Type = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.TabIntroduction.TabPageBorder.Visible = true;
-            this.TabIntroduction.TabSelected = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(76)))), ((int)(((byte)(88)))));
-            this.TabIntroduction.TabSelector = System.Drawing.Color.Green;
-            this.TabIntroduction.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.TabIntroduction.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            this.TabIntroduction.TextNormal = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(181)))), ((int)(((byte)(187)))));
-            this.TabIntroduction.TextRendering = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.TabIntroduction.TextSelected = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1266, 656);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(200, 100);
+            this.tabPage2.TabIndex = 0;
+            // 
+            // MainTabControl
+            // 
+            this.MainTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainTabControl.Controls.Add(this.MemoryTabPage);
+            this.MainTabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.MainTabControl.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MainTabControl.ItemSize = new System.Drawing.Size(100, 25);
+            this.MainTabControl.Location = new System.Drawing.Point(2, 26);
+            this.MainTabControl.MinimumSize = new System.Drawing.Size(144, 85);
+            this.MainTabControl.Name = "MainTabControl";
+            this.MainTabControl.SelectedIndex = 0;
+            this.MainTabControl.SelectorAlignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.MainTabControl.SelectorSpacing = 10;
+            this.MainTabControl.SelectorThickness = 5;
+            this.MainTabControl.SelectorType = VisualPlus.Toolkit.Controls.Navigation.VisualTabControl.SelectorTypes.Arrow;
+            this.MainTabControl.SelectorVisible = true;
+            this.MainTabControl.Separator = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(222)))), ((int)(((byte)(220)))));
+            this.MainTabControl.SeparatorSpacing = 2;
+            this.MainTabControl.SeparatorThickness = 2F;
+            this.MainTabControl.Size = new System.Drawing.Size(1275, 690);
+            this.MainTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.MainTabControl.State = VisualPlus.Enumerators.MouseStates.Hover;
+            this.MainTabControl.TabIndex = 1;
+            this.MainTabControl.TabMenu = System.Drawing.Color.Gainsboro;
+            this.MainTabControl.TabSelector = System.Drawing.Color.Black;
+            this.MainTabControl.TextRendering = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            // 
+            // MemoryTabPage
+            // 
+            this.MemoryTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.MemoryTabPage.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.MemoryTabPage.Border.Rounding = 6;
+            this.MemoryTabPage.Border.Thickness = 1;
+            this.MemoryTabPage.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
+            this.MemoryTabPage.Border.Visible = false;
+            this.MemoryTabPage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MemoryTabPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(181)))), ((int)(((byte)(187)))));
+            this.MemoryTabPage.HeaderImage = null;
+            this.MemoryTabPage.Image = null;
+            this.MemoryTabPage.ImageSize = new System.Drawing.Size(16, 16);
+            this.MemoryTabPage.Location = new System.Drawing.Point(4, 29);
+            this.MemoryTabPage.Name = "MemoryTabPage";
+            this.MemoryTabPage.Size = new System.Drawing.Size(1267, 657);
+            this.MemoryTabPage.TabHover = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            this.MemoryTabPage.TabIndex = 0;
+            this.MemoryTabPage.TabNormal = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(61)))), ((int)(((byte)(73)))));
+            this.MemoryTabPage.TabSelected = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.MemoryTabPage.Text = "Memória";
+            this.MemoryTabPage.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.MemoryTabPage.TextImageRelation = VisualPlus.Toolkit.Child.VisualTabPage.TextImageRelations.Text;
+            this.MemoryTabPage.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            this.MemoryTabPage.TextSelected = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(220)))), ((int)(((byte)(227)))));
             // 
             // FrmChallenge
             // 
@@ -195,7 +201,7 @@
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.TabIntroduction);
+            this.Controls.Add(this.MainTabControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             border1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             border1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
@@ -212,9 +218,9 @@
             this.Name = "FrmChallenge";
             this.Text = "FrmChallenge";
             this.Load += new System.EventHandler(this.FrmChallenge_Load);
-            this.Controls.SetChildIndex(this.TabIntroduction, 0);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
-            this.TabIntroduction.ResumeLayout(false);
+            this.Controls.SetChildIndex(this.MainTabControl, 0);
+            this.MainTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -222,7 +228,8 @@
         #endregion
 
         private System.Windows.Forms.TabPage tabPage1;
-        private VisualPlus.Toolkit.Controls.Navigation.VisualTabControl TabIntroduction;
         private System.Windows.Forms.TabPage tabPage2;
+        private VisualPlus.Toolkit.Controls.Navigation.VisualTabControl MainTabControl;
+        private VisualPlus.Toolkit.Child.VisualTabPage MemoryTabPage;
     }
 }

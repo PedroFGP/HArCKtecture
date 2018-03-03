@@ -38,7 +38,7 @@ namespace HArCKtecture.Forms
 
         private void BtnRemove_Click(object sender, System.EventArgs e)
         {
-            Addresses.Remove(LsvAddresses.SelectedItems[0].GetSubItemAt(1, 0).Text);
+            Addresses.Remove(LsvAddresses.SelectedItems[0].SubItems[1].Text);
 
             LsvAddresses.Items.Remove(LsvAddresses.SelectedItems[0]);
         }
@@ -48,6 +48,13 @@ namespace HArCKtecture.Forms
             if(!UInt32.TryParse(TbxNewAddress.Text, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint newAddress))
             {
                 MessageBox.Show(null, "Favor escrever um endereço válido (somente números)!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            if(Addresses.ContainsKey(TbxNewDescription.Text))
+            {
+                MessageBox.Show(null, "Essa descrição já existe!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;
             }
