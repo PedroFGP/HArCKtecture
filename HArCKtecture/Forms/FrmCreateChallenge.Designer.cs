@@ -55,8 +55,8 @@
             VisualPlus.Structure.TextStyle textStyle23 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle24 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle27 = new VisualPlus.Structure.TextStyle();
-            VisualPlus.Structure.TextStyle textStyle26 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle25 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle26 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle28 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
             this.LblName = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
@@ -85,8 +85,8 @@
             this.TbxNewAddress = new VisualPlus.Toolkit.Controls.Editors.VisualTextBox();
             this.TbxNewDescription = new VisualPlus.Toolkit.Controls.Editors.VisualTextBox();
             this.visualGroupBox2 = new VisualPlus.Toolkit.Controls.Layout.VisualGroupBox();
-            this.LblDescription = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.LblAddress = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
+            this.LblDescription = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.GbxDescription = new VisualPlus.Toolkit.Controls.Layout.VisualGroupBox();
             this.GbxProcess.SuspendLayout();
             this.visualGroupBox2.SuspendLayout();
@@ -257,7 +257,7 @@
             // 
             // RtbxHelp
             // 
-            this.RtbxHelp.BackColor = System.Drawing.Color.White;
+            this.RtbxHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.RtbxHelp.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.RtbxHelp.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.RtbxHelp.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
@@ -854,7 +854,8 @@
             this.LsvAddresses.HeaderFont = new System.Drawing.Font("Segoe UI", 8.25F);
             this.LsvAddresses.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.LsvAddresses.HeaderText = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LsvAddresses.ItemBackground = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.LsvAddresses.ItemBackground = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.LsvAddresses.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.LsvAddresses.ItemPadding = 12;
             this.LsvAddresses.ItemSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.LsvAddresses.LabelWrap = true;
@@ -1030,35 +1031,6 @@
             this.visualGroupBox2.TextStyle = textStyle27;
             this.visualGroupBox2.TitleBoxHeight = 25;
             // 
-            // LblDescription
-            // 
-            this.LblDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.LblDescription.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.LblDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblDescription.Location = new System.Drawing.Point(10, 97);
-            this.LblDescription.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.LblDescription.Name = "LblDescription";
-            this.LblDescription.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.LblDescription.Outline = false;
-            this.LblDescription.OutlineColor = System.Drawing.Color.Red;
-            this.LblDescription.OutlineLocation = new System.Drawing.Point(0, 0);
-            this.LblDescription.ReflectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblDescription.ReflectionSpacing = 0;
-            this.LblDescription.ShadowColor = System.Drawing.Color.Black;
-            this.LblDescription.ShadowDirection = 315;
-            this.LblDescription.ShadowLocation = new System.Drawing.Point(0, 0);
-            this.LblDescription.ShadowOpacity = 100;
-            this.LblDescription.Size = new System.Drawing.Size(62, 17);
-            this.LblDescription.TabIndex = 26;
-            this.LblDescription.Text = "Descrição:";
-            this.LblDescription.TextAlignment = System.Drawing.StringAlignment.Near;
-            this.LblDescription.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle26.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle26.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle26.Hover = System.Drawing.Color.Empty;
-            textStyle26.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.LblDescription.TextStyle = textStyle26;
-            // 
             // LblAddress
             // 
             this.LblAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
@@ -1087,6 +1059,35 @@
             textStyle25.Hover = System.Drawing.Color.Empty;
             textStyle25.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.LblAddress.TextStyle = textStyle25;
+            // 
+            // LblDescription
+            // 
+            this.LblDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.LblDescription.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.LblDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblDescription.Location = new System.Drawing.Point(10, 97);
+            this.LblDescription.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.LblDescription.Name = "LblDescription";
+            this.LblDescription.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.LblDescription.Outline = false;
+            this.LblDescription.OutlineColor = System.Drawing.Color.Red;
+            this.LblDescription.OutlineLocation = new System.Drawing.Point(0, 0);
+            this.LblDescription.ReflectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblDescription.ReflectionSpacing = 0;
+            this.LblDescription.ShadowColor = System.Drawing.Color.Black;
+            this.LblDescription.ShadowDirection = 315;
+            this.LblDescription.ShadowLocation = new System.Drawing.Point(0, 0);
+            this.LblDescription.ShadowOpacity = 100;
+            this.LblDescription.Size = new System.Drawing.Size(62, 17);
+            this.LblDescription.TabIndex = 26;
+            this.LblDescription.Text = "Descrição:";
+            this.LblDescription.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.LblDescription.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            textStyle26.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle26.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle26.Hover = System.Drawing.Color.Empty;
+            textStyle26.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.LblDescription.TextStyle = textStyle26;
             // 
             // GbxDescription
             // 
