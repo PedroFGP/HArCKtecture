@@ -26,26 +26,31 @@ namespace WindowsAPI
         /// Translates bytes to assembly instructions.
         /// </summary>
         /// <param name="bytes">Byte array in string format</param>
-        /// <returns>List of strings with assembly instructions representing the bytes</returns>
-        public static List<string> DisassembleBytes(string bytes)
+        /// <returns>Dictionary of strings with assembly instructions representing the bytes</returns>
+        public static Dictionary<string, string> DisassembleBytes(string bytes)
         {
-            return DisassembleBytes(HexStringToByteArray(bytes.Trim()));
+            return DisassembleBytes(0, HexStringToByteArray(bytes.Trim()));
         }
 
         /// <summary>
         /// Translates bytes to assembly instructions.
         /// </summary>
         /// <param name="bytes">Byte array to disassemble</param>
-        /// <returns>List of strings with assembly instructions representing the bytes</returns>
-        public static List<string> DisassembleBytes(byte[] bytes)
+        /// <returns>Dictionary of strings with assembly instructions representing the bytes</returns>
+        public static Dictionary<string, string> DisassembleBytes(ulong address, byte[] bytes)
         {
-            var disasm = new Disassembler(bytes, ArchitectureMode.x86_32, 0, true);
+            Disassembler.Translator.IncludeAddress = true;
+            Disassembler.Translator.IncludeBinary = true;
 
-            List<string> output = new List<string>();
+            var disasm = new Disassembler(bytes, ArchitectureMode.x86_32, address, true);
+
+            Dictionary<string, string> output = new Dictionary<string, string>();
 
             foreach (var line in disasm.Disassemble())
             {
-                output.Add(line.ToString());
+                var parts = line.ToString().Split(new[] { ' ' }, 2);
+
+                output.Add(parts[0], parts.Last());
             }
 
             return output;

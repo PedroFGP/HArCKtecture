@@ -38,7 +38,7 @@ namespace HArCKtecture.User_Controls
 
             SetupMemoryView();
 
-            String.Format(LblMemoryView.Text, Process.Memory.Windows.MainWindow.Title + ", 0x" + Process.Memory.Peb.BaseAddress.ToString());
+            LblMemoryView.Text = String.Format(LblMemoryView.Text, Process.Memory.Windows.MainWindow.Title + ", 0x" + Process.Memory.Modules.MainModule.BaseAddress.ToString());
         }
 
         private void TbxMemoryAddress_TextChanged(object sender, EventArgs e)
@@ -90,18 +90,27 @@ namespace HArCKtecture.User_Controls
 
         private void SetupMemoryView()
         {
-            LvwMemory.Columns.Add("Endereço", 80, HorizontalAlignment.Center);
-            LvwMemory.Columns.Add("Bytes + Opcodes", 80, HorizontalAlignment.Center);
-
             RefreshMemoryView();
         }
 
         private void RefreshMemoryView()
         {
-            LvwMemory.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
-            LvwMemory.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.HeaderSize);
+            byte[] bytes = Process.Memory.Read<byte>(new IntPtr((uint)CbxMemoryAddress.SelectedValue), 512, false);
+
+            foreach(var line in Disasm.DisassembleBytes((uint)CbxMemoryAddress.SelectedValue, bytes))
+            {
+                LsvMemory.Items.Add(new ListViewItem(new string[] { line.Key, line.Value }));
+            }
+
+            LsvMemory.ContainedControl.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.HeaderSize);
+            LsvMemory.ContainedControl.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         #endregion
+
+        private void CbxMemoryAddress_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
