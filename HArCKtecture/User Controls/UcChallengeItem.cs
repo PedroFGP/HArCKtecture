@@ -38,6 +38,7 @@ namespace HArCKtecture.User_Controls
             FrmChallenge challengeForm = new FrmChallenge(LoadedChallenge);
 
             challengeForm.Show();
+            challengeForm.Focus();
         }
 
         #endregion
