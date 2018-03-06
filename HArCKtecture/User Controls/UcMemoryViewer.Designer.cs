@@ -456,6 +456,7 @@
             textStyle10.Hover = System.Drawing.Color.Empty;
             textStyle10.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.RbtxCode.TextStyle = textStyle10;
+            this.RbtxCode.TextChanged += new System.EventHandler(this.RbtxCode_TextChanged);
             // 
             // LblAsmCode
             // 
@@ -532,7 +533,6 @@
             textStyle13.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.LsvMemory.TextStyle = textStyle13;
             this.LsvMemory.TileSize = new System.Drawing.Size(0, 0);
-            this.LsvMemory.ContainedControl.SelectedIndexChanged += new System.EventHandler(this.LsvMemory_SelectedIndexChanged);
             // 
             // columnHeader1
             // 

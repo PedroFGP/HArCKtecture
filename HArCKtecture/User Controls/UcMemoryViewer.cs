@@ -73,37 +73,43 @@ namespace HArCKtecture.User_Controls
 
                 var address = new IntPtr(result);
 
-                var instructionsBytes = Asm.AssembleInstructions(RbtxCode.ContainedControl.Text);
+                var instructionsBytes = Asm.AssembleInstructions(RbtxCode.Text);
 
                 var stringBytes = LsvMemory.SelectedItems[0].SubItems[1].Text.Split(' ').Where(opcode => opcode != String.Empty);
 
                 int bytesDifference = instructionsBytes.Length - stringBytes.Count();
 
-                if (bytesDifference < 0)
-                {
-                    while(bytesDifference < 0)
-                    {
-                        RbtxCode.ContainedControl.Text += Environment.NewLine + "nop";
+                int selectedIndex = LsvMemory.SelectedItems[0].Index;
 
-                        bytesDifference++;
+                if (bytesDifference > 0)
+                { 
+                    while (bytesDifference > 0)
+                    {
+                        selectedIndex++;
+
+                        int count = LsvMemory.Items[selectedIndex].SubItems[1].Text.Split(' ').Where(opcode => opcode != String.Empty).Count();
+
+
+
+                        bytesDifference -= count;
                     }
                 }
                 else if(bytesDifference < 0)
                 {
+                    while (bytesDifference != 0)
+                    {
+                        bytesDifference = Math.Abs(bytesDifference);
 
-                }
+                        RbtxCode.Text += Environment.NewLine + "nop";
 
-                Process.Memory.Assembly.Inject(RbtxCode.ContainedControl.Text, address);
+                        bytesDifference--;
+                    }
+                } 
 
-                Thread.Sleep(500);
+                Process.Memory.Assembly.Inject(RbtxCode.Text, address);
 
                 OnMemoryAddressUpdate();
             }
-        }
-
-        private void BtnOverwriteAsm_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void TmrCheckAnswer_Tick(object sender, EventArgs e)
@@ -165,7 +171,7 @@ namespace HArCKtecture.User_Controls
 
         private void RbtxCode_TextChanged(object sender, EventArgs e)
         {
-            var instructionsBytes = Asm.AssembleInstructions(RbtxCode.ContainedControl.Text);
+            var instructionsBytes = Asm.AssembleInstructions(RbtxCode.Text);
 
             if (instructionsBytes != null && instructionsBytes.Length > 0)
             {
@@ -177,7 +183,16 @@ namespace HArCKtecture.User_Controls
         {
             if (LsvMemory.SelectedItems.Count > 0)
             {
-                RbtxCode.ContainedControl.Text = LsvMemory.SelectedItems[0].SubItems[2].Text;
+                RbtxCode.Text = LsvMemory.SelectedItems[0].SubItems[2].Text;
+
+                if (!UInt32.TryParse(LsvMemory.SelectedItems[0].SubItems[0].Text, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint result))
+                {
+                    return;
+                }
+
+                var ptrAddress = new IntPtr(result);
+
+                UpdateMemoryValue(ptrAddress);
             }
         }
 
@@ -187,7 +202,6 @@ namespace HArCKtecture.User_Controls
 
         private void RegisterContainedControlsEvents()
         {
-            RbtxCode.ContainedControl.TextChanged += RbtxCode_TextChanged;
             LsvMemory.ContainedControl.SelectedIndexChanged += LsvMemory_SelectedIndexChanged;
         }
 
@@ -241,7 +255,10 @@ namespace HArCKtecture.User_Controls
         {
             if (!UInt32.TryParse(CbxMemoryAddress.Text, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint result))
             {
-                return;
+                if (CbxMemoryAddress.SelectedValue != null && CbxMemoryAddress.SelectedValue is uint)
+                {
+                    result = (uint)CbxMemoryAddress.SelectedValue;
+                }
             }
 
             int baseAddress = Process.Memory.Modules.MainModule.BaseAddress.ToInt32();

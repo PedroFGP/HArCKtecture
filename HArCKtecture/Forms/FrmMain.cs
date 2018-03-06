@@ -85,7 +85,7 @@ namespace HArCKtecture.Forms
             {
                 UcChallengeItem challengeUc = new UcChallengeItem(clg)
                 {
-                    Width = FlpChallenges.Size.Width - 25
+                    Width = FlpChallenges.Size.Width - 10
                 };
 
                 if (FlpChallenges.Controls.Count % 2 == 0)
