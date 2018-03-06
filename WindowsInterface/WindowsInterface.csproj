@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InstructionRepresentation.cs" />
     <Compile Include="WindowsAPI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WindowsProcess.cs" />

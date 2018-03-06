@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Binarysharp.Assemblers.Fasm;
 using System.Diagnostics;
+using System.Text;
 
 namespace WindowsAPI
 {
@@ -27,7 +28,7 @@ namespace WindowsAPI
         /// </summary>
         /// <param name="bytes">Byte array in string format</param>
         /// <returns>Dictionary of strings with assembly instructions representing the bytes</returns>
-        public static Dictionary<string, string> DisassembleBytes(string bytes)
+        public static List<InstructionRepresentation> DisassembleBytes(string bytes)
         {
             return DisassembleBytes(0, HexStringToByteArray(bytes.Trim()));
         }
@@ -37,23 +38,28 @@ namespace WindowsAPI
         /// </summary>
         /// <param name="bytes">Byte array to disassemble</param>
         /// <returns>Dictionary of strings with assembly instructions representing the bytes</returns>
-        public static Dictionary<string, string> DisassembleBytes(ulong address, byte[] bytes)
+        public static List<InstructionRepresentation> DisassembleBytes(ulong address, byte[] bytes)
         {
             Disassembler.Translator.IncludeAddress = true;
-            Disassembler.Translator.IncludeBinary = true;
 
             var disasm = new Disassembler(bytes, ArchitectureMode.x86_32, address, true);
 
-            Dictionary<string, string> output = new Dictionary<string, string>();
+            var instructions = new List<InstructionRepresentation>();
 
-            foreach (var line in disasm.Disassemble())
+            while(instructions.Count < 128)
             {
-                var parts = line.ToString().Split(new[] { ' ' }, 2);
+                var instruction = disasm.NextInstruction();
 
-                output.Add(parts[0], parts.Last());
+                var parts = instruction.ToString().Split(new[] { ' ' }, 2);
+
+                instructions.Add(new InstructionRepresentation() {
+                    Address = parts[0],
+                    Bytes = instruction.Bytes,
+                    Opcodes = parts.Last()
+                });
             }
 
-            return output;
+            return instructions;
         }
     }
 
@@ -70,15 +76,53 @@ namespace WindowsAPI
 
             try
             {
-                codeBytes = FasmNet.Assemble(code);
+                codeBytes = FasmNet.Assemble("use32" + Environment.NewLine + code);
             }
             catch (FasmAssemblerException ex)
             {
-                Debug.WriteLine("Error definition: {0}; Error code: {1}; Error line: {2}; Error offset: {3}; Mnemonics: {4}",
-                    ex.ErrorCode, (int)ex.ErrorCode, ex.ErrorLine, ex.ErrorOffset, ex.Mnemonics);
+                return codeBytes;
             }
 
             return codeBytes;
         }
+    }
+
+    public static class ByteExtension
+    {
+        public static string ByteToHexBitFiddle(byte[] bytes)
+        {
+            char[] c = new char[bytes.Length * 2];
+            int b;
+
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                b = bytes[i] >> 4;
+                c[i * 2] = (char)(55 + b + (((b - 10) >> 31) & -7));
+                b = bytes[i] & 0xF;
+                c[i * 2 + 1] = (char)(55 + b + (((b - 10) >> 31) & -7));
+            }
+
+            return new string(c);
+        }
+
+        public static string ByteToHexSplit(byte[] bytes, int chunkSize)
+        {
+            var finalString = new StringBuilder();
+
+            foreach(var chunk in Split(ByteToHexBitFiddle(bytes), chunkSize))
+            {
+                finalString.Append(chunk + " ");
+            }
+
+            return finalString.ToString();
+        }
+
+        static IEnumerable<string> Split(string str, int chunkSize)
+        {
+            return Enumerable.Range(0, str.Length / chunkSize)
+                .Select(i => str.Substring(i * chunkSize, chunkSize));
+        }
+
+
     }
 }

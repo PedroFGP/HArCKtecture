@@ -18,7 +18,7 @@ namespace HArCKtecture.Classes
         VERY_HARD
     }
 
-    public enum DataTypes
+    public enum DataType
     {
         [Description("Inteiro")]
         INTEGER,

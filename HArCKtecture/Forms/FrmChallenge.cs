@@ -18,6 +18,8 @@ namespace HArCKtecture.Forms
             LoadedChallenge = challenge;
 
             InitializeComponent();
+
+            LoadMemoryViewer();
         }
 
         #endregion
@@ -26,7 +28,7 @@ namespace HArCKtecture.Forms
 
         private void FrmChallenge_Load(object sender, System.EventArgs e)
         {
-            LoadMemoryViewer();
+            
         }
 
         #endregion
@@ -35,10 +37,12 @@ namespace HArCKtecture.Forms
 
         private void LoadMemoryViewer()
         {
-            UcMemoryViewer memoryViewer = new UcMemoryViewer(LoadedChallenge)
+            this.Text = LoadedChallenge.Name;
+            
+            var memoryViewer = new UcMemoryViewer(LoadedChallenge)
             {
                 Location = new Point(2, 30),
-                Anchor = AnchorStyles.Right | AnchorStyles.Bottom
+                Anchor = (AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom)
             };
 
             this.Controls.Add(memoryViewer);

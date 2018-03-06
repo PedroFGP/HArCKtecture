@@ -1164,6 +1164,7 @@
             this.Image.Visible = true;
             this.MaximizeBox = false;
             this.Name = "FrmCreateChallenge";
+            this.Sizable = false;
             this.Text = "Criar Desafio";
             this.Load += new System.EventHandler(this.FrmCreateChallenge_Load);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
