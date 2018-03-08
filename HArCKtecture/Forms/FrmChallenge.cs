@@ -9,6 +9,7 @@ namespace HArCKtecture.Forms
     public partial class FrmChallenge : VisualForm
     {
         private Challenge LoadedChallenge;
+        private UcMemoryViewer MemoryViewer;
 
         #region Constructor
 
@@ -38,14 +39,15 @@ namespace HArCKtecture.Forms
         private void LoadMemoryViewer()
         {
             this.Text = LoadedChallenge.Name;
-            
-            var memoryViewer = new UcMemoryViewer(LoadedChallenge)
+
+            MemoryViewer = new UcMemoryViewer(LoadedChallenge)
             {
-                Location = new Point(2, 30),
-                Anchor = (AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom)
+                Dock = DockStyle.Fill
             };
 
-            this.Controls.Add(memoryViewer);
+            this.MainPanel.Controls.Add(MemoryViewer);
+
+            var a = MainPanel.Size;
         }
 
         #endregion

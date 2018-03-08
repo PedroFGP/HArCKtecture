@@ -81,6 +81,7 @@
             this._visualControlBox.MaximizeButton.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
             this._visualControlBox.MaximizeButton.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this._visualControlBox.MaximizeButton.BoxType = VisualPlus.Structure.ControlBoxButton.ControlBoxType.Default;
+            this._visualControlBox.MaximizeButton.Enabled = false;
             this._visualControlBox.MaximizeButton.ForeColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this._visualControlBox.MaximizeButton.ForeColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this._visualControlBox.MaximizeButton.ForeColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -260,8 +261,11 @@
             this.Image.Point = new System.Drawing.Point(5, 7);
             this.Image.Size = new System.Drawing.Size(16, 16);
             this.Image.Visible = true;
+            this.MaximizeBox = true;
+            this.MinimizeBox = true;
             this.Name = "FrmMain";
             this.Text = "HArCKtecture";
+            this.TitleRectangle = new System.Drawing.Rectangle(284, 7, 72, 16);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.Controls.SetChildIndex(this.LblAbout, 0);
             this.Controls.SetChildIndex(this._visualControlBox, 0);

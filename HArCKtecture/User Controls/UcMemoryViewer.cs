@@ -19,6 +19,8 @@ namespace HArCKtecture.User_Controls
 
         private WindowsProcess Process { get; set; }
 
+        private uint LastestAddress { get; set; }
+
         #endregion
 
         #region Constructor
@@ -40,7 +42,7 @@ namespace HArCKtecture.User_Controls
         {
             LoadTypeComboboxes();
 
-            SetupMemoryView();
+            RefreshMemoryView((uint)CbxMemoryAddress.SelectedValue);
 
             LblMemoryView.Text = String.Format(LblMemoryView.Text, Process.Memory.Windows.MainWindow.Title + ", 0x" + Process.Memory.Modules.MainModule.BaseAddress.ToString("X"));
 
@@ -54,83 +56,14 @@ namespace HArCKtecture.User_Controls
             OnMemoryAddressUpdate();
         }
 
-        private void TbxMemoryValue_TextChanged(object sender, EventArgs e)
-        {
-            if (!Int64.TryParse(TbxMemoryValue.Text, out long result))
-            {
-                return;
-            }
-        }
-
         private void BtnInjectAsmCode_Click(object sender, EventArgs e)
         {
-            if (LsvMemory.SelectedItems.Count > 0)
-            {
-                if (!UInt32.TryParse(LsvMemory.SelectedItems[0].SubItems[0].Text, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint result))
-                {
-                    return;
-                }
-
-                var address = new IntPtr(result);
-
-                var instructionsBytes = Asm.AssembleInstructions(RbtxCode.Text);
-
-                var stringBytes = LsvMemory.SelectedItems[0].SubItems[1].Text.Split(' ').Where(opcode => opcode != String.Empty);
-
-                int bytesDifference = instructionsBytes.Length - stringBytes.Count();
-
-                int selectedIndex = LsvMemory.SelectedItems[0].Index;
-
-                if (bytesDifference > 0)
-                { 
-                    while (bytesDifference > 0)
-                    {
-                        selectedIndex++;
-
-                        int count = LsvMemory.Items[selectedIndex].SubItems[1].Text.Split(' ').Where(opcode => opcode != String.Empty).Count();
-
-
-
-                        bytesDifference -= count;
-                    }
-                }
-                else if(bytesDifference < 0)
-                {
-                    while (bytesDifference != 0)
-                    {
-                        bytesDifference = Math.Abs(bytesDifference);
-
-                        RbtxCode.Text += Environment.NewLine + "nop";
-
-                        bytesDifference--;
-                    }
-                } 
-
-                Process.Memory.Assembly.Inject(RbtxCode.Text, address);
-
-                OnMemoryAddressUpdate();
-            }
+            InjectAsmAtSelectedPosition();
         }
 
         private void TmrCheckAnswer_Tick(object sender, EventArgs e)
         {
-            if (!UInt32.TryParse(Current.AnswerAddress.ToString(), NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint result))
-            {
-                return;
-            }
-
-            var address = new IntPtr(result);
-
-            if (Process.Memory.Read<bool>(address, false))
-            {
-                TmrCheckAnswer.Stop();
-
-                Current.Finished = true;
-
-                MessageBox.Show(null, "Desafio concluído com sucesso!", "Parabéns", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                Current.Save();
-            }
+            CheckForAnswer();
         }
 
         private void CbxMemoryAddress_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,28 +78,14 @@ namespace HArCKtecture.User_Controls
         {
             Process.Memory.Handle.Close();
 
+            Process.Memory.Windows.MainWindow.Close();
+
             this.ParentForm.Close();
         }
 
         private void CbxMemoryType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CbxMemoryAddress.SelectedValue != null)
-            {
-                var ptrAddress = new IntPtr((uint)CbxMemoryAddress.SelectedValue);
-
-                UpdateMemoryValue(ptrAddress);
-            }
-            else if (!String.IsNullOrEmpty(CbxMemoryAddress.Text))
-            {
-                if (!UInt32.TryParse(CbxMemoryAddress.Text, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint result))
-                {
-                    return;
-                }
-
-                var ptrAddress = new IntPtr(result);
-
-                UpdateMemoryValue(ptrAddress);
-            }
+            UpdateMemoryValue();
         }
 
         private void RbtxCode_TextChanged(object sender, EventArgs e)
@@ -184,7 +103,85 @@ namespace HArCKtecture.User_Controls
             if (LsvMemory.SelectedItems.Count > 0)
             {
                 RbtxCode.Text = LsvMemory.SelectedItems[0].SubItems[2].Text;
+            }
+        }
 
+        private void TbxMemoryAddress_TextChanged(object sender, EventArgs e)
+        {
+            UpdateMemoryValue();
+        }
+
+        private void TbxMemoryValue_ButtonClicked()
+        {
+            UpdateMemoryValue(false);
+        }
+
+        private void LsvMemory_SizeChanged(object sender, EventArgs e)
+        {
+            LsvMemory.Columns[2].Width = LsvMemory.Width - 10;
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void NopRemainingBytes(int instructionIndex, byte[] currentInstruction)
+        {
+            var stringBytes = LsvMemory.Items[instructionIndex].SubItems[1].Text.Split(' ').Where(opcode => opcode != String.Empty).Count();
+
+            int bytesDifference = currentInstruction.Length - stringBytes;
+
+            if (bytesDifference > 0)
+            {
+                while (bytesDifference > 0)
+                {
+                    instructionIndex++;
+
+                    int count = LsvMemory.Items[instructionIndex].SubItems[1].Text.Split(' ').Where(opcode => opcode != String.Empty).Count();
+
+                    bytesDifference -= count;
+                }
+            }
+
+            while (bytesDifference != 0)
+            {
+                bytesDifference = Math.Abs(bytesDifference);
+
+                RbtxCode.Text += Environment.NewLine + "nop";
+
+                bytesDifference--;
+            }
+        }
+
+        private void CheckForAnswer()
+        {
+            if (!UInt32.TryParse(Current.AnswerAddress.ToString(), NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint result))
+            {
+                return;
+            }
+
+            var address = new IntPtr(result);
+
+            if (Process.Memory.Read<bool>(address, false))
+            {
+                TmrCheckAnswer.Stop();
+
+                Current.Finished = true;
+
+                MessageBox.Show(null, "Desafio concluído com sucesso!", "Parabéns", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Current.Save();
+
+                Process.Memory.Windows.MainWindow.Close();
+
+                this.ParentForm.Close();
+            }
+        }
+
+        private void InjectAsmAtSelectedPosition()
+        {
+            if (LsvMemory.SelectedItems.Count > 0)
+            {
                 if (!UInt32.TryParse(LsvMemory.SelectedItems[0].SubItems[0].Text, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint result))
                 {
                     return;
@@ -192,17 +189,20 @@ namespace HArCKtecture.User_Controls
 
                 var ptrAddress = new IntPtr(result);
 
-                UpdateMemoryValue(ptrAddress);
+                var instructionsBytes = Asm.AssembleInstructions(RbtxCode.Text);
+
+                NopRemainingBytes(LsvMemory.SelectedItems[0].Index, Asm.AssembleInstructions(RbtxCode.Text));
+
+                Process.Memory.Assembly.Inject(RbtxCode.Text, ptrAddress);
+
+                RefreshMemoryView();
             }
         }
-
-        #endregion
-
-        #region Methods
 
         private void RegisterContainedControlsEvents()
         {
             LsvMemory.ContainedControl.SelectedIndexChanged += LsvMemory_SelectedIndexChanged;
+            TbxMemoryValue.ButtonClicked += TbxMemoryValue_ButtonClicked;
         }
 
         private void LoadTypeComboboxes()
@@ -216,38 +216,116 @@ namespace HArCKtecture.User_Controls
             CbxMemoryAddress.SetDictionaryDataSource(addresses);
         }
 
-        private void SetupMemoryView()
+        private void UpdateMemoryValue(bool read = true)
         {
-            RefreshMemoryView((uint)CbxMemoryAddress.SelectedValue);
-        }
+            if (!UInt32.TryParse(TbxMemoryAddress.Text, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint result))
+            {
+                return;
+            }
 
-        private void UpdateMemoryValue(IntPtr ptrAddress)
-        {
+            if (!IsValidAddress(result))
+            {
+                return;
+            }
+
+            var ptrAddress = new IntPtr(result);
+
             switch ((DataType)CbxMemoryType.SelectedValue)
             {
                 case DataType.INTEGER:
-                    TbxMemoryValue.Text = Process.Memory.Read<int>(ptrAddress, false).ToString();
+                    {
+                        if (read)
+                        {
+                            TbxMemoryValue.Text = Process.Memory.Read<int>(ptrAddress, false).ToString();
+                        }
+                        else if (Int32.TryParse(TbxMemoryValue.Text, out int intValue))
+                        {
+                            Process.Memory.Write(ptrAddress, intValue, false);
+                        }
+                    }
                     break;
 
                 case DataType.FLOAT:
-                    TbxMemoryValue.Text = Process.Memory.Read<float>(ptrAddress, false).ToString();
+                    {
+                        if (read)
+                        {
+                            TbxMemoryValue.Text = Process.Memory.Read<float>(ptrAddress, false).ToString();
+                        }
+                        else if (float.TryParse(TbxMemoryValue.Text, out float floatValue))
+                        {
+                            Process.Memory.Write(ptrAddress, floatValue, false);
+                        }
+                    }
                     break;
 
                 case DataType.BIT:
-                    TbxMemoryValue.Text = Process.Memory.Read<bool>(ptrAddress, false).ToString();
+                    {
+                        if (read)
+                        {
+                            TbxMemoryValue.Text = Process.Memory.Read<bool>(ptrAddress, false).ToString();
+                        }
+                        else if (Boolean.TryParse(TbxMemoryValue.Text, out bool boolValue))
+                        {
+                            Process.Memory.Write(ptrAddress, boolValue, false);
+                        }
+                    }
                     break;
 
                 case DataType.STRING:
-                    TbxMemoryValue.Text = Process.Memory.ReadString(ptrAddress, false);
+                    {
+                        if (read)
+                        {
+                            TbxMemoryValue.Text = Process.Memory.ReadString(ptrAddress, false);
+                        }
+                        else if (String.IsNullOrEmpty(TbxMemoryValue.Text))
+                        {
+                            Process.Memory.WriteString(ptrAddress, TbxMemoryValue.Text, false);
+                        }
+
+                    }
                     break;
 
                 case DataType.BYTE:
-                    TbxMemoryValue.Text = Process.Memory.Read<byte>(ptrAddress, false).ToString("X");
+                    {
+                        if (read)
+                        {
+                            TbxMemoryValue.Text = Process.Memory.Read<byte>(ptrAddress, false).ToString("X");
+                        }
+                        else if (Byte.TryParse(TbxMemoryValue.Text, out byte byteValue))
+                        {
+                            Process.Memory.Write(ptrAddress, byteValue, false);
+                        }
+                    }
                     break;
 
                 case DataType.CHAR:
-                    TbxMemoryValue.Text = Process.Memory.Read<char>(ptrAddress, false).ToString();
+                    {
+                        if (read)
+                        {
+                            TbxMemoryValue.Text = Process.Memory.Read<char>(ptrAddress, false).ToString();
+                        }
+                        else if (Char.TryParse(TbxMemoryValue.Text, out char charValue))
+                        {
+                            Process.Memory.Write(ptrAddress, charValue, false);
+                        }
+                    }
                     break;
+            }
+
+            RefreshMemoryView();
+        }
+
+        private bool IsValidAddress(uint address)
+        {
+            int baseAddress = Process.Memory.Modules.MainModule.BaseAddress.ToInt32();
+
+            if (address >= baseAddress && address <= (Process.Memory.Modules.MainModule.Size + baseAddress))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -261,23 +339,28 @@ namespace HArCKtecture.User_Controls
                 }
             }
 
-            int baseAddress = Process.Memory.Modules.MainModule.BaseAddress.ToInt32();
-
-            if (result >= baseAddress && result <= (Process.Memory.Modules.MainModule.Size + baseAddress))
-            {
-                RefreshMemoryView(result);
-            }
+            RefreshMemoryView(result);
         }
 
-        private void RefreshMemoryView(uint address)
+        private void RefreshMemoryView()
         {
+            RefreshMemoryView(LastestAddress);
+        }
+
+        private void RefreshMemoryView(uint address, int size = 512)
+        {
+            if (!IsValidAddress(address))
+            {
+                return;
+            }
+
+            LastestAddress = address;
+
             LsvMemory.Items.Clear();
 
             var ptrAddress = new IntPtr(address);
 
-            byte[] bytes = Process.Memory.Read<byte>(ptrAddress, 512, false);
-
-            UpdateMemoryValue(ptrAddress);
+            byte[] bytes = Process.Memory.Read<byte>(ptrAddress, size, false);
 
             var parsedInstructions = Disasm.DisassembleBytes(address, bytes);
 
