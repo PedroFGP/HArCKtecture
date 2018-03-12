@@ -148,6 +148,7 @@
             textStyle2.Hover = System.Drawing.Color.Empty;
             textStyle2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this._visualControlBox.MaximizeButton.TextStyle = textStyle2;
+            this._visualControlBox.MaximizeButton.Visible = false;
             // 
             // 
             // 
@@ -173,7 +174,7 @@
             textStyle3.Hover = System.Drawing.Color.Empty;
             textStyle3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this._visualControlBox.MinimizeButton.TextStyle = textStyle3;
-            this._visualControlBox.Size = new System.Drawing.Size(72, 25);
+            this._visualControlBox.Size = new System.Drawing.Size(48, 25);
             // 
             // LblName
             // 
@@ -391,6 +392,7 @@
             this.ChkDynamicBase.CheckStyle.Style = VisualPlus.Structure.CheckStyle.CheckType.Checkmark;
             this.ChkDynamicBase.CheckStyle.Thickness = 2F;
             this.ChkDynamicBase.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChkDynamicBase.Enabled = false;
             this.ChkDynamicBase.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ChkDynamicBase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ChkDynamicBase.IsBoxLarger = false;
@@ -446,7 +448,7 @@
             this.CbxArchType.FormattingEnabled = true;
             this.CbxArchType.Location = new System.Drawing.Point(133, 79);
             this.CbxArchType.Name = "CbxArchType";
-            this.CbxArchType.Size = new System.Drawing.Size(87, 21);
+            this.CbxArchType.Size = new System.Drawing.Size(133, 21);
             this.CbxArchType.TabIndex = 10;
             this.CbxArchType.Text = "32 bits";
             // 
@@ -514,7 +516,7 @@
             this.CbxDificulty.FormattingEnabled = true;
             this.CbxDificulty.Location = new System.Drawing.Point(92, 117);
             this.CbxDificulty.Name = "CbxDificulty";
-            this.CbxDificulty.Size = new System.Drawing.Size(128, 21);
+            this.CbxDificulty.Size = new System.Drawing.Size(174, 21);
             this.CbxDificulty.TabIndex = 12;
             this.CbxDificulty.Text = "Muit Fácil";
             // 
@@ -598,9 +600,9 @@
             this.TbxAnswerAddress.PasswordChar = '\0';
             this.TbxAnswerAddress.ReadOnly = false;
             this.TbxAnswerAddress.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TbxAnswerAddress.Size = new System.Drawing.Size(115, 25);
+            this.TbxAnswerAddress.Size = new System.Drawing.Size(161, 25);
             this.TbxAnswerAddress.TabIndex = 15;
-            this.TbxAnswerAddress.TextBoxWidth = 105;
+            this.TbxAnswerAddress.TextBoxWidth = 151;
             textStyle13.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             textStyle13.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             textStyle13.Hover = System.Drawing.Color.Empty;
@@ -1162,10 +1164,11 @@
             this.Image.Point = new System.Drawing.Point(5, 7);
             this.Image.Size = new System.Drawing.Size(16, 16);
             this.Image.Visible = true;
-            this.MaximizeBox = false;
+            this.MinimizeBox = true;
             this.Name = "FrmCreateChallenge";
             this.Sizable = false;
             this.Text = "Criar Desafio";
+            this.TitleRectangle = new System.Drawing.Rectangle(286, 7, 68, 16);
             this.Load += new System.EventHandler(this.FrmCreateChallenge_Load);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
             this.Controls.SetChildIndex(this.LblName, 0);

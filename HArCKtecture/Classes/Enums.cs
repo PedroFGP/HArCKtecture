@@ -45,4 +45,12 @@ namespace HArCKtecture.Classes
         [Description("64 bit")]
         x86_64 = 64
     }
+
+    public enum AddressType
+    {
+        NONE,
+        START,
+        END,
+        SINGLE
+    }
 }

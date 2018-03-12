@@ -1,11 +1,10 @@
 ﻿using HArCKtecture.Classes;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 using WindowsAPI;
 
@@ -211,9 +210,9 @@ namespace HArCKtecture.User_Controls
 
             CbxMemoryType.SetDictionaryDataSource(types);
 
-            var addresses = new Dictionary<string, uint>(Current.Addresses);
+            var addressesDataSource = Current.Addresses.ToDictionary(addr => addr.Description + "(" + addr.Address.ToString("X") + ")", addr => addr.Address);
 
-            CbxMemoryAddress.SetDictionaryDataSource(addresses);
+            CbxMemoryAddress.SetDictionaryDataSource(addressesDataSource);
         }
 
         private void UpdateMemoryValue(bool read = true)
@@ -347,7 +346,7 @@ namespace HArCKtecture.User_Controls
             RefreshMemoryView(LastestAddress);
         }
 
-        private void RefreshMemoryView(uint address, int size = 512)
+        private void RefreshMemoryView(uint address, int size = 1024)
         {
             if (!IsValidAddress(address))
             {
@@ -364,9 +363,37 @@ namespace HArCKtecture.User_Controls
 
             var parsedInstructions = Disasm.DisassembleBytes(address, bytes);
 
+            bool addrBetween = false;
+
             foreach (var instruction in parsedInstructions)
             {
-                LsvMemory.Items.Add(new ListViewItem(new string[] { instruction.Address, ByteExtension.ByteToHexSplit(instruction.Bytes, 2), instruction.Opcodes }));
+                var lastItem = LsvMemory.Items.Add(new ListViewItem(new string[] { instruction.Address, ByteExtension.ByteToHexSplit(instruction.Bytes, 2), instruction.Opcodes }));
+
+                var uintAddr = Convert.ToUInt32(instruction.Address, 16);
+
+                addrBetween = Current.Addresses.Any(addr => addr.Address < uintAddr && addr.PairAddress > uintAddr);
+
+                if (addrBetween)
+                {
+                    lastItem.BackColor = Color.LightGreen;
+                    addrBetween = false;
+                }
+
+                var specialAddr = Current.Addresses.FirstOrDefault(addr => addr.Address == uintAddr);
+
+                if(specialAddr != null)
+                {
+                    switch(specialAddr.Type)
+                    {
+                        case AddressType.SINGLE:
+                            lastItem.BackColor = Color.LightBlue;
+                            break;
+                        case AddressType.START:
+                        case AddressType.END:
+                            lastItem.BackColor = Color.LightCoral;
+                            break;
+                    }
+                }
             }
         }
 

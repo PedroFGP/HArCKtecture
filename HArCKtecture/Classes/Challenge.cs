@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.IO;
 using ZeroFormatter;
 
@@ -26,7 +26,7 @@ namespace HArCKtecture.Classes
         public virtual DificultyLevel Dificulty { get; set; }
 
         [Index(6)]
-        public virtual ILazyDictionary<string, uint> Addresses { get; set; }
+        public virtual IList<SpecialAddress> Addresses { get; set; }
 
         [Index(7)]
         public virtual long Order { get; set; }

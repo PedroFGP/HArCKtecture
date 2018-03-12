@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using VisualPlus.Toolkit.Controls.Editors;
@@ -14,7 +15,7 @@ namespace HArCKtecture.Forms
     {
         #region Properties
 
-        Dictionary<string, uint> Addresses { get; set; }
+        private List<SpecialAddress> Addresses { get; }
 
         #endregion
 
@@ -24,7 +25,7 @@ namespace HArCKtecture.Forms
         {
             InitializeComponent();
 
-            Addresses = new Dictionary<string, uint>();
+            Addresses = new List<SpecialAddress>();
         }
 
         #endregion
@@ -38,7 +39,7 @@ namespace HArCKtecture.Forms
 
         private void BtnRemove_Click(object sender, System.EventArgs e)
         {
-            Addresses.Remove(LsvAddresses.SelectedItems[0].SubItems[1].Text);
+            Addresses.RemoveAll(addr => addr.Address == Convert.ToUInt32(LsvAddresses.SelectedItems[0].SubItems[2].Text));
 
             LsvAddresses.Items.Remove(LsvAddresses.SelectedItems[0]);
         }
@@ -52,21 +53,32 @@ namespace HArCKtecture.Forms
                 return;
             }
 
-            if(Addresses.ContainsKey(TbxNewDescription.Text))
+            if(Addresses.Find(addr => addr.Address == newAddress) != null)
             {
-                MessageBox.Show(null, "Essa descrição já existe!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(null, "Esse endereço já existe!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            if(Addresses.Count(addr => addr.Description == TbxNewDescription.Text) == 2)
+            {
+                MessageBox.Show(null, "Já existem dois endereços especiais com essa descrição!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;
             }
 
             LsvAddresses.Items.Add(new ListViewItem(new string[] { TbxNewAddress.Text, TbxNewDescription.Text }));
 
-            Addresses.Add(TbxNewDescription.Text, newAddress);
+            Addresses.Add(new SpecialAddress() {
+                Address = newAddress,
+                Description = TbxNewDescription.Text,
+                Type = AddressType.NONE
+            });
         }
 
         private void BtnFilePath_Click(object sender, System.EventArgs e)
         {
-            OpenFileDialog openExecutable = new OpenFileDialog
+            var openExecutable = new OpenFileDialog
             {
                 Multiselect = false
             };
@@ -92,9 +104,9 @@ namespace HArCKtecture.Forms
                 new KeyValuePair<Control, string>(TbxFilePath, LblPath.Text),
                 new KeyValuePair<Control, string>(RtbxHelp, GbxDescription.Text));
 
-            StringBuilder invalidMessage = new StringBuilder();
+            var invalidMessage = new StringBuilder();
 
-            invalidMessage.AppendLine("Favor preencher corretamente os seguintes campos:" + Environment.NewLine);
+            invalidMessage.Append("Favor preencher corretamente os seguintes campos:").AppendLine(Environment.NewLine);
             invalidMessage.AppendLine(message);
 
             if (String.IsNullOrEmpty(message))
@@ -147,7 +159,33 @@ namespace HArCKtecture.Forms
 
         private void CreateChallenge()
         {
-            Challenge newChallenge = new Challenge()
+            SpecialAddress pairAddr = null;
+
+            foreach(var specAddr in Addresses.ToList())
+            {
+                if(pairAddr != null && pairAddr.Address == specAddr.Address)
+                {
+                    continue;
+                }
+
+                pairAddr = Addresses.FirstOrDefault(addr => addr.Description == specAddr.Description && addr.Address != specAddr.Address);
+
+                if(specAddr.Type == AddressType.NONE)
+                {
+                    if (pairAddr != null)
+                    {
+                        specAddr.PairAddress = pairAddr.Address;
+                        specAddr.Type = AddressType.START;
+                        pairAddr.Type = AddressType.END;
+                    }
+                    else
+                    {
+                        specAddr.Type = AddressType.SINGLE;
+                    }
+                }
+            }
+
+            var newChallenge = new Challenge()
             {
                 Name = TbxTitle.Text,
                 Dificulty = ((KeyValuePair<string, DificultyLevel>)CbxDificulty.SelectedItem).Value,
@@ -158,7 +196,7 @@ namespace HArCKtecture.Forms
                 AnswerAddress = Convert.ToUInt32(TbxAnswerAddress.Text),
                 Order = NupOrder.Value,
                 Finished = false,
-                Addresses = Addresses.AsLazyDictionary()
+                Addresses = Addresses
             };
 
             newChallenge.Save();
