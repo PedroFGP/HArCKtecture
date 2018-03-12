@@ -856,7 +856,7 @@
             this.LsvAddresses.HeaderFont = new System.Drawing.Font("Segoe UI", 8.25F);
             this.LsvAddresses.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.LsvAddresses.HeaderText = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LsvAddresses.ItemBackground = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.LsvAddresses.ItemBackground = System.Drawing.Color.Gainsboro;
             this.LsvAddresses.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.LsvAddresses.ItemPadding = 12;
             this.LsvAddresses.ItemSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));

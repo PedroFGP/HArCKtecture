@@ -210,7 +210,7 @@ namespace HArCKtecture.User_Controls
 
             CbxMemoryType.SetDictionaryDataSource(types);
 
-            var addressesDataSource = Current.Addresses.ToDictionary(addr => addr.Description + "(" + addr.Address.ToString("X") + ")", addr => addr.Address);
+            var addressesDataSource = Current.Addresses.ToDictionary(addr => addr.Description + " (" + addr.Address.ToString("X") + ")", addr => addr.Address);
 
             CbxMemoryAddress.SetDictionaryDataSource(addressesDataSource);
         }
@@ -311,7 +311,10 @@ namespace HArCKtecture.User_Controls
                     break;
             }
 
-            RefreshMemoryView();
+            if(!read)
+            {
+                RefreshMemoryView();
+            }
         }
 
         private bool IsValidAddress(uint address)
@@ -375,7 +378,7 @@ namespace HArCKtecture.User_Controls
 
                 if (addrBetween)
                 {
-                    lastItem.BackColor = Color.LightGreen;
+                    lastItem.ForeColor = Color.LightGreen;
                     addrBetween = false;
                 }
 
@@ -386,11 +389,11 @@ namespace HArCKtecture.User_Controls
                     switch(specialAddr.Type)
                     {
                         case AddressType.SINGLE:
-                            lastItem.BackColor = Color.LightBlue;
+                            lastItem.ForeColor = Color.LightBlue;
                             break;
                         case AddressType.START:
                         case AddressType.END:
-                            lastItem.BackColor = Color.LightCoral;
+                            lastItem.ForeColor = Color.LightCoral;
                             break;
                     }
                 }
