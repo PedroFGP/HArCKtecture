@@ -564,7 +564,6 @@
             this.LsvMemory.HeaderFont = new System.Drawing.Font("Segoe UI", 8.25F);
             this.LsvMemory.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.LsvMemory.HeaderText = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LsvMemory.ItemBackground = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.LsvMemory.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.LsvMemory.ItemPadding = 12;
             this.LsvMemory.ItemSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));

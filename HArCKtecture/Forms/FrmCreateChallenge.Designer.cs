@@ -148,7 +148,6 @@
             textStyle2.Hover = System.Drawing.Color.Empty;
             textStyle2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this._visualControlBox.MaximizeButton.TextStyle = textStyle2;
-            this._visualControlBox.MaximizeButton.Visible = false;
             // 
             // 
             // 
@@ -174,7 +173,7 @@
             textStyle3.Hover = System.Drawing.Color.Empty;
             textStyle3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this._visualControlBox.MinimizeButton.TextStyle = textStyle3;
-            this._visualControlBox.Size = new System.Drawing.Size(48, 25);
+            this._visualControlBox.Size = new System.Drawing.Size(72, 25);
             // 
             // LblName
             // 
@@ -856,7 +855,6 @@
             this.LsvAddresses.HeaderFont = new System.Drawing.Font("Segoe UI", 8.25F);
             this.LsvAddresses.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.LsvAddresses.HeaderText = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LsvAddresses.ItemBackground = System.Drawing.Color.Gainsboro;
             this.LsvAddresses.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.LsvAddresses.ItemPadding = 12;
             this.LsvAddresses.ItemSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
@@ -1164,11 +1162,12 @@
             this.Image.Point = new System.Drawing.Point(5, 7);
             this.Image.Size = new System.Drawing.Size(16, 16);
             this.Image.Visible = true;
+            this.MaximizeBox = true;
             this.MinimizeBox = true;
             this.Name = "FrmCreateChallenge";
             this.Sizable = false;
             this.Text = "Criar Desafio";
-            this.TitleRectangle = new System.Drawing.Rectangle(286, 7, 68, 16);
+            this.TextRectangle = new System.Drawing.Rectangle(286, 7, 68, 16);
             this.Load += new System.EventHandler(this.FrmCreateChallenge_Load);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
             this.Controls.SetChildIndex(this.LblName, 0);

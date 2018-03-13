@@ -265,7 +265,6 @@
             this.MinimizeBox = true;
             this.Name = "FrmMain";
             this.Text = "HArCKtecture";
-            this.TitleRectangle = new System.Drawing.Rectangle(284, 7, 72, 16);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.Controls.SetChildIndex(this.LblAbout, 0);
             this.Controls.SetChildIndex(this._visualControlBox, 0);

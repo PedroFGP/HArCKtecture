@@ -378,7 +378,7 @@ namespace HArCKtecture.User_Controls
 
                 if (addrBetween)
                 {
-                    lastItem.ForeColor = Color.LightGreen;
+                    lastItem.BackColor = Color.LightGreen;
                     addrBetween = false;
                 }
 
@@ -389,11 +389,11 @@ namespace HArCKtecture.User_Controls
                     switch(specialAddr.Type)
                     {
                         case AddressType.SINGLE:
-                            lastItem.ForeColor = Color.LightBlue;
+                            lastItem.BackColor = Color.LightBlue;
                             break;
                         case AddressType.START:
                         case AddressType.END:
-                            lastItem.ForeColor = Color.LightCoral;
+                            lastItem.BackColor = Color.LightCoral;
                             break;
                     }
                 }
