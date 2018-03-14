@@ -161,7 +161,7 @@ namespace HArCKtecture.User_Controls
 
             var address = new IntPtr(result);
 
-            if (Process.Memory.Read<bool>(address, false))
+            if (Process.Memory.Read<byte>(address, false) == 0x1)
             {
                 TmrCheckAnswer.Stop();
 
@@ -276,7 +276,7 @@ namespace HArCKtecture.User_Controls
                         {
                             TbxMemoryValue.Text = Process.Memory.ReadString(ptrAddress, false);
                         }
-                        else if (String.IsNullOrEmpty(TbxMemoryValue.Text))
+                        else if (!String.IsNullOrEmpty(TbxMemoryValue.Text))
                         {
                             Process.Memory.WriteString(ptrAddress, TbxMemoryValue.Text, false);
                         }
