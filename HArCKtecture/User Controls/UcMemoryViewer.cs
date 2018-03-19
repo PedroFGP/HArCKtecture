@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using WindowsAPI;
@@ -28,7 +29,9 @@ namespace HArCKtecture.User_Controls
         {
             Current = challenge;
 
-            Process = new WindowsProcess(challenge.FileLocation, true);
+            File.WriteAllBytes(Current.Name + ".exe", Current.ExecutableBytes);
+
+            Process = new WindowsProcess(Current.Name + ".exe", true);
 
             InitializeComponent();
         }

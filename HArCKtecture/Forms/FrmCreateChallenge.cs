@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -16,6 +17,8 @@ namespace HArCKtecture.Forms
         #region Properties
 
         private List<SpecialAddress> Addresses { get; }
+
+        private byte[] FileBytes;
 
         #endregion
 
@@ -87,7 +90,13 @@ namespace HArCKtecture.Forms
 
             if (dialogResult == DialogResult.OK)
             {
+                if(!File.Exists(openExecutable.FileName))
+                {
+
+                }
+
                 TbxFilePath.Text = openExecutable.FileName;
+                FileBytes = File.ReadAllBytes(TbxFilePath.Text);
             }
         }
 
@@ -192,11 +201,11 @@ namespace HArCKtecture.Forms
                 Description = RtbxHelp.Text,
                 Architecture = ArchitectureMode.x86_32,
                 DynamicBase = ChkDynamicBase.Checked,
-                FileLocation = TbxFilePath.Text,
                 AnswerAddress = Convert.ToUInt32(TbxAnswerAddress.Text),
                 Order = NupOrder.Value,
                 Finished = false,
-                Addresses = Addresses
+                Addresses = Addresses,
+                ExecutableBytes = File.ReadAllBytes(TbxFilePath.Text)
             };
 
             newChallenge.Save();

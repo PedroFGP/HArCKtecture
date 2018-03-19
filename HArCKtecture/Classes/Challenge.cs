@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using ZeroFormatter;
 
@@ -14,7 +15,7 @@ namespace HArCKtecture.Classes
         public virtual string Description { get; set; }
 
         [Index(2)]
-        public virtual string FileLocation { get; set; }
+        public virtual byte[] ExecutableBytes { get; set; }
 
         [Index(3)]
         public virtual bool DynamicBase { get; set; }
@@ -37,9 +38,25 @@ namespace HArCKtecture.Classes
         [Index(9)]
         public virtual bool Finished { get; set; }
 
+        #region Reporting
+
+        [Index(10)]
+        public virtual TimeSpan TotalTime { get; set; }
+
+        [Index(11)]
+        public virtual uint MemoryOperations { get; set; }
+
+        [Index(12)]
+        public virtual uint RemoteProcessCrashes { get; set; }
+
+        [Index(13)]
+        public virtual bool Cheated { get; set; }
+
+        #endregion
+
         public void Save()
         {
-            File.WriteAllBytes(Globals.DIRECTORY_NAME + "//" + Path.GetFileName(FileLocation).Replace(".exe", ".hck"), ZeroFormatterSerializer.Serialize(this));
+            File.WriteAllBytes(Globals.DIRECTORY_NAME + "//" + Name + ".hck", ZeroFormatterSerializer.Serialize(this));
         }
     }
 }
