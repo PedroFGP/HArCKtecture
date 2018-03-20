@@ -200,7 +200,7 @@ namespace HArCKtecture.Forms
                 Dificulty = ((KeyValuePair<string, DificultyLevel>)CbxDificulty.SelectedItem).Value,
                 Description = RtbxHelp.Text,
                 Architecture = ArchitectureMode.x86_32,
-                DynamicBase = ChkDynamicBase.Checked,
+                DynamicBase = !TglDynamicBase.Toggled,
                 AnswerAddress = Convert.ToUInt32(TbxAnswerAddress.Text),
                 Order = NupOrder.Value,
                 Finished = false,

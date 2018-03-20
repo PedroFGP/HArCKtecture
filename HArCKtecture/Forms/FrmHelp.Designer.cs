@@ -35,7 +35,7 @@
             VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle4 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
-            this.visualRichTextBox1 = new VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox();
+            this.RtbxIntroduction = new VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox();
             this.SuspendLayout();
             // 
             // _visualControlBox
@@ -119,33 +119,33 @@
             this._visualControlBox.MinimizeButton.TextStyle = textStyle3;
             this._visualControlBox.Size = new System.Drawing.Size(72, 25);
             // 
-            // visualRichTextBox1
+            // RtbxIntroduction
             // 
-            this.visualRichTextBox1.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.visualRichTextBox1.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.visualRichTextBox1.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.visualRichTextBox1.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.visualRichTextBox1.Border.HoverVisible = true;
-            this.visualRichTextBox1.Border.Rounding = 6;
-            this.visualRichTextBox1.Border.Thickness = 1;
-            this.visualRichTextBox1.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.visualRichTextBox1.Border.Visible = true;
-            this.visualRichTextBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.visualRichTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.visualRichTextBox1.Location = new System.Drawing.Point(15, 104);
-            this.visualRichTextBox1.MaxLength = 2147483647;
-            this.visualRichTextBox1.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.visualRichTextBox1.Name = "visualRichTextBox1";
-            this.visualRichTextBox1.ReadOnly = false;
-            this.visualRichTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
-            this.visualRichTextBox1.ShowSelectionMargin = false;
-            this.visualRichTextBox1.Size = new System.Drawing.Size(767, 297);
-            this.visualRichTextBox1.TabIndex = 1;
+            this.RtbxIntroduction.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.RtbxIntroduction.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.RtbxIntroduction.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.RtbxIntroduction.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.RtbxIntroduction.Border.HoverVisible = true;
+            this.RtbxIntroduction.Border.Rounding = 6;
+            this.RtbxIntroduction.Border.Thickness = 1;
+            this.RtbxIntroduction.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.RtbxIntroduction.Border.Visible = true;
+            this.RtbxIntroduction.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RtbxIntroduction.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.RtbxIntroduction.Location = new System.Drawing.Point(15, 104);
+            this.RtbxIntroduction.MaxLength = 2147483647;
+            this.RtbxIntroduction.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.RtbxIntroduction.Name = "RtbxIntroduction";
+            this.RtbxIntroduction.ReadOnly = false;
+            this.RtbxIntroduction.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
+            this.RtbxIntroduction.ShowSelectionMargin = false;
+            this.RtbxIntroduction.Size = new System.Drawing.Size(767, 297);
+            this.RtbxIntroduction.TabIndex = 1;
             textStyle4.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             textStyle4.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             textStyle4.Hover = System.Drawing.Color.Empty;
             textStyle4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.visualRichTextBox1.TextStyle = textStyle4;
+            this.RtbxIntroduction.TextStyle = textStyle4;
             // 
             // FrmHelp
             // 
@@ -158,8 +158,9 @@
             this.Border.Thickness = 3;
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.visualRichTextBox1);
+            this.ClientSize = new System.Drawing.Size(800, 458);
+            this.Controls.Add(this.RtbxIntroduction);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             border1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             border1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             border1.HoverVisible = false;
@@ -168,7 +169,7 @@
             border1.Type = VisualPlus.Enumerators.ShapeType.Rounded;
             border1.Visible = false;
             this.Image.Border = border1;
-            this.Image.Image = ((System.Drawing.Bitmap)(resources.GetObject("resource.Image3")));
+            this.Image.Image = global::HArCKtecture.Properties.Resources.FormLogo1;
             this.Image.Point = new System.Drawing.Point(5, 7);
             this.Image.Size = new System.Drawing.Size(16, 16);
             this.Image.Visible = true;
@@ -178,13 +179,13 @@
             this.Text = "Ajuda";
             this.TextRectangle = new System.Drawing.Rectangle(384, 7, 33, 16);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
-            this.Controls.SetChildIndex(this.visualRichTextBox1, 0);
+            this.Controls.SetChildIndex(this.RtbxIntroduction, 0);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox visualRichTextBox1;
+        private VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox RtbxIntroduction;
     }
 }
