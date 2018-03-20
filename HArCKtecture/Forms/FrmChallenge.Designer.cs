@@ -167,7 +167,7 @@
             border1.Type = VisualPlus.Enumerators.ShapeType.Rounded;
             border1.Visible = false;
             this.Image.Border = border1;
-            this.Image.Image = global::HArCKtecture.Properties.Resources.FormLogo1;
+            this.Image.Image = global::HArCKtecture.Properties.Resources.FormLogo;
             this.Image.Point = new System.Drawing.Point(5, 7);
             this.Image.Size = new System.Drawing.Size(16, 16);
             this.Image.Visible = true;

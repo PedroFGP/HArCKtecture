@@ -61,21 +61,11 @@ namespace HArCKtecture.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon FormLogo {
-            get {
-                object obj = ResourceManager.GetObject("FormLogo", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FormLogo1 {
+        internal static System.Drawing.Bitmap FormLogo {
             get {
-                object obj = ResourceManager.GetObject("FormLogo1", resourceCulture);
+                object obj = ResourceManager.GetObject("FormLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -87,16 +77,6 @@ namespace HArCKtecture.Properties {
             get {
                 object obj = ResourceManager.GetObject("LogoTaskBar", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap right_arrow {
-            get {
-                object obj = ResourceManager.GetObject("right_arrow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
