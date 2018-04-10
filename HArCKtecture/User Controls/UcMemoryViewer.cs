@@ -1,6 +1,8 @@
-﻿using HArCKtecture.Classes;
+﻿using Binarysharp.MemoryManagement;
+using HArCKtecture.Classes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
@@ -15,7 +17,7 @@ namespace HArCKtecture.User_Controls
     {
         #region Properties
 
-        private Challenge Current { get; set; }
+        private Challenge CurrentChallenge { get; set; }
 
         private WindowsProcess Process { get; set; }
 
@@ -27,11 +29,9 @@ namespace HArCKtecture.User_Controls
 
         public UcMemoryViewer(Challenge challenge)
         {
-            Current = challenge;
+            CurrentChallenge = challenge;
 
-            File.WriteAllBytes(Current.Name + ".exe", Current.ExecutableBytes);
-
-            Process = new WindowsProcess(Current.Name + ".exe", true);
+            StartChallengeProcess();
 
             InitializeComponent();
         }
@@ -66,6 +66,11 @@ namespace HArCKtecture.User_Controls
         private void TmrCheckAnswer_Tick(object sender, EventArgs e)
         {
             CheckForAnswer();
+        }
+
+        private void TmrCheckProcessAlive_Tick(object sender, EventArgs e)
+        {
+            CheckForProcessAlive();
         }
 
         private void CbxMemoryAddress_SelectedIndexChanged(object sender, EventArgs e)
@@ -157,7 +162,7 @@ namespace HArCKtecture.User_Controls
 
         private void CheckForAnswer()
         {
-            if (!UInt32.TryParse(Current.AnswerAddress.ToString(), NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint result))
+            if (!UInt32.TryParse(CurrentChallenge.AnswerAddress.ToString(), NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint result))
             {
                 return;
             }
@@ -168,15 +173,23 @@ namespace HArCKtecture.User_Controls
             {
                 TmrCheckAnswer.Stop();
 
-                Current.Finished = true;
+                CurrentChallenge.Finished = true;
 
                 MessageBox.Show(null, "Desafio concluído com sucesso!", "Parabéns", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Current.Save();
+                CurrentChallenge.Save();
 
                 Process.Memory.Windows.MainWindow.Close();
 
                 this.ParentForm.Close();
+            }
+        }
+
+        private void CheckForProcessAlive()
+        {
+            if (Process.Memory.IsRunning == false)
+            {
+                StartChallengeProcess();
             }
         }
 
@@ -213,7 +226,7 @@ namespace HArCKtecture.User_Controls
 
             CbxMemoryType.SetDictionaryDataSource(types);
 
-            var addressesDataSource = Current.Addresses.ToDictionary(addr => addr.Description + " (" + addr.Address.ToString("X") + ")", addr => addr.Address);
+            var addressesDataSource = CurrentChallenge.Addresses.ToDictionary(addr => addr.Description + " (" + addr.Address.ToString("X") + ")", addr => addr.Address);
 
             CbxMemoryAddress.SetDictionaryDataSource(addressesDataSource);
         }
@@ -314,7 +327,7 @@ namespace HArCKtecture.User_Controls
                     break;
             }
 
-            if(!read)
+            if (!read)
             {
                 RefreshMemoryView();
             }
@@ -377,7 +390,7 @@ namespace HArCKtecture.User_Controls
 
                 var uintAddr = Convert.ToUInt32(instruction.Address, 16);
 
-                addrBetween = Current.Addresses.Any(addr => addr.Address < uintAddr && addr.PairAddress > uintAddr);
+                addrBetween = CurrentChallenge.Addresses.Any(addr => addr.Address < uintAddr && addr.PairAddress > uintAddr);
 
                 if (addrBetween)
                 {
@@ -385,11 +398,11 @@ namespace HArCKtecture.User_Controls
                     addrBetween = false;
                 }
 
-                var specialAddr = Current.Addresses.FirstOrDefault(addr => addr.Address == uintAddr);
+                var specialAddr = CurrentChallenge.Addresses.FirstOrDefault(addr => addr.Address == uintAddr);
 
-                if(specialAddr != null)
+                if (specialAddr != null)
                 {
-                    switch(specialAddr.Type)
+                    switch (specialAddr.Type)
                     {
                         case AddressType.SINGLE:
                             lastItem.BackColor = Color.LightBlue;
@@ -401,6 +414,15 @@ namespace HArCKtecture.User_Controls
                     }
                 }
             }
+        }
+
+        private void StartChallengeProcess()
+        {
+            File.WriteAllBytes(CurrentChallenge.Name + ".exe", CurrentChallenge.ExecutableBytes);
+
+            Process = new WindowsProcess(CurrentChallenge.Name + ".exe", true);
+
+            File.Delete(CurrentChallenge.Name + ".exe");
         }
 
         #endregion
