@@ -33,9 +33,8 @@
             VisualPlus.Structure.TextStyle textStyle1 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle2 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
-            VisualPlus.Structure.TextStyle textStyle4 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
-            this.RtbxIntroduction = new VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox();
+            this.htmlPanel1 = new TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel();
             this.SuspendLayout();
             // 
             // _visualControlBox
@@ -119,33 +118,17 @@
             this._visualControlBox.MinimizeButton.TextStyle = textStyle3;
             this._visualControlBox.Size = new System.Drawing.Size(72, 25);
             // 
-            // RtbxIntroduction
+            // htmlPanel1
             // 
-            this.RtbxIntroduction.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.RtbxIntroduction.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.RtbxIntroduction.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.RtbxIntroduction.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.RtbxIntroduction.Border.HoverVisible = true;
-            this.RtbxIntroduction.Border.Rounding = 6;
-            this.RtbxIntroduction.Border.Thickness = 1;
-            this.RtbxIntroduction.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.RtbxIntroduction.Border.Visible = true;
-            this.RtbxIntroduction.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RtbxIntroduction.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.RtbxIntroduction.Location = new System.Drawing.Point(15, 104);
-            this.RtbxIntroduction.MaxLength = 2147483647;
-            this.RtbxIntroduction.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.RtbxIntroduction.Name = "RtbxIntroduction";
-            this.RtbxIntroduction.ReadOnly = false;
-            this.RtbxIntroduction.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
-            this.RtbxIntroduction.ShowSelectionMargin = false;
-            this.RtbxIntroduction.Size = new System.Drawing.Size(767, 297);
-            this.RtbxIntroduction.TabIndex = 1;
-            textStyle4.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle4.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle4.Hover = System.Drawing.Color.Empty;
-            textStyle4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.RtbxIntroduction.TextStyle = textStyle4;
+            this.htmlPanel1.AutoScroll = true;
+            this.htmlPanel1.AutoScrollMinSize = new System.Drawing.Size(784, 20);
+            this.htmlPanel1.BackColor = System.Drawing.SystemColors.Window;
+            this.htmlPanel1.BaseStylesheet = null;
+            this.htmlPanel1.Location = new System.Drawing.Point(8, 30);
+            this.htmlPanel1.Name = "htmlPanel1";
+            this.htmlPanel1.Size = new System.Drawing.Size(784, 406);
+            this.htmlPanel1.TabIndex = 2;
+            this.htmlPanel1.Text = "htmlPanel1";
             // 
             // FrmIntroduction
             // 
@@ -159,7 +142,7 @@
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
             this.ClientSize = new System.Drawing.Size(800, 458);
-            this.Controls.Add(this.RtbxIntroduction);
+            this.Controls.Add(this.htmlPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             border1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             border1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
@@ -177,15 +160,15 @@
             this.MinimizeBox = true;
             this.Name = "FrmIntroduction";
             this.Text = "Introdução";
-            this.TextRectangle = new System.Drawing.Rectangle(371, 7, 58, 16);
+            this.TextRectangle = new System.Drawing.Rectangle(368, 7, 64, 13);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
-            this.Controls.SetChildIndex(this.RtbxIntroduction, 0);
+            this.Controls.SetChildIndex(this.htmlPanel1, 0);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox RtbxIntroduction;
+        private TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel htmlPanel1;
     }
 }
