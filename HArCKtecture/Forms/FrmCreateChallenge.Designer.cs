@@ -888,7 +888,6 @@
             this.LsvAddresses.HeaderText = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.LsvAddresses.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.LsvAddresses.ItemPadding = 12;
-            this.LsvAddresses.ItemSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.LsvAddresses.LabelWrap = true;
             this.LsvAddresses.LargeImageList = null;
             this.LsvAddresses.Location = new System.Drawing.Point(235, 40);

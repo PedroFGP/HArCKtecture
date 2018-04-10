@@ -14,7 +14,7 @@ namespace HArCKtecture
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmIntroduction());
+            Application.Run(new FrmMain());
         }
     }
 }

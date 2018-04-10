@@ -567,7 +567,6 @@
             this.LsvMemory.HeaderText = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.LsvMemory.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.LsvMemory.ItemPadding = 12;
-            this.LsvMemory.ItemSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.LsvMemory.LabelWrap = true;
             this.LsvMemory.LargeImageList = null;
             this.LsvMemory.Location = new System.Drawing.Point(12, 45);
