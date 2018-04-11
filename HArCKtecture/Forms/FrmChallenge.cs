@@ -29,7 +29,8 @@ namespace HArCKtecture.Forms
 
         private void FrmChallenge_Load(object sender, System.EventArgs e)
         {
-            
+            FrmIntroduction frmIntro = new FrmIntroduction();
+            frmIntro.Show();
         }
 
         #endregion

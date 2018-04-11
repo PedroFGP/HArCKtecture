@@ -26,6 +26,9 @@ namespace HArCKtecture.Forms
 
         private void FrmMain_Load(object sender, System.EventArgs e)
         {
+            FrmIntroduction frmIntro = new FrmIntroduction();
+            frmIntro.Show();
+
             LoadChallenges();
         }
 

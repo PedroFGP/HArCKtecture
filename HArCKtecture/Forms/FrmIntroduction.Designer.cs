@@ -34,7 +34,7 @@
             VisualPlus.Structure.TextStyle textStyle2 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
-            this.htmlPanel1 = new TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel();
+            this.HtmlPainel = new TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel();
             this.SuspendLayout();
             // 
             // _visualControlBox
@@ -118,17 +118,15 @@
             this._visualControlBox.MinimizeButton.TextStyle = textStyle3;
             this._visualControlBox.Size = new System.Drawing.Size(72, 25);
             // 
-            // htmlPanel1
+            // HtmlPainel
             // 
-            this.htmlPanel1.AutoScroll = true;
-            this.htmlPanel1.AutoScrollMinSize = new System.Drawing.Size(784, 20);
-            this.htmlPanel1.BackColor = System.Drawing.SystemColors.Window;
-            this.htmlPanel1.BaseStylesheet = null;
-            this.htmlPanel1.Location = new System.Drawing.Point(8, 30);
-            this.htmlPanel1.Name = "htmlPanel1";
-            this.htmlPanel1.Size = new System.Drawing.Size(784, 406);
-            this.htmlPanel1.TabIndex = 2;
-            this.htmlPanel1.Text = "htmlPanel1";
+            this.HtmlPainel.AutoScroll = true;
+            this.HtmlPainel.BackColor = System.Drawing.SystemColors.Window;
+            this.HtmlPainel.BaseStylesheet = null;
+            this.HtmlPainel.Location = new System.Drawing.Point(8, 30);
+            this.HtmlPainel.Name = "HtmlPainel";
+            this.HtmlPainel.Size = new System.Drawing.Size(784, 406);
+            this.HtmlPainel.TabIndex = 2;
             // 
             // FrmIntroduction
             // 
@@ -142,7 +140,7 @@
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
             this.ClientSize = new System.Drawing.Size(800, 458);
-            this.Controls.Add(this.htmlPanel1);
+            this.Controls.Add(this.HtmlPainel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             border1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             border1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
@@ -161,14 +159,15 @@
             this.Name = "FrmIntroduction";
             this.Text = "Introdução";
             this.TextRectangle = new System.Drawing.Rectangle(368, 7, 64, 13);
+            this.Load += new System.EventHandler(this.FrmIntroduction_Load);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
-            this.Controls.SetChildIndex(this.htmlPanel1, 0);
+            this.Controls.SetChildIndex(this.HtmlPainel, 0);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel htmlPanel1;
+        private TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel HtmlPainel;
     }
 }
