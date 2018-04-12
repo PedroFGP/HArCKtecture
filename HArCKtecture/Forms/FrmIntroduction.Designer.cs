@@ -33,8 +33,10 @@
             VisualPlus.Structure.TextStyle textStyle1 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle2 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle4 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
             this.HtmlPainel = new TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel();
+            this.BtnClose = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.SuspendLayout();
             // 
             // _visualControlBox
@@ -121,17 +123,51 @@
             // HtmlPainel
             // 
             this.HtmlPainel.AutoScroll = true;
-            this.HtmlPainel.BackColor = System.Drawing.SystemColors.Window;
+            this.HtmlPainel.BackColor = System.Drawing.Color.Gainsboro;
             this.HtmlPainel.BaseStylesheet = null;
             this.HtmlPainel.Location = new System.Drawing.Point(8, 30);
             this.HtmlPainel.Name = "HtmlPainel";
-            this.HtmlPainel.Size = new System.Drawing.Size(784, 406);
+            this.HtmlPainel.Size = new System.Drawing.Size(784, 380);
             this.HtmlPainel.TabIndex = 2;
+            this.HtmlPainel.Text = null;
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnClose.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.BtnClose.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnClose.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnClose.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.BtnClose.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.BtnClose.Border.HoverVisible = true;
+            this.BtnClose.Border.Rounding = 6;
+            this.BtnClose.Border.Thickness = 1;
+            this.BtnClose.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.BtnClose.Border.Visible = true;
+            this.BtnClose.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BtnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnClose.Image = null;
+            this.BtnClose.Location = new System.Drawing.Point(735, 416);
+            this.BtnClose.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(57, 25);
+            this.BtnClose.TabIndex = 3;
+            this.BtnClose.Text = "Fechar";
+            this.BtnClose.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.BtnClose.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            textStyle4.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle4.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle4.Hover = System.Drawing.Color.Empty;
+            textStyle4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnClose.TextStyle = textStyle4;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // FrmIntroduction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Background = System.Drawing.Color.Gainsboro;
             this.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.Border.HoverVisible = true;
@@ -139,7 +175,8 @@
             this.Border.Thickness = 3;
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
-            this.ClientSize = new System.Drawing.Size(800, 458);
+            this.ClientSize = new System.Drawing.Size(800, 449);
+            this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.HtmlPainel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             border1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
@@ -162,6 +199,7 @@
             this.Load += new System.EventHandler(this.FrmIntroduction_Load);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
             this.Controls.SetChildIndex(this.HtmlPainel, 0);
+            this.Controls.SetChildIndex(this.BtnClose, 0);
             this.ResumeLayout(false);
 
         }
@@ -169,5 +207,6 @@
         #endregion
 
         private TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel HtmlPainel;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnClose;
     }
 }
