@@ -10,7 +10,6 @@ namespace HArCKtecture.Forms
     {
         private Challenge LoadedChallenge;
         private UcMemoryViewer MemoryViewer;
-        private FrmIntroduction frmIntro;
 
         #region Constructor
 
@@ -18,8 +17,6 @@ namespace HArCKtecture.Forms
             :base()
         {
             LoadedChallenge = challenge;
-
-            frmIntro = new FrmIntroduction(LoadedChallenge);
 
             InitializeComponent();
 
@@ -32,7 +29,6 @@ namespace HArCKtecture.Forms
 
         private void FrmChallenge_Load(object sender, System.EventArgs e)
         {
-            frmIntro.Show();
         }
 
         #endregion
@@ -49,21 +45,7 @@ namespace HArCKtecture.Forms
             };
 
             this.MainPanel.Controls.Add(MemoryViewer);
-
-            var a = MainPanel.Size;
         }
-
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.F1)
-            {
-                frmIntro.Show();
-            }
-
-            // Call the base class
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-
         #endregion
     }
 }

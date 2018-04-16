@@ -565,13 +565,16 @@
             this.LsvMemory.HeaderFont = new System.Drawing.Font("Segoe UI", 8.25F);
             this.LsvMemory.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.LsvMemory.HeaderText = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LsvMemory.HoverItem = false;
             this.LsvMemory.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.LsvMemory.ItemPadding = 12;
+            this.LsvMemory.ItemSelected = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.LsvMemory.LabelWrap = true;
             this.LsvMemory.LargeImageList = null;
             this.LsvMemory.Location = new System.Drawing.Point(12, 45);
             this.LsvMemory.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.LsvMemory.Name = "LsvMemory";
+            this.LsvMemory.OwnerDraw = true;
             this.LsvMemory.ShowGroups = true;
             this.LsvMemory.Size = new System.Drawing.Size(907, 559);
             this.LsvMemory.SmallImageList = null;

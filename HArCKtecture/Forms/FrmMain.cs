@@ -7,7 +7,6 @@ using ZeroFormatter;
 using HArCKtecture.User_Controls;
 using System.Drawing;
 using VisualPlus.Toolkit.Dialogs;
-using System;
 
 namespace HArCKtecture.Forms
 {
@@ -27,6 +26,9 @@ namespace HArCKtecture.Forms
         private void FrmMain_Load(object sender, System.EventArgs e)
         {
             LoadChallenges();
+
+            FrmIntroduction frmIntro = new FrmIntroduction(null);
+            frmIntro.Show();
         }
 
         private void LblAbout_Click(object sender, System.EventArgs e)

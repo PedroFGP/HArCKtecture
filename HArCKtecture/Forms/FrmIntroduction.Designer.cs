@@ -49,6 +49,7 @@
             this._visualControlBox.HelpButton.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
             this._visualControlBox.HelpButton.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this._visualControlBox.HelpButton.BoxType = VisualPlus.Structure.ControlBoxButton.ControlBoxType.Default;
+            this._visualControlBox.HelpButton.Enabled = false;
             this._visualControlBox.HelpButton.ForeColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this._visualControlBox.HelpButton.ForeColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this._visualControlBox.HelpButton.ForeColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -123,7 +124,7 @@
             // HtmlPainel
             // 
             this.HtmlPainel.AutoScroll = true;
-            this.HtmlPainel.BackColor = System.Drawing.Color.Gainsboro;
+            this.HtmlPainel.BackColor = System.Drawing.Color.White;
             this.HtmlPainel.BaseStylesheet = null;
             this.HtmlPainel.Location = new System.Drawing.Point(8, 30);
             this.HtmlPainel.Name = "HtmlPainel";
@@ -167,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Background = System.Drawing.Color.Gainsboro;
+            this.Background = System.Drawing.Color.White;
             this.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.Border.HoverVisible = true;

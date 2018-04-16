@@ -169,7 +169,7 @@ namespace HArCKtecture.User_Controls
 
             var address = new IntPtr(result);
 
-            if (Process.Memory.Read<byte>(address, false) == 0x1)
+            if (Process.Memory.IsRunning && Process.Memory.Read<byte>(address, false) == 0x1)
             {
                 TmrCheckAnswer.Stop();
 
@@ -418,11 +418,19 @@ namespace HArCKtecture.User_Controls
 
         private void StartChallengeProcess()
         {
-            File.WriteAllBytes(CurrentChallenge.Name + ".exe", CurrentChallenge.ExecutableBytes);
+            try
+            {
+                File.WriteAllBytes(CurrentChallenge.Name + ".exe", CurrentChallenge.ExecutableBytes);
 
-            Process = new WindowsProcess(CurrentChallenge.Name + ".exe", true);
-
-            File.Delete(CurrentChallenge.Name + ".exe");
+                Process = new WindowsProcess(CurrentChallenge.Name + ".exe", true);
+            }
+            catch(Exception ex)
+            {
+                if(ex is IOException)
+                {
+                    
+                }
+            }
         }
 
         #endregion
