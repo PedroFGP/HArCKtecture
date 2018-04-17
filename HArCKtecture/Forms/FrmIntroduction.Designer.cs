@@ -68,7 +68,7 @@
             textStyle1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this._visualControlBox.HelpButton.TextStyle = textStyle1;
             this._visualControlBox.HelpButton.Visible = false;
-            this._visualControlBox.Location = new System.Drawing.Point(725, 3);
+            this._visualControlBox.Location = new System.Drawing.Point(525, 3);
             // 
             // 
             // 
@@ -124,11 +124,11 @@
             // HtmlPainel
             // 
             this.HtmlPainel.AutoScroll = true;
-            this.HtmlPainel.BackColor = System.Drawing.Color.White;
+            this.HtmlPainel.BackColor = System.Drawing.Color.Gainsboro;
             this.HtmlPainel.BaseStylesheet = null;
-            this.HtmlPainel.Location = new System.Drawing.Point(8, 30);
+            this.HtmlPainel.Location = new System.Drawing.Point(50, 60);
             this.HtmlPainel.Name = "HtmlPainel";
-            this.HtmlPainel.Size = new System.Drawing.Size(784, 380);
+            this.HtmlPainel.Size = new System.Drawing.Size(500, 320);
             this.HtmlPainel.TabIndex = 2;
             this.HtmlPainel.Text = null;
             // 
@@ -148,7 +148,7 @@
             this.BtnClose.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.BtnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnClose.Image = null;
-            this.BtnClose.Location = new System.Drawing.Point(735, 416);
+            this.BtnClose.Location = new System.Drawing.Point(525, 410);
             this.BtnClose.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(57, 25);
@@ -168,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Background = System.Drawing.Color.White;
+            this.Background = System.Drawing.Color.Gainsboro;
             this.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
             this.Border.HoverVisible = true;
@@ -176,7 +176,7 @@
             this.Border.Thickness = 3;
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
-            this.ClientSize = new System.Drawing.Size(800, 449);
+            this.ClientSize = new System.Drawing.Size(600, 449);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.HtmlPainel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -196,7 +196,7 @@
             this.MinimizeBox = true;
             this.Name = "FrmIntroduction";
             this.Text = "Introdução";
-            this.TextRectangle = new System.Drawing.Rectangle(368, 7, 64, 13);
+            this.TextRectangle = new System.Drawing.Rectangle(268, 7, 64, 13);
             this.Load += new System.EventHandler(this.FrmIntroduction_Load);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
             this.Controls.SetChildIndex(this.HtmlPainel, 0);

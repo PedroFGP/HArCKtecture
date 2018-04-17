@@ -169,23 +169,6 @@
         qdsAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="RTbxAbout.Text" xml:space="preserve">
-    <value>Ícones:
-
-- Smashicons, www.flaticon.com licenciado por CC 3.0 BY
-
-- Freepik, www.flaticon.com licenciado por CC 3.0 BY
-
-Desenvolvido por:
-
-- Pedro Ferreira Glenadel Pereira
-
-Bibliotecas utilizadas:
-
-- SharpDisasm
-
-- Visual Plus</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIABxGQAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgGAAAAXHKoZgAAGThJ

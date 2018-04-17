@@ -143,7 +143,6 @@
             this.RTbxAbout.ShowSelectionMargin = false;
             this.RTbxAbout.Size = new System.Drawing.Size(400, 210);
             this.RTbxAbout.TabIndex = 1;
-            this.RTbxAbout.Text = resources.GetString("RTbxAbout.Text");
             textStyle4.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             textStyle4.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             textStyle4.Hover = System.Drawing.Color.Empty;
@@ -169,7 +168,7 @@
             this.BtnBack.Location = new System.Drawing.Point(10, 260);
             this.BtnBack.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.BtnBack.Name = "BtnBack";
-            this.BtnBack.Size = new System.Drawing.Size(75, 28);
+            this.BtnBack.Size = new System.Drawing.Size(58, 25);
             this.BtnBack.TabIndex = 2;
             this.BtnBack.Text = "Voltar";
             this.BtnBack.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -209,10 +208,11 @@
             this.Image.Point = new System.Drawing.Point(5, 7);
             this.Image.Size = new System.Drawing.Size(16, 16);
             this.Image.Visible = true;
-            this.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.Magnetic = false;
+            this.MaximizeBox = true;
+            this.MinimizeBox = true;
             this.Name = "FrmAbout";
             this.Text = "Sobre";
+            this.TextRectangle = new System.Drawing.Rectangle(192, 7, 37, 13);
             this.Controls.SetChildIndex(this.RTbxAbout, 0);
             this.Controls.SetChildIndex(this.BtnBack, 0);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
