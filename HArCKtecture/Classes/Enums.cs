@@ -53,4 +53,11 @@ namespace HArCKtecture.Classes
         END,
         SINGLE
     }
+
+    public enum OperationType
+    {
+        READ,
+        WRITE,
+        ASM_OVERWRITE
+    }
 }

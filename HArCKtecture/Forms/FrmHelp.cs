@@ -8,35 +8,32 @@ using VisualPlus.Toolkit.Dialogs;
 
 namespace HArCKtecture.Forms
 {
-    public partial class FrmIntroduction : VisualForm
+    public partial class FrmHelp : VisualForm
     {
         #region Property
 
         private Challenge LoadedChallenge { get; set; }
 
         private static string baseHTML = @"
-       <body style='font: 10pt Tahoma'>
-    <table style='border: 1px solid maroon; margin-top: 5px'>
-        <tr style='vertical-align: top;'>
-            <td width='32' style='padding: 2px 0 0 0'>
-                <img src='info' />
-            </td>
-            <td>This <i>text</i> is inside a <b>table</b> <u>element</u>.<br />
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare mollis elit.
-            </td>
-        </tr>
-    </table>
-    <ul style='margin-top: 5px'>
-        <li><span style='color: red'>Colors</span></li>
-        <li><span style='background-color: #8dd'>Back colors</span></li>
-    </ul>
-</body>";
+        <body style='font: 12pt Segoe UI;'>
+            <h1 style='font: 16pt Segoe UI; text-align: center;'>{Title}</h1>
+            <table style='border: 2px solid black; margin: 0px auto;' align='center'>
+            <tr style='vertical-align: middle; text-align: center;'>
+                <td style='padding: 5px;'>
+                    <img src='info'/>
+                </td>
+                <td style='padding: 5px;'>
+                    {Description}
+                </td>
+            </tr>
+            </table>
+        </body>";
 
         #endregion
 
         #region Constructor
 
-        public FrmIntroduction(Challenge challenge)
+        public FrmHelp(Challenge challenge)
         {
             LoadedChallenge = challenge;
 
@@ -44,12 +41,6 @@ namespace HArCKtecture.Forms
 
             HtmlPainel.ImageLoad += HtmlPainel_ImageLoad;
             HtmlPainel.RenderError += HtmlPainel_RenderError;
-            HtmlPainel.Validated += HtmlPainel_Validated;
-        }
-
-        private void HtmlPainel_Validated(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion
@@ -62,8 +53,8 @@ namespace HArCKtecture.Forms
 
             if (LoadedChallenge != null)
             {
-                HtmlPainel.Text = HtmlPainel.Text.Replace("{0}", LoadedChallenge.Name)
-               .Replace("{1}", LoadedChallenge.Description);
+                HtmlPainel.Text = HtmlPainel.Text.Replace("{Title}", LoadedChallenge.Name)
+               .Replace("{Description}", LoadedChallenge.Description);
             }
         }
 

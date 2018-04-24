@@ -205,7 +205,10 @@ namespace HArCKtecture.Forms
                 Order = NupOrder.Value,
                 Finished = false,
                 Addresses = Addresses,
-                ExecutableBytes = File.ReadAllBytes(TbxFilePath.Text)
+                ExecutableBytes = File.ReadAllBytes(TbxFilePath.Text),
+                Cheated = false,
+                RemoteProcessCrashes = 0,
+                Operations = new List<Operation>()
             };
 
             newChallenge.Save();

@@ -10,7 +10,6 @@ namespace HArCKtecture.Forms
     {
         private Challenge LoadedChallenge;
         private UcMemoryViewer MemoryViewer;
-        private FrmIntroduction FrmIntro;
 
         #region Constructor
 
@@ -22,19 +21,11 @@ namespace HArCKtecture.Forms
             InitializeComponent();
 
             LoadMemoryViewer();
-
-            FrmIntro = new FrmIntroduction(challenge);
         }
 
         #endregion
 
         #region Events
-
-        private void FrmChallenge_Load(object sender, System.EventArgs e)
-        {
-            FrmIntro.Show();
-            FrmIntro.Focus();
-        }
 
         #endregion
 
@@ -51,6 +42,7 @@ namespace HArCKtecture.Forms
 
             this.MainPanel.Controls.Add(MemoryViewer);
         }
+
         #endregion
     }
 }

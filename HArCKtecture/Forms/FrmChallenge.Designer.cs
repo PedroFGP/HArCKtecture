@@ -176,7 +176,7 @@
             this.Name = "FrmChallenge";
             this.Sizable = false;
             this.Text = "FrmChallenge";
-            this.Load += new System.EventHandler(this.FrmChallenge_Load);
+            this.TextRectangle = new System.Drawing.Rectangle(596, 7, 78, 13);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
             this.Controls.SetChildIndex(this.MainPanel, 0);
             this.ResumeLayout(false);

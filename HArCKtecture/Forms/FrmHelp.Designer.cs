@@ -1,6 +1,6 @@
 ﻿namespace HArCKtecture.Forms
 {
-    partial class FrmIntroduction
+    partial class FrmHelp
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIntroduction));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHelp));
             VisualPlus.Structure.TextStyle textStyle1 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle2 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
@@ -195,7 +195,7 @@
             this.MaximizeBox = true;
             this.MinimizeBox = true;
             this.Name = "FrmIntroduction";
-            this.Text = "Introdução";
+            this.Text = "Ajuda";
             this.TextRectangle = new System.Drawing.Rectangle(268, 7, 64, 13);
             this.Load += new System.EventHandler(this.FrmIntroduction_Load);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
