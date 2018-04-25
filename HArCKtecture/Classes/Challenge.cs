@@ -44,13 +44,13 @@ namespace HArCKtecture.Classes
         public virtual TimeSpan TotalTime { get; set; }
 
         [Index(11)]
-        public virtual uint MemoryOperations { get; set; }
-
-        [Index(12)]
         public virtual uint RemoteProcessCrashes { get; set; }
 
-        [Index(13)]
+        [Index(12)]
         public virtual bool Cheated { get; set; }
+
+        [Index(13)]
+        public virtual IList<Operation> Operations { get; set; }
 
         #endregion
 

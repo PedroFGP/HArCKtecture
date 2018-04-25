@@ -1,5 +1,6 @@
 ﻿using Binarysharp.MemoryManagement;
 using HArCKtecture.Classes;
+using HArCKtecture.Forms;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,6 +9,7 @@ using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using WindowsAPI;
 
@@ -23,6 +25,10 @@ namespace HArCKtecture.User_Controls
 
         private uint LastestAddress { get; set; }
 
+        private FrmHelp HelpForm;
+
+        private Stopwatch Watch = new Stopwatch();
+
         #endregion
 
         #region Constructor
@@ -30,6 +36,8 @@ namespace HArCKtecture.User_Controls
         public UcMemoryViewer(Challenge challenge)
         {
             CurrentChallenge = challenge;
+
+            HelpForm = new FrmHelp(challenge);
 
             StartChallengeProcess();
 
@@ -51,6 +59,19 @@ namespace HArCKtecture.User_Controls
             RegisterContainedControlsEvents();
 
             TmrCheckAnswer.Start();
+
+            while (Process.Memory.Windows.MainWindowHandle == IntPtr.Zero)
+            {
+                Thread.Sleep(100);
+            }
+
+            HelpForm.StartPosition = FormStartPosition.CenterScreen;
+            HelpForm.TopMost = true;
+            HelpForm.ShowDialog();
+            HelpForm.Focus();
+            HelpForm.TopMost = false;
+
+            Watch.Start();
         }
 
         private void CbxMemoryAddress_TextUpdate(object sender, EventArgs e)
@@ -128,6 +149,11 @@ namespace HArCKtecture.User_Controls
             LsvMemory.Columns[2].Width = LsvMemory.Width - 10;
         }
 
+        protected override void OnHandleDestroyed(EventArgs e)
+        {
+            Process.Memory.Native.Kill();
+        }
+
         #endregion
 
         #region Methods
@@ -174,6 +200,10 @@ namespace HArCKtecture.User_Controls
                 TmrCheckAnswer.Stop();
 
                 CurrentChallenge.Finished = true;
+                Watch.Stop();
+
+                CurrentChallenge.TotalTime = Watch.Elapsed;
+                
 
                 MessageBox.Show(null, "Desafio concluído com sucesso!", "Parabéns", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -210,6 +240,14 @@ namespace HArCKtecture.User_Controls
 
                 Process.Memory.Assembly.Inject(RbtxCode.Text, ptrAddress);
 
+                CurrentChallenge.Operations.Add(new Operation()
+                {
+                    Address = result,
+                    OperationType = OperationType.ASM_OVERWRITE,
+                    Value = RbtxCode.Text,
+                    ElapsedTime = Watch.Elapsed
+                });
+
                 RefreshMemoryView();
             }
         }
@@ -244,6 +282,14 @@ namespace HArCKtecture.User_Controls
             }
 
             var ptrAddress = new IntPtr(result);
+
+            if (!read)
+            {
+                if (result == CurrentChallenge.AnswerAddress)
+                {
+                    CurrentChallenge.Cheated = true;
+                }
+            }
 
             switch ((DataType)CbxMemoryType.SelectedValue)
             {
@@ -326,6 +372,14 @@ namespace HArCKtecture.User_Controls
                     }
                     break;
             }
+
+            CurrentChallenge.Operations.Add(new Operation()
+            {
+                Address = result,
+                OperationType = (read) ? OperationType.READ : OperationType.WRITE,
+                Value = TbxMemoryValue.Text,
+                ElapsedTime = Watch.Elapsed
+            });
 
             if (!read)
             {
@@ -418,19 +472,17 @@ namespace HArCKtecture.User_Controls
 
         private void StartChallengeProcess()
         {
-            try
-            {
-                File.WriteAllBytes(CurrentChallenge.Name + ".exe", CurrentChallenge.ExecutableBytes);
+            var proc = System.Diagnostics.Process.GetProcessesByName(CurrentChallenge.Name).FirstOrDefault();
 
-                Process = new WindowsProcess(CurrentChallenge.Name + ".exe", true);
-            }
-            catch(Exception ex)
+            if (proc != null)
             {
-                if(ex is IOException)
-                {
-                    
-                }
+                proc.Kill();
             }
+
+            File.WriteAllBytes(CurrentChallenge.Name + ".exe", CurrentChallenge.ExecutableBytes);
+
+            Process = new WindowsProcess(CurrentChallenge.Name + ".exe", true);
+
         }
 
         #endregion

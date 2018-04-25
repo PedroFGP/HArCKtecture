@@ -27,10 +27,6 @@ namespace HArCKtecture.Forms
 
         #region Events
 
-        private void FrmChallenge_Load(object sender, System.EventArgs e)
-        {
-        }
-
         #endregion
 
         #region Methods
@@ -46,6 +42,7 @@ namespace HArCKtecture.Forms
 
             this.MainPanel.Controls.Add(MemoryViewer);
         }
+
         #endregion
     }
 }

@@ -8,47 +8,32 @@ using VisualPlus.Toolkit.Dialogs;
 
 namespace HArCKtecture.Forms
 {
-    public partial class FrmIntroduction : VisualForm
+    public partial class FrmHelp : VisualForm
     {
         #region Property
 
         private Challenge LoadedChallenge { get; set; }
 
         private static string baseHTML = @"
-        <!DOCTYPE html>
-        <html>
-        <style>
-            h1 {
-                font-family: Segoe UI;
-                font-size: 28px;
-                font-style: bold;
-                font-variant: normal;
-                font-weight: 400;
-                line-height: 28px;
-            }
-            p {
-                font-family: Segoe UI;
-                font-size: 16px;
-                font-style: normal;
-                font-variant: normal;
-                font-weight: 400;
-                line-height: 16px;
-            }
-        </style>
-        <body bgcolor='#DCDCDC'>
-            <h1 style='text-align: center;'>{0}</h1>
-            <div><img src='info'></div>
-            <div style='padding-top:5px'>
-                <p style='text-align: center;'>{1}</p>
-            </div>
-        </body>
-        </html>";
+        <body style='font: 12pt Segoe UI;'>
+            <h1 style='font: 16pt Segoe UI; text-align: center;'>{Title}</h1>
+            <table style='border: 2px solid black; margin: 0px auto;' align='center'>
+            <tr style='vertical-align: middle; text-align: center;'>
+                <td style='padding: 5px;'>
+                    <img src='info'/>
+                </td>
+                <td style='padding: 5px;'>
+                    {Description}
+                </td>
+            </tr>
+            </table>
+        </body>";
 
         #endregion
 
         #region Constructor
 
-        public FrmIntroduction(Challenge challenge)
+        public FrmHelp(Challenge challenge)
         {
             LoadedChallenge = challenge;
 
@@ -68,8 +53,8 @@ namespace HArCKtecture.Forms
 
             if (LoadedChallenge != null)
             {
-                HtmlPainel.Text = HtmlPainel.Text.Replace("{0}", LoadedChallenge.Name)
-               .Replace("{1}", LoadedChallenge.Description);
+                HtmlPainel.Text = HtmlPainel.Text.Replace("{Title}", LoadedChallenge.Name)
+               .Replace("{Description}", LoadedChallenge.Description);
             }
         }
 
