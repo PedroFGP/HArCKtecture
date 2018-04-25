@@ -36,11 +36,13 @@
             VisualPlus.Structure.TextStyle textStyle4 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle5 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle6 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle7 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
             this.LblAbout = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.FlpChallenges = new System.Windows.Forms.FlowLayoutPanel();
             this.LblAvailableChallenges = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.BtnCreateChallenge = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
+            this.BtnExit = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.SuspendLayout();
             // 
             // _visualControlBox
@@ -53,6 +55,8 @@
             this._visualControlBox.HelpButton.BackColorState.Enabled = System.Drawing.Color.Transparent;
             this._visualControlBox.HelpButton.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
             this._visualControlBox.HelpButton.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this._visualControlBox.HelpButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("resource.BackgroundImage")));
+            this._visualControlBox.HelpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this._visualControlBox.HelpButton.BoxType = VisualPlus.Structure.ControlBoxButton.ControlBoxType.Default;
             this._visualControlBox.HelpButton.ForeColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this._visualControlBox.HelpButton.ForeColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -187,9 +191,9 @@
             this.LblAvailableChallenges.ShadowDirection = 315;
             this.LblAvailableChallenges.ShadowLocation = new System.Drawing.Point(0, 0);
             this.LblAvailableChallenges.ShadowOpacity = 100;
-            this.LblAvailableChallenges.Size = new System.Drawing.Size(118, 23);
+            this.LblAvailableChallenges.Size = new System.Drawing.Size(216, 23);
             this.LblAvailableChallenges.TabIndex = 3;
-            this.LblAvailableChallenges.Text = "Desafios Disponíveis:";
+            this.LblAvailableChallenges.Text = "Desafios Disponíveis";
             this.LblAvailableChallenges.TextAlignment = System.Drawing.StringAlignment.Near;
             this.LblAvailableChallenges.TextLineAlignment = System.Drawing.StringAlignment.Center;
             textStyle5.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
@@ -214,7 +218,7 @@
             this.BtnCreateChallenge.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.BtnCreateChallenge.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnCreateChallenge.Image = null;
-            this.BtnCreateChallenge.Location = new System.Drawing.Point(522, 74);
+            this.BtnCreateChallenge.Location = new System.Drawing.Point(20, 466);
             this.BtnCreateChallenge.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.BtnCreateChallenge.Name = "BtnCreateChallenge";
             this.BtnCreateChallenge.Size = new System.Drawing.Size(98, 20);
@@ -230,6 +234,37 @@
             this.BtnCreateChallenge.TextStyle = textStyle6;
             this.BtnCreateChallenge.Click += new System.EventHandler(this.BtnCreateChallenge_Click);
             // 
+            // BtnExit
+            // 
+            this.BtnExit.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnExit.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.BtnExit.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnExit.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnExit.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.BtnExit.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.BtnExit.Border.HoverVisible = true;
+            this.BtnExit.Border.Rounding = 6;
+            this.BtnExit.Border.Thickness = 1;
+            this.BtnExit.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.BtnExit.Border.Visible = true;
+            this.BtnExit.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BtnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnExit.Image = null;
+            this.BtnExit.Location = new System.Drawing.Point(560, 466);
+            this.BtnExit.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(60, 20);
+            this.BtnExit.TabIndex = 5;
+            this.BtnExit.Text = "Sair";
+            this.BtnExit.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BtnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.BtnExit.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            textStyle7.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle7.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle7.Hover = System.Drawing.Color.Empty;
+            textStyle7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnExit.TextStyle = textStyle7;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,7 +277,8 @@
             this.Border.Thickness = 3;
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
-            this.ClientSize = new System.Drawing.Size(640, 480);
+            this.ClientSize = new System.Drawing.Size(640, 500);
+            this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.BtnCreateChallenge);
             this.Controls.Add(this.LblAvailableChallenges);
             this.Controls.Add(this.FlpChallenges);
@@ -264,12 +300,14 @@
             this.MinimizeBox = true;
             this.Name = "FrmMain";
             this.Text = "HArCKtecture";
+            this.TextRectangle = new System.Drawing.Rectangle(283, 7, 75, 13);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.Controls.SetChildIndex(this.LblAbout, 0);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
             this.Controls.SetChildIndex(this.FlpChallenges, 0);
             this.Controls.SetChildIndex(this.LblAvailableChallenges, 0);
             this.Controls.SetChildIndex(this.BtnCreateChallenge, 0);
+            this.Controls.SetChildIndex(this.BtnExit, 0);
             this.ResumeLayout(false);
 
         }
@@ -279,6 +317,7 @@
         private System.Windows.Forms.FlowLayoutPanel FlpChallenges;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualLabel LblAvailableChallenges;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnCreateChallenge;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnExit;
     }
 }
 
