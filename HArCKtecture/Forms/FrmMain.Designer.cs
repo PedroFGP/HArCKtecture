@@ -193,7 +193,7 @@
             this.LblAvailableChallenges.ShadowOpacity = 100;
             this.LblAvailableChallenges.Size = new System.Drawing.Size(216, 23);
             this.LblAvailableChallenges.TabIndex = 3;
-            this.LblAvailableChallenges.Text = "Desafios Disponíveis {0}/{1}";
+            this.LblAvailableChallenges.Text = "Desafios Disponíveis - {0}/{1}";
             this.LblAvailableChallenges.TextAlignment = System.Drawing.StringAlignment.Near;
             this.LblAvailableChallenges.TextLineAlignment = System.Drawing.StringAlignment.Center;
             textStyle5.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));

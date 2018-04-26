@@ -54,11 +54,12 @@ namespace HArCKtecture.User_Controls
 
             RefreshMemoryView((uint)CbxMemoryAddress.SelectedValue);
 
-            LblMemoryView.Text = String.Format(LblMemoryView.Text, Process.Memory.Windows.MainWindow.Title + ", 0x" + Process.Memory.Modules.MainModule.BaseAddress.ToString("X"));
+            LblMemoryView.Text = String.Format(LblMemoryView.Text, Process.Memory.Windows.MainWindow.Title);
 
             RegisterContainedControlsEvents();
 
             TmrCheckAnswer.Start();
+            TmrCheckProcessAlive.Start();
 
             while (Process.Memory.Windows.MainWindowHandle == IntPtr.Zero)
             {
@@ -241,7 +242,14 @@ namespace HArCKtecture.User_Controls
 
                 NopRemainingBytes(LsvMemory.SelectedItems[0].Index, Asm.AssembleInstructions(RbtxCode.Text));
 
-                Process.Memory.Assembly.Inject(RbtxCode.Text, ptrAddress);
+                try
+                {
+                    Process.Memory.Assembly.Inject(RbtxCode.Text, ptrAddress);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 CurrentChallenge.Operations.Add(new Operation()
                 {

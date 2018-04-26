@@ -9,14 +9,11 @@ namespace HArCKtecture.Classes
 {
     public static class UniqueColorGenerator
     {
-        private static int ColorIndex = 0;
-        private static readonly int OFFSET_INCREMENT = 5000;
+        private static Random Rnd = new Random();
 
         public static Color Next()
         {
-            ColorIndex += OFFSET_INCREMENT;
-
-            return Color.FromArgb(255, Color.FromArgb(ColorIndex));
+            return Color.FromArgb(255, Rnd.Next(0, 256), Rnd.Next(0, 256), Rnd.Next(0, 256));
         }
     }
 }

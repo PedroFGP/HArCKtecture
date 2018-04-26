@@ -78,10 +78,27 @@ namespace HArCKtecture.Forms
 
             var highestChallengeOrder = challenges.Where(chl => chl.Finished == true).OrderByDescending(chl => chl.Order).FirstOrDefault();
 
-            var challengesOrder = challenges.GroupBy(chg => chg.Order).Select(chg => new {
-                Color = UniqueColorGenerator.Next(),
+            if(highestChallengeOrder == null)
+            {
+                highestChallengeOrder = challenges.OrderByDescending(chl => chl.Order).FirstOrDefault();
+            }
+
+            var challengesOrder = challenges.GroupBy(chg => chg.Order).Select(chg => new
+            {
+                Order = chg.Key,
                 Items = chg.ToList()
             });
+
+            var orderColors = new List<dynamic>();
+
+            foreach(var order in challengesOrder)
+            {
+                orderColors.Add(new
+                {
+                    Color = UniqueColorGenerator.Next(),
+                    order.Items
+                });
+            }
 
             long highestOrder = 0;
 
@@ -102,7 +119,7 @@ namespace HArCKtecture.Forms
                     Width = FlpChallenges.Size.Width - 10
                 };
 
-                var orderColor = challengesOrder.FirstOrDefault(chg => chg.Items.Contains(clg));
+                var orderColor = orderColors.FirstOrDefault(chg => chg.Items.Contains(clg));
 
                 if(orderColor != null)
                 {
