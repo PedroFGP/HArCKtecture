@@ -54,6 +54,11 @@ namespace HArCKtecture.Forms
             };
         }
 
+        private void BtnExit_Click(object sender, System.EventArgs e)
+        {
+            Close();
+        }
+
         #endregion
 
         #region Methods
@@ -73,6 +78,11 @@ namespace HArCKtecture.Forms
 
             var highestChallengeOrder = challenges.Where(chl => chl.Finished == true).OrderByDescending(chl => chl.Order).FirstOrDefault();
 
+            var challengesOrder = challenges.GroupBy(chg => chg.Order).Select(chg => new {
+                Color = UniqueColorGenerator.Next(),
+                Items = chg.ToList()
+            });
+
             long highestOrder = 0;
 
             if(highestChallengeOrder != null)
@@ -80,12 +90,26 @@ namespace HArCKtecture.Forms
                 highestOrder = highestChallengeOrder.Order;
             }
 
-            foreach (Challenge clg in challenges)
+            int totalChallenges = challenges.Count();
+            int completedChallenges = challenges.Count(chg => chg.Finished);
+
+            LblAvailableChallenges.Text = string.Format(LblAvailableChallenges.Text, completedChallenges, totalChallenges);
+
+            foreach (Challenge clg in challenges.OrderBy(chg => chg.Order).ToList())
             {
                 UcChallengeItem challengeUc = new UcChallengeItem(clg)
                 {
                     Width = FlpChallenges.Size.Width - 10
                 };
+
+                var orderColor = challengesOrder.FirstOrDefault(chg => chg.Items.Contains(clg));
+
+                if(orderColor != null)
+                {
+                    var pnlColor = (Panel)challengeUc.Controls.Find("PnlColor", true).First();
+
+                    pnlColor.BackColor = orderColor.Color;
+                }
 
                 if (FlpChallenges.Controls.Count % 2 == 0)
                 {
@@ -111,6 +135,6 @@ namespace HArCKtecture.Forms
             }
         }
 
-        #endregion 
+        #endregion
     }
 }
