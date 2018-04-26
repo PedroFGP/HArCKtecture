@@ -68,7 +68,7 @@
             textStyle1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this._visualControlBox.HelpButton.TextStyle = textStyle1;
             this._visualControlBox.HelpButton.Visible = false;
-            this._visualControlBox.Location = new System.Drawing.Point(525, 3);
+            this._visualControlBox.Location = new System.Drawing.Point(725, 3);
             // 
             // 
             // 
@@ -131,7 +131,7 @@
             this.HtmlPainel.BaseStylesheet = null;
             this.HtmlPainel.Location = new System.Drawing.Point(50, 60);
             this.HtmlPainel.Name = "HtmlPainel";
-            this.HtmlPainel.Size = new System.Drawing.Size(500, 320);
+            this.HtmlPainel.Size = new System.Drawing.Size(700, 471);
             this.HtmlPainel.TabIndex = 2;
             this.HtmlPainel.Text = null;
             // 
@@ -152,7 +152,7 @@
             this.BtnClose.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.BtnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BtnClose.Image = null;
-            this.BtnClose.Location = new System.Drawing.Point(525, 410);
+            this.BtnClose.Location = new System.Drawing.Point(725, 561);
             this.BtnClose.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(57, 25);
@@ -180,7 +180,7 @@
             this.Border.Thickness = 3;
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
-            this.ClientSize = new System.Drawing.Size(600, 449);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.HtmlPainel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -200,7 +200,7 @@
             this.MinimizeBox = true;
             this.Name = "FrmHelp";
             this.Text = "Ajuda";
-            this.TextRectangle = new System.Drawing.Rectangle(282, 7, 37, 13);
+            this.TextRectangle = new System.Drawing.Rectangle(382, 7, 37, 13);
             this.Load += new System.EventHandler(this.FrmIntroduction_Load);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
             this.Controls.SetChildIndex(this.HtmlPainel, 0);
