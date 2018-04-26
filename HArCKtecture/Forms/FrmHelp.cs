@@ -15,11 +15,29 @@ namespace HArCKtecture.Forms
         private Challenge LoadedChallenge { get; set; }
 
         private static string baseHTML = @"
+        <html>
+        <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        </style>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
         <body style='font: 12pt Segoe UI;'>
             <h1 style='font: 16pt Segoe UI; text-align: center;'>{Title}</h1>
             <table style='border: 2px solid black; margin: 0px auto;' align='center'>
             <tr style='vertical-align: middle; text-align: center;'>
-                <td style='padding: 5px;'>
+                <td style='padding: 5px; vertical-align: top;'>
                     <img src='info'/>
                 </td>
                 <td style='padding: 5px;'>
@@ -27,7 +45,8 @@ namespace HArCKtecture.Forms
                 </td>
             </tr>
             </table>
-        </body>";
+        </body>
+        </html>";
 
         #endregion
 

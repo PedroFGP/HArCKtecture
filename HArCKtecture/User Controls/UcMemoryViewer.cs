@@ -151,7 +151,10 @@ namespace HArCKtecture.User_Controls
 
         protected override void OnHandleDestroyed(EventArgs e)
         {
-            Process.Memory.Native.Kill();
+            if(Process.Memory.IsRunning)
+            {
+                Process.Memory.Native.Kill();
+            }
         }
 
         #endregion
@@ -219,7 +222,7 @@ namespace HArCKtecture.User_Controls
         {
             if (Process.Memory.IsRunning == false)
             {
-                StartChallengeProcess();
+                Process.Memory.Native.Start();
             }
         }
 

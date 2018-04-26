@@ -123,6 +123,9 @@
             // 
             // HtmlPainel
             // 
+            this.HtmlPainel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.HtmlPainel.AutoScroll = true;
             this.HtmlPainel.BackColor = System.Drawing.Color.Gainsboro;
             this.HtmlPainel.BaseStylesheet = null;
@@ -134,6 +137,7 @@
             // 
             // BtnClose
             // 
+            this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnClose.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnClose.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.BtnClose.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -164,7 +168,7 @@
             this.BtnClose.TextStyle = textStyle4;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // FrmIntroduction
+            // FrmHelp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -194,9 +198,9 @@
             this.Image.Visible = true;
             this.MaximizeBox = true;
             this.MinimizeBox = true;
-            this.Name = "FrmIntroduction";
+            this.Name = "FrmHelp";
             this.Text = "Ajuda";
-            this.TextRectangle = new System.Drawing.Rectangle(268, 7, 64, 13);
+            this.TextRectangle = new System.Drawing.Rectangle(282, 7, 37, 13);
             this.Load += new System.EventHandler(this.FrmIntroduction_Load);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
             this.Controls.SetChildIndex(this.HtmlPainel, 0);
