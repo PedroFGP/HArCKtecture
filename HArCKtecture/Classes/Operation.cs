@@ -1,21 +1,21 @@
-﻿using System;
-using ZeroFormatter;
+﻿using MessagePack;
+using System;
 
 namespace HArCKtecture.Classes
 {
-    [ZeroFormattable]
+    [MessagePackObject]
     public class Operation
     {
-        [Index(0)]
+        [Key(0)]
         public virtual uint Address { get; set; }
 
-        [Index(1)]
+        [Key(1)]
         public virtual OperationType OperationType { get; set; }
 
-        [Index(2)]
+        [Key(2)]
         public virtual string Value { get; set; }
 
-        [Index(3)]
+        [Key(3)]
         public virtual TimeSpan ElapsedTime { get; set; }
     }
 }

@@ -37,12 +37,14 @@
             VisualPlus.Structure.TextStyle textStyle5 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle6 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle7 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle8 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
             this.LblAbout = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.FlpChallenges = new System.Windows.Forms.FlowLayoutPanel();
             this.LblAvailableChallenges = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.BtnCreateChallenge = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.BtnExit = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
+            this.BtnResetChallenges = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.SuspendLayout();
             // 
             // _visualControlBox
@@ -266,6 +268,38 @@
             this.BtnExit.TextStyle = textStyle7;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
+            // BtnResetChallenges
+            // 
+            this.BtnResetChallenges.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnResetChallenges.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.BtnResetChallenges.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnResetChallenges.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnResetChallenges.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.BtnResetChallenges.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.BtnResetChallenges.Border.HoverVisible = true;
+            this.BtnResetChallenges.Border.Rounding = 6;
+            this.BtnResetChallenges.Border.Thickness = 1;
+            this.BtnResetChallenges.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.BtnResetChallenges.Border.Visible = true;
+            this.BtnResetChallenges.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BtnResetChallenges.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnResetChallenges.Image = null;
+            this.BtnResetChallenges.Location = new System.Drawing.Point(522, 77);
+            this.BtnResetChallenges.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.BtnResetChallenges.Name = "BtnResetChallenges";
+            this.BtnResetChallenges.Size = new System.Drawing.Size(98, 20);
+            this.BtnResetChallenges.TabIndex = 6;
+            this.BtnResetChallenges.Text = "Resetar Desafios";
+            this.BtnResetChallenges.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BtnResetChallenges.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.BtnResetChallenges.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            textStyle8.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle8.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle8.Hover = System.Drawing.Color.Empty;
+            textStyle8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnResetChallenges.TextStyle = textStyle8;
+            this.BtnResetChallenges.Click += new System.EventHandler(this.BtnResetChallenges_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +313,7 @@
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
             this.ClientSize = new System.Drawing.Size(640, 500);
+            this.Controls.Add(this.BtnResetChallenges);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.BtnCreateChallenge);
             this.Controls.Add(this.LblAvailableChallenges);
@@ -309,6 +344,7 @@
             this.Controls.SetChildIndex(this.LblAvailableChallenges, 0);
             this.Controls.SetChildIndex(this.BtnCreateChallenge, 0);
             this.Controls.SetChildIndex(this.BtnExit, 0);
+            this.Controls.SetChildIndex(this.BtnResetChallenges, 0);
             this.ResumeLayout(false);
 
         }
@@ -319,6 +355,7 @@
         private VisualPlus.Toolkit.Controls.Interactivity.VisualLabel LblAvailableChallenges;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnCreateChallenge;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnExit;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnResetChallenges;
     }
 }
 

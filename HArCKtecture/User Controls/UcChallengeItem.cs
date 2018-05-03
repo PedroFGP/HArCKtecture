@@ -31,6 +31,16 @@ namespace HArCKtecture.User_Controls
 
             BgeLevel.Background = ColorTranslator.FromHtml(descriptions[1]);
             BgeLevel.Text = descriptions[0];
+
+            if(LoadedChallenge.Finished)
+            {
+                this.Size = new Size(this.Size.Width, 110);
+
+                LblCrashes.Text += LoadedChallenge.RemoteProcessCrashes;
+                LblMemoryOperations.Text += LoadedChallenge.Operations.Count;
+                LblTimeTaken.Text += LoadedChallenge.TotalTime.ToString(@"mm\:ss");
+                LblCheated.Text += LoadedChallenge.Cheated ? "Sim" : "Não";
+            }
         }
 
         private void BtnPlay_Click(object sender, EventArgs e)

@@ -308,7 +308,7 @@
             textStyle5.Hover = System.Drawing.Color.Empty;
             textStyle5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.BtnInjectAsmCode.TextStyle = textStyle5;
-            this.BtnInjectAsmCode.Click += new System.EventHandler(this.BtnInjectAsmCode_Click_1);
+            this.BtnInjectAsmCode.Click += new System.EventHandler(this.BtnInjectAsmCode_Click);
             // 
             // BtnInjectBytes
             // 

@@ -3,10 +3,11 @@ using System.Linq;
 using System.IO;
 using System.Collections.Generic;
 using HArCKtecture.Classes;
-using ZeroFormatter;
 using HArCKtecture.User_Controls;
 using System.Drawing;
 using VisualPlus.Toolkit.Dialogs;
+using System;
+using MessagePack;
 
 namespace HArCKtecture.Forms
 {
@@ -59,6 +60,29 @@ namespace HArCKtecture.Forms
             Close();
         }
 
+        private void BtnResetChallenges_Click(object sender, System.EventArgs e)
+        {
+            List<Challenge> challenges = new List<Challenge>();
+
+            foreach (string file in Directory.EnumerateFiles(Globals.DIRECTORY_NAME, "*.hck*", SearchOption.AllDirectories))
+            {
+                challenges.Add(MessagePackSerializer.Deserialize<Challenge>(File.ReadAllBytes(file)));
+            }
+
+            foreach(var challenge in challenges)
+            {
+                challenge.Finished = false;
+                challenge.TotalTime = TimeSpan.Zero;
+                challenge.Operations = new List<Operation>();
+                challenge.RemoteProcessCrashes = 0;
+                challenge.Cheated = false;
+
+                challenge.Save();
+            }
+
+            LoadChallenges();
+        }
+
         #endregion
 
         #region Methods
@@ -73,7 +97,7 @@ namespace HArCKtecture.Forms
 
             foreach (string file in Directory.EnumerateFiles(Globals.DIRECTORY_NAME, "*.hck*", SearchOption.AllDirectories))
             {
-                challenges.Add(ZeroFormatterSerializer.Deserialize<Challenge>(File.ReadAllBytes(file)));
+                challenges.Add(MessagePackSerializer.Deserialize<Challenge>(File.ReadAllBytes(file)));
             }
 
             var highestChallengeOrder = challenges.Where(chl => chl.Finished == true).OrderByDescending(chl => chl.Order).FirstOrDefault();

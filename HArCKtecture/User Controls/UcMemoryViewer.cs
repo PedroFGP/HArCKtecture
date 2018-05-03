@@ -85,7 +85,7 @@ namespace HArCKtecture.User_Controls
             InjectBytesAtSelectedPosition();
         }
 
-        private void BtnInjectAsmCode_Click_1(object sender, EventArgs e)
+        private void BtnInjectAsmCode_Click(object sender, EventArgs e)
         {
             InjectAsmAtSelectedPosition();
         }
@@ -226,7 +226,20 @@ namespace HArCKtecture.User_Controls
         {
             if (Process.Memory.IsRunning == false)
             {
+                TmrCheckAnswer.Stop();
+
                 Process.Memory.Native.Start();
+
+                var proc = System.Diagnostics.Process.GetProcessesByName(CurrentChallenge.Name).FirstOrDefault();
+
+                while(proc == null)
+                {
+                    proc = System.Diagnostics.Process.GetProcessesByName(CurrentChallenge.Name).FirstOrDefault();
+
+                    Thread.Sleep(100);
+                }
+
+                TmrCheckAnswer.Start();
             }
         }
 
@@ -587,6 +600,13 @@ namespace HArCKtecture.User_Controls
             if (proc != null)
             {
                 proc.Kill();
+            }
+
+            while(proc != null)
+            {
+                proc = System.Diagnostics.Process.GetProcessesByName(CurrentChallenge.Name).FirstOrDefault();
+
+                Thread.Sleep(100);
             }
 
             File.WriteAllBytes(CurrentChallenge.Name + ".exe", CurrentChallenge.ExecutableBytes);

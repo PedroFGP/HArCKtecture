@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using VisualPlus.Toolkit.Controls.Editors;
 using VisualPlus.Toolkit.Dialogs;
-using ZeroFormatter;
 
 namespace HArCKtecture.Forms
 {

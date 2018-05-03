@@ -1,4 +1,5 @@
-﻿namespace HArCKtecture.Classes
+﻿
+namespace HArCKtecture.Classes
 {
     public static class Globals
     {

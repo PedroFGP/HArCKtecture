@@ -1,62 +1,62 @@
-﻿using System;
+﻿using MessagePack;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using ZeroFormatter;
 
 namespace HArCKtecture.Classes
 {
-    [ZeroFormattable]
+    [MessagePackObject]
     public class Challenge
     {
-        [Index(0)]
+        [Key(0)]
         public virtual string Name { get; set; }
 
-        [Index(1)]
+        [Key(1)]
         public virtual string Description { get; set; }
 
-        [Index(2)]
+        [Key(2)]
         public virtual byte[] ExecutableBytes { get; set; }
 
-        [Index(3)]
+        [Key(3)]
         public virtual bool DynamicBase { get; set; }
 
-        [Index(4)]
+        [Key(4)]
         public virtual ArchitectureMode Architecture { get; set; }
 
-        [Index(5)]
+        [Key(5)]
         public virtual DificultyLevel Dificulty { get; set; }
 
-        [Index(6)]
-        public virtual IList<SpecialAddress> Addresses { get; set; }
+        [Key(6)]
+        public virtual List<SpecialAddress> Addresses { get; set; }
 
-        [Index(7)]
+        [Key(7)]
         public virtual long Order { get; set; }
 
-        [Index(8)]
+        [Key(8)]
         public virtual uint AnswerAddress { get; set; }
 
-        [Index(9)]
+        [Key(9)]
         public virtual bool Finished { get; set; }
 
         #region Reporting
 
-        [Index(10)]
+        [Key(10)]
         public virtual TimeSpan TotalTime { get; set; }
 
-        [Index(11)]
+        [Key(11)]
         public virtual uint RemoteProcessCrashes { get; set; }
 
-        [Index(12)]
+        [Key(12)]
         public virtual bool Cheated { get; set; }
 
-        [Index(13)]
-        public virtual IList<Operation> Operations { get; set; }
+        [Key(13)]
+        public virtual List<Operation> Operations { get; set; }
 
         #endregion
 
         public void Save()
         {
-            File.WriteAllBytes(Globals.DIRECTORY_NAME + "//" + Name + ".hck", ZeroFormatterSerializer.Serialize(this));
+            File.WriteAllBytes(Globals.DIRECTORY_NAME + "//" + Name + ".hck", MessagePackSerializer.Serialize(this));
         }
     }
 }
