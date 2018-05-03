@@ -80,9 +80,19 @@ namespace HArCKtecture.User_Controls
             OnMemoryAddressUpdate();
         }
 
-        private void BtnInjectAsmCode_Click(object sender, EventArgs e)
+        private void BtnInjectBytes_Click(object sender, EventArgs e)
+        {
+            InjectBytesAtSelectedPosition();
+        }
+
+        private void BtnInjectAsmCode_Click_1(object sender, EventArgs e)
         {
             InjectAsmAtSelectedPosition();
+        }
+
+        private void BtnFillSelectedItemWithNops_Click(object sender, EventArgs e)
+        {
+            FillSelectedItemWithNops();
         }
 
         private void TmrCheckAnswer_Tick(object sender, EventArgs e)
@@ -152,7 +162,7 @@ namespace HArCKtecture.User_Controls
 
         protected override void OnHandleDestroyed(EventArgs e)
         {
-            if(Process.Memory.IsRunning)
+            if (Process.Memory.IsRunning)
             {
                 Process.Memory.Native.Kill();
             }
@@ -162,7 +172,7 @@ namespace HArCKtecture.User_Controls
 
         #region Methods
 
-        private void NopRemainingBytes(int instructionIndex, byte[] currentInstruction)
+        private int NopRemainingBytes(int instructionIndex, byte[] currentInstruction)
         {
             var stringBytes = LsvMemory.Items[instructionIndex].SubItems[1].Text.Split(' ').Where(opcode => opcode != String.Empty).Count();
 
@@ -180,14 +190,7 @@ namespace HArCKtecture.User_Controls
                 }
             }
 
-            while (bytesDifference != 0)
-            {
-                bytesDifference = Math.Abs(bytesDifference);
-
-                RbtxCode.Text += Environment.NewLine + "nop";
-
-                bytesDifference--;
-            }
+            return Math.Abs(bytesDifference);
         }
 
         private void CheckForAnswer()
@@ -207,7 +210,7 @@ namespace HArCKtecture.User_Controls
                 Watch.Stop();
 
                 CurrentChallenge.TotalTime = Watch.Elapsed;
-                
+
 
                 MessageBox.Show(null, "Desafio concluído com sucesso!", "Parabéns", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -227,6 +230,64 @@ namespace HArCKtecture.User_Controls
             }
         }
 
+        private void InjectBytesAtSelectedPosition()
+        {
+            if (LsvMemory.SelectedItems.Count <= 0)
+            {
+                return;
+            }
+            if (!UInt32.TryParse(LsvMemory.SelectedItems[0].SubItems[0].Text, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint result))
+            {
+                return;
+            }
+
+            var ptrAddress = new IntPtr(result);
+
+            var instructionBytes = new List<byte>();
+
+            foreach (var textByte in RbtxByteOutput.Text.Trim().Split(' '))
+            {
+                if (byte.TryParse(textByte, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out byte byteResult))
+                {
+                    instructionBytes.Add(byteResult);
+                }
+            }
+
+            if (ChbxFillNops.Checked)
+            {
+                var nopCount = NopRemainingBytes(LsvMemory.SelectedItems[0].Index, instructionBytes.ToArray());
+
+                while (nopCount > 0)
+                {
+                    instructionBytes.Add(0x90);
+
+                    nopCount--;
+                }
+            }
+
+            try
+            {
+                for (int offset = 0; offset < instructionBytes.Count; offset++)
+                {
+                    Process.Memory.Write(ptrAddress + offset, instructionBytes[offset], false);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            CurrentChallenge.Operations.Add(new Operation()
+            {
+                Address = result,
+                OperationType = OperationType.WRITE,
+                Value = RbtxByteOutput.Text,
+                ElapsedTime = Watch.Elapsed
+            });
+
+            RefreshMemoryView();
+        }
+
         private void InjectAsmAtSelectedPosition()
         {
             if (LsvMemory.SelectedItems.Count > 0)
@@ -238,15 +299,23 @@ namespace HArCKtecture.User_Controls
 
                 var ptrAddress = new IntPtr(result);
 
-                var instructionsBytes = Asm.AssembleInstructions(RbtxCode.Text);
+                if (ChbxFillNops.Checked)
+                {
+                    var nopCount = NopRemainingBytes(LsvMemory.SelectedItems[0].Index, Asm.AssembleInstructions(RbtxCode.Text));
 
-                NopRemainingBytes(LsvMemory.SelectedItems[0].Index, Asm.AssembleInstructions(RbtxCode.Text));
+                    while (nopCount > 0)
+                    {
+                        RbtxCode.Text += Environment.NewLine + "nop";
+
+                        nopCount--;
+                    }
+                }
 
                 try
                 {
                     Process.Memory.Assembly.Inject(RbtxCode.Text, ptrAddress);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -261,6 +330,36 @@ namespace HArCKtecture.User_Controls
 
                 RefreshMemoryView();
             }
+        }
+
+        private void FillSelectedItemWithNops()
+        {
+            if (LsvMemory.SelectedItems.Count <= 0)
+            {
+                return;
+            }
+
+            if (!UInt32.TryParse(LsvMemory.SelectedItems[0].SubItems[0].Text, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint result))
+            {
+                return;
+            }
+
+            var ptrAddress = new IntPtr(result);
+
+            for (int offset = 0; offset < NopRemainingBytes(LsvMemory.SelectedItems[0].Index, new byte[0]) ; offset++)
+            {
+                Process.Memory.Write(ptrAddress + offset, (byte)0x90, false);
+
+                CurrentChallenge.Operations.Add(new Operation()
+                {
+                    Address = result + (uint)offset,
+                    OperationType = OperationType.WRITE,
+                    Value = "0x90",
+                    ElapsedTime = Watch.Elapsed
+                });
+            }
+
+            RefreshMemoryView();
         }
 
         private void RegisterContainedControlsEvents()
