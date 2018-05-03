@@ -200,7 +200,7 @@ namespace HArCKtecture.Forms
                 Description = RtbxHelp.Text,
                 Architecture = ArchitectureMode.x86_32,
                 DynamicBase = !TglDynamicBase.Toggled,
-                AnswerAddress = Convert.ToUInt32(TbxAnswerAddress.Text),
+                AnswerAddress = UInt32.Parse(TbxAnswerAddress.Text, NumberStyles.HexNumber, CultureInfo.CurrentCulture),
                 Order = NupOrder.Value,
                 Finished = false,
                 Addresses = Addresses,

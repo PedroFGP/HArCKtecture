@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using HArCKtecture.Classes;
@@ -36,6 +37,7 @@ namespace HArCKtecture.User_Controls
             {
                 this.Size = new Size(this.Size.Width, 110);
 
+                GbxStatistics.BackColor = this.BackColor;
                 LblCrashes.Text += LoadedChallenge.RemoteProcessCrashes;
                 LblMemoryOperations.Text += LoadedChallenge.Operations.Count;
                 LblTimeTaken.Text += LoadedChallenge.TotalTime.ToString(@"mm\:ss");
@@ -45,6 +47,15 @@ namespace HArCKtecture.User_Controls
 
         private void BtnPlay_Click(object sender, EventArgs e)
         {
+            if(LoadedChallenge.Finished)
+            {
+                LoadedChallenge.Finished = false;
+                LoadedChallenge.TotalTime = TimeSpan.Zero;
+                LoadedChallenge.Operations = new List<Operation>();
+                LoadedChallenge.RemoteProcessCrashes = 0;
+                LoadedChallenge.Cheated = false;
+            }
+
             FrmChallenge challengeForm = new FrmChallenge(LoadedChallenge);
 
             challengeForm.Show();

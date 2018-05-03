@@ -21,7 +21,7 @@ namespace HArCKtecture.User_Controls
 
         private Challenge CurrentChallenge { get; set; }
 
-        private WindowsProcess Process { get; set; }
+        private WindowsProcess ChallengeProcess { get; set; }
 
         private uint LastestAddress { get; set; }
 
@@ -54,14 +54,14 @@ namespace HArCKtecture.User_Controls
 
             RefreshMemoryView((uint)CbxMemoryAddress.SelectedValue);
 
-            LblMemoryView.Text = String.Format(LblMemoryView.Text, Process.Memory.Windows.MainWindow.Title);
+            LblMemoryView.Text = String.Format(LblMemoryView.Text, ChallengeProcess.Memory.Windows.MainWindow.Title);
 
             RegisterContainedControlsEvents();
 
             TmrCheckAnswer.Start();
             TmrCheckProcessAlive.Start();
 
-            while (Process.Memory.Windows.MainWindowHandle == IntPtr.Zero)
+            while (ChallengeProcess.Memory.Windows.MainWindowHandle == IntPtr.Zero)
             {
                 Thread.Sleep(100);
             }
@@ -115,9 +115,9 @@ namespace HArCKtecture.User_Controls
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            Process.Memory.Handle.Close();
+            ChallengeProcess.Memory.Handle.Close();
 
-            Process.Memory.Windows.MainWindow.Close();
+            ChallengeProcess.Memory.Windows.MainWindow.Close();
 
             this.ParentForm.Close();
         }
@@ -162,9 +162,16 @@ namespace HArCKtecture.User_Controls
 
         protected override void OnHandleDestroyed(EventArgs e)
         {
-            if (Process.Memory.IsRunning)
+            try
             {
-                Process.Memory.Native.Kill();
+                if (ChallengeProcess.Memory.IsRunning)
+                {
+                    ChallengeProcess.Memory.Native.Kill();
+                }
+            }
+            catch(Exception ex)
+            {
+
             }
         }
 
@@ -195,14 +202,9 @@ namespace HArCKtecture.User_Controls
 
         private void CheckForAnswer()
         {
-            if (!UInt32.TryParse(CurrentChallenge.AnswerAddress.ToString(), NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint result))
-            {
-                return;
-            }
+            var address = new IntPtr(CurrentChallenge.AnswerAddress);
 
-            var address = new IntPtr(result);
-
-            if (Process.Memory.IsRunning && Process.Memory.Read<byte>(address, false) == 0x1)
+            if (ChallengeProcess.Memory.IsRunning && ChallengeProcess.Memory.Read<byte>(address, false) == 0x1)
             {
                 TmrCheckAnswer.Stop();
 
@@ -211,12 +213,13 @@ namespace HArCKtecture.User_Controls
 
                 CurrentChallenge.TotalTime = Watch.Elapsed;
 
-
-                MessageBox.Show(null, "Desafio concluído com sucesso!", "Parabéns", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 CurrentChallenge.Save();
 
-                Process.Memory.Windows.MainWindow.Close();
+                MessageBox.Show(new Form { TopMost = true }, "Desafio concluído com sucesso!", "Parabéns", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ChallengeProcess.Memory.Windows.MainWindow.Close();
+
+                Globals.ResetChallenges = true;
 
                 this.ParentForm.Close();
             }
@@ -224,17 +227,25 @@ namespace HArCKtecture.User_Controls
 
         private void CheckForProcessAlive()
         {
-            if (Process.Memory.IsRunning == false)
+            if (ChallengeProcess.Memory.IsRunning == false)
             {
                 TmrCheckAnswer.Stop();
 
-                Process.Memory.Native.Start();
+                CurrentChallenge.RemoteProcessCrashes++;
 
-                var proc = System.Diagnostics.Process.GetProcessesByName(CurrentChallenge.Name).FirstOrDefault();
+                var startInfoBackup = ChallengeProcess.Memory.Native.StartInfo;
+
+                ChallengeProcess.Memory.Native.Start();
+
+                ChallengeProcess = new WindowsProcess(CurrentChallenge.Name, false);
+
+                ChallengeProcess.Memory.Native.StartInfo = startInfoBackup;
+
+                var proc = Process.GetProcessesByName(CurrentChallenge.Name).FirstOrDefault();
 
                 while(proc == null)
                 {
-                    proc = System.Diagnostics.Process.GetProcessesByName(CurrentChallenge.Name).FirstOrDefault();
+                    proc = Process.GetProcessesByName(CurrentChallenge.Name).FirstOrDefault();
 
                     Thread.Sleep(100);
                 }
@@ -282,7 +293,7 @@ namespace HArCKtecture.User_Controls
             {
                 for (int offset = 0; offset < instructionBytes.Count; offset++)
                 {
-                    Process.Memory.Write(ptrAddress + offset, instructionBytes[offset], false);
+                    ChallengeProcess.Memory.Write(ptrAddress + offset, instructionBytes[offset], false);
                 }
             }
             catch (Exception ex)
@@ -326,7 +337,7 @@ namespace HArCKtecture.User_Controls
 
                 try
                 {
-                    Process.Memory.Assembly.Inject(RbtxCode.Text, ptrAddress);
+                    ChallengeProcess.Memory.Assembly.Inject(RbtxCode.Text, ptrAddress);
                 }
                 catch (Exception ex)
                 {
@@ -361,7 +372,7 @@ namespace HArCKtecture.User_Controls
 
             for (int offset = 0; offset < NopRemainingBytes(LsvMemory.SelectedItems[0].Index, new byte[0]) ; offset++)
             {
-                Process.Memory.Write(ptrAddress + offset, (byte)0x90, false);
+                ChallengeProcess.Memory.Write(ptrAddress + offset, (byte)0x90, false);
 
                 CurrentChallenge.Operations.Add(new Operation()
                 {
@@ -420,11 +431,11 @@ namespace HArCKtecture.User_Controls
                     {
                         if (read)
                         {
-                            TbxMemoryValue.Text = Process.Memory.Read<int>(ptrAddress, false).ToString();
+                            TbxMemoryValue.Text = ChallengeProcess.Memory.Read<int>(ptrAddress, false).ToString();
                         }
                         else if (Int32.TryParse(TbxMemoryValue.Text, out int intValue))
                         {
-                            Process.Memory.Write(ptrAddress, intValue, false);
+                            ChallengeProcess.Memory.Write(ptrAddress, intValue, false);
                         }
                     }
                     break;
@@ -433,11 +444,11 @@ namespace HArCKtecture.User_Controls
                     {
                         if (read)
                         {
-                            TbxMemoryValue.Text = Process.Memory.Read<float>(ptrAddress, false).ToString();
+                            TbxMemoryValue.Text = ChallengeProcess.Memory.Read<float>(ptrAddress, false).ToString();
                         }
                         else if (float.TryParse(TbxMemoryValue.Text, out float floatValue))
                         {
-                            Process.Memory.Write(ptrAddress, floatValue, false);
+                            ChallengeProcess.Memory.Write(ptrAddress, floatValue, false);
                         }
                     }
                     break;
@@ -446,11 +457,11 @@ namespace HArCKtecture.User_Controls
                     {
                         if (read)
                         {
-                            TbxMemoryValue.Text = Process.Memory.Read<bool>(ptrAddress, false).ToString();
+                            TbxMemoryValue.Text = ChallengeProcess.Memory.Read<bool>(ptrAddress, false).ToString();
                         }
                         else if (Boolean.TryParse(TbxMemoryValue.Text, out bool boolValue))
                         {
-                            Process.Memory.Write(ptrAddress, boolValue, false);
+                            ChallengeProcess.Memory.Write(ptrAddress, boolValue, false);
                         }
                     }
                     break;
@@ -459,11 +470,11 @@ namespace HArCKtecture.User_Controls
                     {
                         if (read)
                         {
-                            TbxMemoryValue.Text = Process.Memory.ReadString(ptrAddress, false);
+                            TbxMemoryValue.Text = ChallengeProcess.Memory.ReadString(ptrAddress, false);
                         }
                         else if (!String.IsNullOrEmpty(TbxMemoryValue.Text))
                         {
-                            Process.Memory.WriteString(ptrAddress, TbxMemoryValue.Text, false);
+                            ChallengeProcess.Memory.WriteString(ptrAddress, TbxMemoryValue.Text, false);
                         }
 
                     }
@@ -473,11 +484,11 @@ namespace HArCKtecture.User_Controls
                     {
                         if (read)
                         {
-                            TbxMemoryValue.Text = Process.Memory.Read<byte>(ptrAddress, false).ToString("X");
+                            TbxMemoryValue.Text = ChallengeProcess.Memory.Read<byte>(ptrAddress, false).ToString("X");
                         }
                         else if (Byte.TryParse(TbxMemoryValue.Text, out byte byteValue))
                         {
-                            Process.Memory.Write(ptrAddress, byteValue, false);
+                            ChallengeProcess.Memory.Write(ptrAddress, byteValue, false);
                         }
                     }
                     break;
@@ -486,11 +497,11 @@ namespace HArCKtecture.User_Controls
                     {
                         if (read)
                         {
-                            TbxMemoryValue.Text = Process.Memory.Read<char>(ptrAddress, false).ToString();
+                            TbxMemoryValue.Text = ChallengeProcess.Memory.Read<char>(ptrAddress, false).ToString();
                         }
                         else if (Char.TryParse(TbxMemoryValue.Text, out char charValue))
                         {
-                            Process.Memory.Write(ptrAddress, charValue, false);
+                            ChallengeProcess.Memory.Write(ptrAddress, charValue, false);
                         }
                     }
                     break;
@@ -512,9 +523,9 @@ namespace HArCKtecture.User_Controls
 
         private bool IsValidAddress(uint address)
         {
-            int baseAddress = Process.Memory.Modules.MainModule.BaseAddress.ToInt32();
+            int baseAddress = ChallengeProcess.Memory.Modules.MainModule.BaseAddress.ToInt32();
 
-            if (address >= baseAddress && address <= (Process.Memory.Modules.MainModule.Size + baseAddress))
+            if (address >= baseAddress && address <= (ChallengeProcess.Memory.Modules.MainModule.Size + baseAddress))
             {
                 return true;
             }
@@ -555,7 +566,7 @@ namespace HArCKtecture.User_Controls
 
             var ptrAddress = new IntPtr(address);
 
-            byte[] bytes = Process.Memory.Read<byte>(ptrAddress, size, false);
+            byte[] bytes = ChallengeProcess.Memory.Read<byte>(ptrAddress, size, false);
 
             var parsedInstructions = Disasm.DisassembleBytes(address, bytes);
 
@@ -611,7 +622,7 @@ namespace HArCKtecture.User_Controls
 
             File.WriteAllBytes(CurrentChallenge.Name + ".exe", CurrentChallenge.ExecutableBytes);
 
-            Process = new WindowsProcess(CurrentChallenge.Name + ".exe", true);
+            ChallengeProcess = new WindowsProcess(CurrentChallenge.Name + ".exe", true);
 
         }
 

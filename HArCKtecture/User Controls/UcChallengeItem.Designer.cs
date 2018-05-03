@@ -136,7 +136,7 @@
             // 
             this.GbxStatistics.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.GbxStatistics.BackColor = System.Drawing.Color.White;
+            this.GbxStatistics.BackColor = System.Drawing.Color.Transparent;
             this.GbxStatistics.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.GbxStatistics.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.GbxStatistics.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
@@ -280,7 +280,7 @@
             this.LblTimeTaken.ShadowOpacity = 100;
             this.LblTimeTaken.Size = new System.Drawing.Size(276, 23);
             this.LblTimeTaken.TabIndex = 1;
-            this.LblTimeTaken.Text = "Tempo levado (min:seg): ";
+            this.LblTimeTaken.Text = "Tempo levado: ";
             this.LblTimeTaken.TextAlignment = System.Drawing.StringAlignment.Near;
             this.LblTimeTaken.TextLineAlignment = System.Drawing.StringAlignment.Center;
             textStyle5.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            VisualPlus.Structure.TextStyle textStyle9 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle1 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle2 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
@@ -37,14 +38,14 @@
             VisualPlus.Structure.TextStyle textStyle5 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle6 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle7 = new VisualPlus.Structure.TextStyle();
-            VisualPlus.Structure.TextStyle textStyle8 = new VisualPlus.Structure.TextStyle();
-            VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
+            VisualPlus.Structure.Border border2 = new VisualPlus.Structure.Border();
             this.LblAbout = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.FlpChallenges = new System.Windows.Forms.FlowLayoutPanel();
             this.LblAvailableChallenges = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.BtnCreateChallenge = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.BtnExit = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.BtnResetChallenges = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
+            this.TmrCheckChallengeFinished = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // _visualControlBox
@@ -72,11 +73,11 @@
             this._visualControlBox.HelpButton.Size = new System.Drawing.Size(24, 25);
             this._visualControlBox.HelpButton.TabIndex = 0;
             this._visualControlBox.HelpButton.Text = "s";
-            textStyle1.Disabled = System.Drawing.Color.Empty;
-            textStyle1.Enabled = System.Drawing.Color.Empty;
-            textStyle1.Hover = System.Drawing.Color.Empty;
-            textStyle1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this._visualControlBox.HelpButton.TextStyle = textStyle1;
+            textStyle9.Disabled = System.Drawing.Color.Empty;
+            textStyle9.Enabled = System.Drawing.Color.Empty;
+            textStyle9.Hover = System.Drawing.Color.Empty;
+            textStyle9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this._visualControlBox.HelpButton.TextStyle = textStyle9;
             this._visualControlBox.HelpButton.Visible = false;
             this._visualControlBox.Location = new System.Drawing.Point(560, 5);
             // 
@@ -100,11 +101,11 @@
             this._visualControlBox.MaximizeButton.Size = new System.Drawing.Size(24, 25);
             this._visualControlBox.MaximizeButton.TabIndex = 2;
             this._visualControlBox.MaximizeButton.Text = "1";
-            textStyle2.Disabled = System.Drawing.Color.Empty;
-            textStyle2.Enabled = System.Drawing.Color.Empty;
-            textStyle2.Hover = System.Drawing.Color.Empty;
-            textStyle2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this._visualControlBox.MaximizeButton.TextStyle = textStyle2;
+            textStyle1.Disabled = System.Drawing.Color.Empty;
+            textStyle1.Enabled = System.Drawing.Color.Empty;
+            textStyle1.Hover = System.Drawing.Color.Empty;
+            textStyle1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this._visualControlBox.MaximizeButton.TextStyle = textStyle1;
             // 
             // 
             // 
@@ -125,11 +126,11 @@
             this._visualControlBox.MinimizeButton.Size = new System.Drawing.Size(24, 25);
             this._visualControlBox.MinimizeButton.TabIndex = 1;
             this._visualControlBox.MinimizeButton.Text = "0";
-            textStyle3.Disabled = System.Drawing.Color.Empty;
-            textStyle3.Enabled = System.Drawing.Color.Empty;
-            textStyle3.Hover = System.Drawing.Color.Empty;
-            textStyle3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this._visualControlBox.MinimizeButton.TextStyle = textStyle3;
+            textStyle2.Disabled = System.Drawing.Color.Empty;
+            textStyle2.Enabled = System.Drawing.Color.Empty;
+            textStyle2.Hover = System.Drawing.Color.Empty;
+            textStyle2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this._visualControlBox.MinimizeButton.TextStyle = textStyle2;
             this._visualControlBox.Size = new System.Drawing.Size(72, 25);
             // 
             // LblAbout
@@ -155,11 +156,11 @@
             this.LblAbout.Text = "Sobre";
             this.LblAbout.TextAlignment = System.Drawing.StringAlignment.Near;
             this.LblAbout.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle4.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle4.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle4.Hover = System.Drawing.Color.Empty;
-            textStyle4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.LblAbout.TextStyle = textStyle4;
+            textStyle3.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle3.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle3.Hover = System.Drawing.Color.Empty;
+            textStyle3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.LblAbout.TextStyle = textStyle3;
             this.LblAbout.Click += new System.EventHandler(this.LblAbout_Click);
             // 
             // FlpChallenges
@@ -198,11 +199,11 @@
             this.LblAvailableChallenges.Text = "Desafios Disponíveis - {0}/{1}";
             this.LblAvailableChallenges.TextAlignment = System.Drawing.StringAlignment.Near;
             this.LblAvailableChallenges.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle5.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle5.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle5.Hover = System.Drawing.Color.Empty;
-            textStyle5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.LblAvailableChallenges.TextStyle = textStyle5;
+            textStyle4.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle4.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle4.Hover = System.Drawing.Color.Empty;
+            textStyle4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.LblAvailableChallenges.TextStyle = textStyle4;
             // 
             // BtnCreateChallenge
             // 
@@ -229,11 +230,11 @@
             this.BtnCreateChallenge.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BtnCreateChallenge.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.BtnCreateChallenge.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle6.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle6.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle6.Hover = System.Drawing.Color.Empty;
-            textStyle6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.BtnCreateChallenge.TextStyle = textStyle6;
+            textStyle5.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle5.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle5.Hover = System.Drawing.Color.Empty;
+            textStyle5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnCreateChallenge.TextStyle = textStyle5;
             this.BtnCreateChallenge.Click += new System.EventHandler(this.BtnCreateChallenge_Click);
             // 
             // BtnExit
@@ -261,11 +262,11 @@
             this.BtnExit.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BtnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.BtnExit.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle7.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle7.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle7.Hover = System.Drawing.Color.Empty;
-            textStyle7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.BtnExit.TextStyle = textStyle7;
+            textStyle6.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle6.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle6.Hover = System.Drawing.Color.Empty;
+            textStyle6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnExit.TextStyle = textStyle6;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // BtnResetChallenges
@@ -293,12 +294,16 @@
             this.BtnResetChallenges.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BtnResetChallenges.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.BtnResetChallenges.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle8.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle8.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle8.Hover = System.Drawing.Color.Empty;
-            textStyle8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.BtnResetChallenges.TextStyle = textStyle8;
+            textStyle7.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle7.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle7.Hover = System.Drawing.Color.Empty;
+            textStyle7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnResetChallenges.TextStyle = textStyle7;
             this.BtnResetChallenges.Click += new System.EventHandler(this.BtnResetChallenges_Click);
+            // 
+            // TmrCheckChallengeFinished
+            // 
+            this.TmrCheckChallengeFinished.Tick += new System.EventHandler(this.TmrCheckChallengeFinished_Tick);
             // 
             // FrmMain
             // 
@@ -320,14 +325,14 @@
             this.Controls.Add(this.FlpChallenges);
             this.Controls.Add(this.LblAbout);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            border1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            border1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            border1.HoverVisible = false;
-            border1.Rounding = 6;
-            border1.Thickness = 1;
-            border1.Type = VisualPlus.Enumerators.ShapeType.Rounded;
-            border1.Visible = false;
-            this.Image.Border = border1;
+            border2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            border2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            border2.HoverVisible = false;
+            border2.Rounding = 6;
+            border2.Thickness = 1;
+            border2.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            border2.Visible = false;
+            this.Image.Border = border2;
             this.Image.Image = ((System.Drawing.Bitmap)(resources.GetObject("resource.Image3")));
             this.Image.Point = new System.Drawing.Point(5, 7);
             this.Image.Size = new System.Drawing.Size(16, 16);
@@ -356,6 +361,7 @@
         private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnCreateChallenge;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnExit;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnResetChallenges;
+        private System.Windows.Forms.Timer TmrCheckChallengeFinished;
     }
 }
 

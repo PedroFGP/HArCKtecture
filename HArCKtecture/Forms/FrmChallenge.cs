@@ -8,7 +8,7 @@ namespace HArCKtecture.Forms
 {
     public partial class FrmChallenge : VisualForm
     {
-        private Challenge LoadedChallenge;
+        public Challenge LoadedChallenge;
         private UcMemoryViewer MemoryViewer;
 
         #region Constructor

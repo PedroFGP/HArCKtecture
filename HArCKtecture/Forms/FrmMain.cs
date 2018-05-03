@@ -8,11 +8,18 @@ using System.Drawing;
 using VisualPlus.Toolkit.Dialogs;
 using System;
 using MessagePack;
+using System.Globalization;
 
 namespace HArCKtecture.Forms
 {
     public partial class FrmMain : VisualForm
     {
+        #region Properties
+
+        List<Challenge> Challenges = new List<Challenge>();
+
+        #endregion
+
         #region Constructor
 
         public FrmMain()
@@ -27,6 +34,8 @@ namespace HArCKtecture.Forms
         private void FrmMain_Load(object sender, System.EventArgs e)
         {
             LoadChallenges();
+
+            TmrCheckChallengeFinished.Start();
         }
 
         private void LblAbout_Click(object sender, System.EventArgs e)
@@ -62,14 +71,7 @@ namespace HArCKtecture.Forms
 
         private void BtnResetChallenges_Click(object sender, System.EventArgs e)
         {
-            List<Challenge> challenges = new List<Challenge>();
-
-            foreach (string file in Directory.EnumerateFiles(Globals.DIRECTORY_NAME, "*.hck*", SearchOption.AllDirectories))
-            {
-                challenges.Add(MessagePackSerializer.Deserialize<Challenge>(File.ReadAllBytes(file)));
-            }
-
-            foreach(var challenge in challenges)
+            foreach (var challenge in Challenges)
             {
                 challenge.Finished = false;
                 challenge.TotalTime = TimeSpan.Zero;
@@ -83,31 +85,39 @@ namespace HArCKtecture.Forms
             LoadChallenges();
         }
 
+        private void TmrCheckChallengeFinished_Tick(object sender, EventArgs e)
+        {
+            if (Globals.ResetChallenges)
+            {
+                LoadChallenges();
+            }
+        }
+
         #endregion
 
         #region Methods
 
         private void LoadChallenges()
         {
+            Globals.ResetChallenges = false;
+            Challenges.Clear();
             FlpChallenges.Controls.Clear();
 
             Directory.CreateDirectory(Globals.DIRECTORY_NAME);
 
-            List<Challenge> challenges = new List<Challenge>();
-
             foreach (string file in Directory.EnumerateFiles(Globals.DIRECTORY_NAME, "*.hck*", SearchOption.AllDirectories))
             {
-                challenges.Add(MessagePackSerializer.Deserialize<Challenge>(File.ReadAllBytes(file)));
+                Challenges.Add(MessagePackSerializer.Deserialize<Challenge>(File.ReadAllBytes(file)));
             }
 
-            var highestChallengeOrder = challenges.Where(chl => chl.Finished == true).OrderByDescending(chl => chl.Order).FirstOrDefault();
+            var highestChallengeOrder = Challenges.Where(chl => chl.Finished == true).OrderByDescending(chl => chl.Order).FirstOrDefault();
 
-            if(highestChallengeOrder == null)
+            if (highestChallengeOrder == null)
             {
-                highestChallengeOrder = challenges.OrderByDescending(chl => chl.Order).FirstOrDefault();
+                highestChallengeOrder = Challenges.OrderByDescending(chl => chl.Order).FirstOrDefault();
             }
 
-            var challengesOrder = challenges.GroupBy(chg => chg.Order).Select(chg => new
+            var challengesOrder = Challenges.GroupBy(chg => chg.Order).Select(chg => new
             {
                 Order = chg.Key,
                 Items = chg.ToList()
@@ -115,7 +125,7 @@ namespace HArCKtecture.Forms
 
             var orderColors = new List<dynamic>();
 
-            foreach(var order in challengesOrder)
+            foreach (var order in challengesOrder)
             {
                 orderColors.Add(new
                 {
@@ -126,17 +136,17 @@ namespace HArCKtecture.Forms
 
             long highestOrder = 0;
 
-            if(highestChallengeOrder != null)
+            if (highestChallengeOrder != null)
             {
                 highestOrder = highestChallengeOrder.Order;
             }
 
-            int totalChallenges = challenges.Count();
-            int completedChallenges = challenges.Count(chg => chg.Finished);
+            int totalChallenges = Challenges.Count();
+            int completedChallenges = Challenges.Count(chg => chg.Finished);
 
             LblAvailableChallenges.Text = string.Format(LblAvailableChallenges.Text, completedChallenges, totalChallenges);
 
-            foreach (Challenge clg in challenges.OrderBy(chg => chg.Order).ToList())
+            foreach (Challenge clg in Challenges.OrderBy(chg => chg.Order).ToList())
             {
                 UcChallengeItem challengeUc = new UcChallengeItem(clg)
                 {
@@ -145,7 +155,7 @@ namespace HArCKtecture.Forms
 
                 var orderColor = orderColors.FirstOrDefault(chg => chg.Items.Contains(clg));
 
-                if(orderColor != null)
+                if (orderColor != null)
                 {
                     var pnlColor = (Panel)challengeUc.Controls.Find("PnlColor", true).First();
 
@@ -157,17 +167,17 @@ namespace HArCKtecture.Forms
                     challengeUc.BackColor = Color.LightGray;
                 }
 
-                if(clg.Finished)
+                if (clg.Finished)
                 {
                     var btn = challengeUc.Controls.Find("BtnPlay", true).First();
 
-                    if(btn != null)
+                    if (btn != null)
                     {
                         btn.Text = "Jogar Novamente";
                     }
                 }
 
-                if(clg.Order > highestOrder)
+                if (clg.Order > highestOrder)
                 {
                     challengeUc.Enabled = false;
                 }
