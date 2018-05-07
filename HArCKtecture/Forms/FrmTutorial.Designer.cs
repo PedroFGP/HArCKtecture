@@ -1,6 +1,6 @@
 ﻿namespace HArCKtecture.Forms
 {
-    partial class FrmHelp
+    partial class FrmTutorial
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHelp));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTutorial));
             VisualPlus.Structure.TextStyle textStyle1 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle2 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle4 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle5 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle6 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.Border border1 = new VisualPlus.Structure.Border();
-            this.HtmlPainel = new TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel();
-            this.BtnClose = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
+            this.BtnForward = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
+            this.BtnBack = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
+            this.RtbxDescription = new VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox();
+            this.PbxMain = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxMain)).BeginInit();
             this.SuspendLayout();
             // 
             // _visualControlBox
@@ -49,7 +54,6 @@
             this._visualControlBox.HelpButton.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
             this._visualControlBox.HelpButton.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this._visualControlBox.HelpButton.BoxType = VisualPlus.Structure.ControlBoxButton.ControlBoxType.Default;
-            this._visualControlBox.HelpButton.Enabled = false;
             this._visualControlBox.HelpButton.ForeColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this._visualControlBox.HelpButton.ForeColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this._visualControlBox.HelpButton.ForeColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -121,57 +125,117 @@
             this._visualControlBox.MinimizeButton.TextStyle = textStyle3;
             this._visualControlBox.Size = new System.Drawing.Size(72, 25);
             // 
-            // HtmlPainel
+            // BtnForward
             // 
-            this.HtmlPainel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.HtmlPainel.AutoScroll = true;
-            this.HtmlPainel.BackColor = System.Drawing.Color.Gainsboro;
-            this.HtmlPainel.BaseStylesheet = null;
-            this.HtmlPainel.Location = new System.Drawing.Point(50, 60);
-            this.HtmlPainel.Name = "HtmlPainel";
-            this.HtmlPainel.Size = new System.Drawing.Size(700, 470);
-            this.HtmlPainel.TabIndex = 2;
-            this.HtmlPainel.Text = null;
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnClose.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnClose.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.BtnClose.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnClose.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BtnClose.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.BtnClose.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.BtnClose.Border.HoverVisible = true;
-            this.BtnClose.Border.Rounding = 6;
-            this.BtnClose.Border.Thickness = 1;
-            this.BtnClose.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.BtnClose.Border.Visible = true;
-            this.BtnClose.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BtnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BtnClose.Image = null;
-            this.BtnClose.Location = new System.Drawing.Point(725, 561);
-            this.BtnClose.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(57, 25);
-            this.BtnClose.TabIndex = 3;
-            this.BtnClose.Text = "Fechar";
-            this.BtnClose.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.BtnClose.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            this.BtnForward.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnForward.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnForward.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.BtnForward.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnForward.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnForward.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.BtnForward.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.BtnForward.Border.HoverVisible = true;
+            this.BtnForward.Border.Rounding = 6;
+            this.BtnForward.Border.Thickness = 1;
+            this.BtnForward.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.BtnForward.Border.Visible = true;
+            this.BtnForward.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BtnForward.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnForward.Image = null;
+            this.BtnForward.Location = new System.Drawing.Point(693, 556);
+            this.BtnForward.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.BtnForward.Name = "BtnForward";
+            this.BtnForward.Size = new System.Drawing.Size(57, 25);
+            this.BtnForward.TabIndex = 5;
+            this.BtnForward.Text = "Avançar";
+            this.BtnForward.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BtnForward.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.BtnForward.TextLineAlignment = System.Drawing.StringAlignment.Center;
             textStyle4.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             textStyle4.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             textStyle4.Hover = System.Drawing.Color.Empty;
             textStyle4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.BtnClose.TextStyle = textStyle4;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            this.BtnForward.TextStyle = textStyle4;
+            this.BtnForward.Click += new System.EventHandler(this.BtnForward_Click);
             // 
-            // FrmHelp
+            // BtnBack
+            // 
+            this.BtnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnBack.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnBack.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.BtnBack.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnBack.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnBack.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.BtnBack.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.BtnBack.Border.HoverVisible = true;
+            this.BtnBack.Border.Rounding = 6;
+            this.BtnBack.Border.Thickness = 1;
+            this.BtnBack.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.BtnBack.Border.Visible = true;
+            this.BtnBack.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BtnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnBack.Image = null;
+            this.BtnBack.Location = new System.Drawing.Point(50, 556);
+            this.BtnBack.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.BtnBack.Name = "BtnBack";
+            this.BtnBack.Size = new System.Drawing.Size(57, 25);
+            this.BtnBack.TabIndex = 6;
+            this.BtnBack.Text = "Voltar";
+            this.BtnBack.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BtnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.BtnBack.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            textStyle5.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle5.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle5.Hover = System.Drawing.Color.Empty;
+            textStyle5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnBack.TextStyle = textStyle5;
+            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
+            // 
+            // RtbxDescription
+            // 
+            this.RtbxDescription.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.RtbxDescription.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.RtbxDescription.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.RtbxDescription.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.RtbxDescription.Border.HoverVisible = true;
+            this.RtbxDescription.Border.Rounding = 6;
+            this.RtbxDescription.Border.Thickness = 1;
+            this.RtbxDescription.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.RtbxDescription.Border.Visible = true;
+            this.RtbxDescription.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RtbxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.RtbxDescription.Location = new System.Drawing.Point(50, 34);
+            this.RtbxDescription.MaxLength = 2147483647;
+            this.RtbxDescription.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.RtbxDescription.Name = "RtbxDescription";
+            this.RtbxDescription.ReadOnly = false;
+            this.RtbxDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
+            this.RtbxDescription.ShowSelectionMargin = false;
+            this.RtbxDescription.Size = new System.Drawing.Size(700, 100);
+            this.RtbxDescription.TabIndex = 7;
+            textStyle6.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle6.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle6.Hover = System.Drawing.Color.Empty;
+            textStyle6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.RtbxDescription.TextStyle = textStyle6;
+            // 
+            // PbxMain
+            // 
+            this.PbxMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PbxMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PbxMain.Location = new System.Drawing.Point(50, 140);
+            this.PbxMain.Name = "PbxMain";
+            this.PbxMain.Size = new System.Drawing.Size(700, 410);
+            this.PbxMain.TabIndex = 8;
+            this.PbxMain.TabStop = false;
+            // 
+            // FrmTutorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.Background = System.Drawing.Color.Gainsboro;
             this.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
@@ -181,8 +245,10 @@
             this.Border.Type = VisualPlus.Enumerators.ShapeType.Rectangle;
             this.Border.Visible = true;
             this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.BtnClose);
-            this.Controls.Add(this.HtmlPainel);
+            this.Controls.Add(this.PbxMain);
+            this.Controls.Add(this.RtbxDescription);
+            this.Controls.Add(this.BtnBack);
+            this.Controls.Add(this.BtnForward);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             border1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             border1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
@@ -192,26 +258,29 @@
             border1.Type = VisualPlus.Enumerators.ShapeType.Rounded;
             border1.Visible = false;
             this.Image.Border = border1;
-            this.Image.Image = global::HArCKtecture.Properties.Resources.FormLogo;
+            this.Image.Image = ((System.Drawing.Bitmap)(resources.GetObject("resource.Image3")));
             this.Image.Point = new System.Drawing.Point(5, 7);
             this.Image.Size = new System.Drawing.Size(16, 16);
             this.Image.Visible = true;
             this.MaximizeBox = true;
             this.MinimizeBox = true;
-            this.Name = "FrmHelp";
-            this.Text = "Ajuda";
-            this.TextRectangle = new System.Drawing.Rectangle(382, 7, 37, 13);
-            this.Load += new System.EventHandler(this.FrmIntroduction_Load);
+            this.Name = "FrmTutorial";
+            this.Text = "Tutorial";
+            this.TextRectangle = new System.Drawing.Rectangle(377, 7, 46, 13);
+            this.Controls.SetChildIndex(this.BtnForward, 0);
+            this.Controls.SetChildIndex(this.BtnBack, 0);
+            this.Controls.SetChildIndex(this.RtbxDescription, 0);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
-            this.Controls.SetChildIndex(this.HtmlPainel, 0);
-            this.Controls.SetChildIndex(this.BtnClose, 0);
+            this.Controls.SetChildIndex(this.PbxMain, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.PbxMain)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private TheArtOfDev.HtmlRenderer.WinForms.HtmlPanel HtmlPainel;
-        private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnClose;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnForward;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnBack;
+        private VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox RtbxDescription;
+        private System.Windows.Forms.PictureBox PbxMain;
     }
 }

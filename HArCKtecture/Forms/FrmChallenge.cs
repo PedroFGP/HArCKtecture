@@ -10,6 +10,8 @@ namespace HArCKtecture.Forms
     {
         public Challenge LoadedChallenge;
         private UcMemoryViewer MemoryViewer;
+        private FrmHelp FormHelp;
+
 
         #region Constructor
 
@@ -18,14 +20,26 @@ namespace HArCKtecture.Forms
         {
             LoadedChallenge = challenge;
 
+            FormHelp = new FrmHelp(LoadedChallenge);
+
             InitializeComponent();
 
             LoadMemoryViewer();
+
+            this.ControlBox.HelpButton.Click += HelpButton_Click;
         }
 
         #endregion
 
         #region Events
+
+        private void HelpButton_Click(object sender, System.EventArgs e)
+        {
+            FormHelp = new FrmHelp(LoadedChallenge);
+
+            FormHelp.Show();
+            FormHelp.Focus();
+        }
 
         #endregion
 

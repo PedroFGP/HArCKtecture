@@ -17,6 +17,7 @@ namespace HArCKtecture.Forms
         #region Properties
 
         List<Challenge> Challenges = new List<Challenge>();
+        private FrmTutorial FormTutorial;
 
         #endregion
 
@@ -25,11 +26,21 @@ namespace HArCKtecture.Forms
         public FrmMain()
         {
             InitializeComponent();
+
+            this.ControlBox.HelpButton.Click += HelpButton_Click;
         }
 
         #endregion
 
         #region Events
+
+        private void HelpButton_Click(object sender, EventArgs e)
+        {
+            FormTutorial = new FrmTutorial();
+
+            FormTutorial.Show();
+            FormTutorial.Focus();
+        }
 
         private void FrmMain_Load(object sender, System.EventArgs e)
         {
@@ -144,7 +155,7 @@ namespace HArCKtecture.Forms
             int totalChallenges = Challenges.Count();
             int completedChallenges = Challenges.Count(chg => chg.Finished);
 
-            LblAvailableChallenges.Text = string.Format(LblAvailableChallenges.Text, completedChallenges, totalChallenges);
+            LblAvailableChallenges.Text = string.Format(Globals.AVAILABLE_CHALLENGES, completedChallenges, totalChallenges);
 
             foreach (Challenge clg in Challenges.OrderBy(chg => chg.Order).ToList())
             {

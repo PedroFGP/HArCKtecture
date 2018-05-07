@@ -6,15 +6,15 @@ namespace HArCKtecture.Classes
 {
     public enum DificultyLevel
     {
-        [DescriptionList("Muito Fácil", "#29C5FF")]
+        [DescriptionList("Básico", "#29C5FF")]
         VERY_EASY = 1,
-        [DescriptionList("Fácil", "#51F5EA")]
+        [DescriptionList("Fundamental", "#51F5EA")]
         EASY,
-        [DescriptionList("Médio", "#5EFCA1")]
+        [DescriptionList("Intermediário", "#5EFCA1")]
         MEDIUM,
-        [DescriptionList("Difícil", "#FFCF4B")]
+        [DescriptionList("Avançado", "#FFCF4B")]
         HARD,
-        [DescriptionList("Muito Difícil", "#FFAC9C")]
+        [DescriptionList("Expert", "#FFAC9C")]
         VERY_HARD
     }
 
