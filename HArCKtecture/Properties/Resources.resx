@@ -127,4 +127,19 @@
   <data name="LogoTaskBar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LogoTaskBar.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Tutorial1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tutorial Resources\Tutorial1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tutorial2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tutorial Resources\Tutorial2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tutorial3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tutorial Resources\Tutorial3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tutorial4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tutorial Resources\Tutorial4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Tutorial5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tutorial Resources\Tutorial5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
