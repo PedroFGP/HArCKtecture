@@ -108,6 +108,12 @@
     <Compile Include="Forms\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmTutorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTutorial.Designer.cs">
+      <DependentUpon>FrmTutorial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTutorial.resx">
+      <DependentUpon>FrmTutorial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -186,19 +195,19 @@
     <None Include="Resources\info.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Tutorial Resources\Tutorial1.png" />
+    <None Include="Tutorial Resources\Tutorial6.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Tutorial Resources\Tutorial2.png" />
+    <None Include="Tutorial Resources\Tutorial7.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Tutorial Resources\Tutorial3.png" />
+    <None Include="Tutorial Resources\Tutorial8.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Tutorial Resources\Tutorial4.png" />
+    <None Include="Tutorial Resources\Tutorial9.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Tutorial Resources\Tutorial5.png" />
+    <None Include="Tutorial Resources\Tutorial10.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

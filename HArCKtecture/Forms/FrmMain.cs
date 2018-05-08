@@ -9,6 +9,7 @@ using VisualPlus.Toolkit.Dialogs;
 using System;
 using MessagePack;
 using System.Globalization;
+using HArCKtecture.Properties;
 
 namespace HArCKtecture.Forms
 {
@@ -47,6 +48,26 @@ namespace HArCKtecture.Forms
             LoadChallenges();
 
             TmrCheckChallengeFinished.Start();
+        }
+
+        private void FrmMain_Shown(object sender, EventArgs e)
+        {
+            if (Settings.Default.FirstRun)
+            {
+                this.Enabled = false;
+
+                MessageBox.Show(this, "Já que é a primeira vez que você abre o HArCKtecture vamos apresentar um pequeno tutorial.", "Tutorial", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                FormTutorial = new FrmTutorial();
+
+                FormTutorial.ShowDialog();
+                FormTutorial.Focus();
+
+                this.Enabled = true;
+
+                Settings.Default.FirstRun = false;
+                Settings.Default.Save();
+            }
         }
 
         private void LblAbout_Click(object sender, System.EventArgs e)

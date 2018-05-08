@@ -160,7 +160,7 @@
             // 
             // BtnBack
             // 
-            this.BtnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnBack.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnBack.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.BtnBack.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -193,6 +193,8 @@
             // 
             // RtbxDescription
             // 
+            this.RtbxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RtbxDescription.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.RtbxDescription.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.RtbxDescription.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
@@ -202,13 +204,13 @@
             this.RtbxDescription.Border.Thickness = 1;
             this.RtbxDescription.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
             this.RtbxDescription.Border.Visible = true;
-            this.RtbxDescription.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RtbxDescription.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.RtbxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.RtbxDescription.Location = new System.Drawing.Point(50, 34);
             this.RtbxDescription.MaxLength = 2147483647;
             this.RtbxDescription.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.RtbxDescription.Name = "RtbxDescription";
-            this.RtbxDescription.ReadOnly = false;
+            this.RtbxDescription.ReadOnly = true;
             this.RtbxDescription.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
             this.RtbxDescription.ShowSelectionMargin = false;
             this.RtbxDescription.Size = new System.Drawing.Size(700, 100);

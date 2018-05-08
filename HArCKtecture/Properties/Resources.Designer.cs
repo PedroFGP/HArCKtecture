@@ -103,6 +103,16 @@ namespace HArCKtecture.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Tutorial10 {
+            get {
+                object obj = ResourceManager.GetObject("Tutorial10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Tutorial2 {
             get {
                 object obj = ResourceManager.GetObject("Tutorial2", resourceCulture);
@@ -136,6 +146,46 @@ namespace HArCKtecture.Properties {
         internal static System.Drawing.Bitmap Tutorial5 {
             get {
                 object obj = ResourceManager.GetObject("Tutorial5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tutorial6 {
+            get {
+                object obj = ResourceManager.GetObject("Tutorial6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tutorial7 {
+            get {
+                object obj = ResourceManager.GetObject("Tutorial7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tutorial8 {
+            get {
+                object obj = ResourceManager.GetObject("Tutorial8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tutorial9 {
+            get {
+                object obj = ResourceManager.GetObject("Tutorial9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

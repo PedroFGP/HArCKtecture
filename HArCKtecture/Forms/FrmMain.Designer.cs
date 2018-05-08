@@ -234,6 +234,7 @@
             textStyle6.Hover = System.Drawing.Color.Empty;
             textStyle6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.BtnCreateChallenge.TextStyle = textStyle6;
+            this.BtnCreateChallenge.Visible = false;
             this.BtnCreateChallenge.Click += new System.EventHandler(this.BtnCreateChallenge_Click);
             // 
             // BtnExit
@@ -343,6 +344,7 @@
             this.Text = "HArCKtecture";
             this.TextRectangle = new System.Drawing.Rectangle(283, 7, 75, 13);
             this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.Shown += new System.EventHandler(this.FrmMain_Shown);
             this.Controls.SetChildIndex(this.LblAbout, 0);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
             this.Controls.SetChildIndex(this.FlpChallenges, 0);
