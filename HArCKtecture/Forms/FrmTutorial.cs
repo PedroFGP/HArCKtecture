@@ -75,8 +75,6 @@ O botão 'Jogar' mais a direita é responsável por carregar o desafio, uma vez 
 
 Para visualizar qualquer endereço basta digitar um endereço válido (hexadecimal) na caixa e a janela de visualização de memória será ajustada para aquele endereço ou então selecionar um dos endereços pré definidos.");
 
-            Stages.Add(Resources.Tutorial2, "O texto informa o local físico do desafio carregado.");
-
             Stages.Add(Resources.Tutorial3, @"A janela de visualização de memória informa o endereço (hexadecimal) ao qual aquela sequência de bytes está além de uma representação em assembly x86 daqueles bytes (Opcodes, ou operation codes, também conhecidos como códigos de operação). 
 
 Ao selecionar uma linha seus bytes e código de operação irão ser mostrados na janela de 'Assembly x86'.");
@@ -89,9 +87,17 @@ Para se escrever um valor basta ter digitado um endereço válido e digitar qual
 
             Stages.Add(Resources.Tutorial5, @"A janela de 'Assembly x86' é responsável por possibilitar a injeção (modificação) de código assembly além de intepertrar bytes e assembly. No campo de entrada de texto 'Código' é possível escrever um código em assembly e ver sua correspondência em bytes no campo de entrada de texto 'Saída em bytes'.
                 
+A caixa de seleção 'Preencher com NOP's automaticamente' faz com que ao injetar um código assembly NOP's sejam adicionados automaticamente para substituir bytes que 'sobraram' evitando assim com que o programa execute uma instrução errada.
+
+A caixa de seleção 'Interpretar endereços como relativos em JMP/CALL' faz com que o interpretador trate endereços em JUMP's e CALL's como valores relativos, permitindo assim uma interpretação mais correta.
+
 Ao apertar o botão 'Injetar Assembly' o código escrito no campo 'Código' será interpretado e injetado na linha selecionada na janela de visualização de memória, o mesmo irá acontecer ao apertar o botão 'Injetar Bytes' porém dessa vez os bytes do campo 'Saída em bytes' serão injetados. 
                 
 Ao apertar o botão 'Preencher com NOP's' a linha selecionada será preenchida com NOP's (bytes 0x90) que representam ociosidade (No Operation) de acordo com o número de bytes.");
+
+            Stages.Add(Resources.Tutorial2, @"O botão '?' mostra a tela de ajuda para o desafio atual.
+
+O botão 'Voltar' fecha o desafio atual e retorna ao menu principal sem salvar nenhuma estatística.");
 
             #endregion
 

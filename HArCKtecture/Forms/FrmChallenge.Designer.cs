@@ -139,7 +139,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.MainPanel.Location = new System.Drawing.Point(2, 30);
+            this.MainPanel.Location = new System.Drawing.Point(3, 30);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(1264, 658);
             this.MainPanel.TabIndex = 1;

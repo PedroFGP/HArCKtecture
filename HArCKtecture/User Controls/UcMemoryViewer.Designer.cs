@@ -31,8 +31,7 @@
             this.components = new System.ComponentModel.Container();
             VisualPlus.Structure.TextStyle textStyle1 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle2 = new VisualPlus.Structure.TextStyle();
-            VisualPlus.Structure.TextStyle textStyle11 = new VisualPlus.Structure.TextStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcMemoryViewer));
+            VisualPlus.Structure.TextStyle textStyle12 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle4 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle5 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle6 = new VisualPlus.Structure.TextStyle();
@@ -40,13 +39,15 @@
             VisualPlus.Structure.TextStyle textStyle8 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle9 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle10 = new VisualPlus.Structure.TextStyle();
-            VisualPlus.Structure.TextStyle textStyle16 = new VisualPlus.Structure.TextStyle();
-            VisualPlus.Structure.TextStyle textStyle12 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle11 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle17 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle13 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle14 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle15 = new VisualPlus.Structure.TextStyle();
-            VisualPlus.Structure.TextStyle textStyle17 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle16 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle18 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle19 = new VisualPlus.Structure.TextStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcMemoryViewer));
             VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
             this.TmrCheckAnswer = new System.Windows.Forms.Timer(this.components);
             this.CbxMemoryAddress = new System.Windows.Forms.ComboBox();
@@ -57,6 +58,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.visualGroupBox1 = new VisualPlus.Toolkit.Controls.Layout.VisualGroupBox();
+            this.BtnFillSelectedItemWithNops = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.ChbxFillNops = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.BtnInjectAsmCode = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.BtnInjectBytes = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
@@ -72,7 +74,7 @@
             this.visualLabel2 = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.BtnBack = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.LblMemoryView = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
-            this.BtnFillSelectedItemWithNops = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
+            this.ChbxRelativeAddresses = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.visualGroupBox1.SuspendLayout();
             this.GbxReadMemory.SuspendLayout();
             this.SuspendLayout();
@@ -202,6 +204,7 @@
             this.visualGroupBox1.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
             this.visualGroupBox1.Border.Visible = true;
             this.visualGroupBox1.BoxStyle = VisualPlus.Toolkit.Controls.Layout.VisualGroupBox.GroupBoxStyle.Default;
+            this.visualGroupBox1.Controls.Add(this.ChbxRelativeAddresses);
             this.visualGroupBox1.Controls.Add(this.BtnFillSelectedItemWithNops);
             this.visualGroupBox1.Controls.Add(this.ChbxFillNops);
             this.visualGroupBox1.Controls.Add(this.BtnInjectAsmCode);
@@ -225,12 +228,45 @@
             this.visualGroupBox1.TextAlignment = System.Drawing.StringAlignment.Center;
             this.visualGroupBox1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.visualGroupBox1.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle11.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle11.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle11.Hover = System.Drawing.Color.Empty;
-            textStyle11.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.visualGroupBox1.TextStyle = textStyle11;
+            textStyle12.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle12.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle12.Hover = System.Drawing.Color.Empty;
+            textStyle12.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.visualGroupBox1.TextStyle = textStyle12;
             this.visualGroupBox1.TitleBoxHeight = 25;
+            // 
+            // BtnFillSelectedItemWithNops
+            // 
+            this.BtnFillSelectedItemWithNops.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.BtnFillSelectedItemWithNops.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnFillSelectedItemWithNops.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.BtnFillSelectedItemWithNops.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnFillSelectedItemWithNops.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnFillSelectedItemWithNops.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.BtnFillSelectedItemWithNops.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.BtnFillSelectedItemWithNops.Border.HoverVisible = true;
+            this.BtnFillSelectedItemWithNops.Border.Rounding = 6;
+            this.BtnFillSelectedItemWithNops.Border.Thickness = 1;
+            this.BtnFillSelectedItemWithNops.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.BtnFillSelectedItemWithNops.Border.Visible = true;
+            this.BtnFillSelectedItemWithNops.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BtnFillSelectedItemWithNops.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnFillSelectedItemWithNops.Image = null;
+            this.BtnFillSelectedItemWithNops.Location = new System.Drawing.Point(13, 359);
+            this.BtnFillSelectedItemWithNops.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.BtnFillSelectedItemWithNops.Name = "BtnFillSelectedItemWithNops";
+            this.BtnFillSelectedItemWithNops.Size = new System.Drawing.Size(284, 25);
+            this.BtnFillSelectedItemWithNops.TabIndex = 17;
+            this.BtnFillSelectedItemWithNops.Text = "Preencher com NOP\'s";
+            this.BtnFillSelectedItemWithNops.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BtnFillSelectedItemWithNops.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.BtnFillSelectedItemWithNops.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            textStyle4.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle4.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle4.Hover = System.Drawing.Color.Empty;
+            textStyle4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnFillSelectedItemWithNops.TextStyle = textStyle4;
+            this.BtnFillSelectedItemWithNops.Click += new System.EventHandler(this.BtnFillSelectedItemWithNops_Click);
             // 
             // ChbxFillNops
             // 
@@ -255,7 +291,7 @@
             this.ChbxFillNops.CheckStyle.Character = '✔';
             this.ChbxFillNops.CheckStyle.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(136)))), ((int)(((byte)(45)))));
             this.ChbxFillNops.CheckStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ChbxFillNops.CheckStyle.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.ChbxFillNops.CheckStyle.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.ChbxFillNops.CheckStyle.ShapeRounding = 3;
             this.ChbxFillNops.CheckStyle.ShapeType = VisualPlus.Enumerators.ShapeType.Rounded;
             this.ChbxFillNops.CheckStyle.Style = VisualPlus.Structure.CheckStyle.CheckType.Checkmark;
@@ -271,11 +307,11 @@
             this.ChbxFillNops.TabIndex = 16;
             this.ChbxFillNops.Text = "Preencher com NOP\'s automaticamente";
             this.ChbxFillNops.TextSize = new System.Drawing.Size(203, 16);
-            textStyle4.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle4.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle4.Hover = System.Drawing.Color.Empty;
-            textStyle4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.ChbxFillNops.TextStyle = textStyle4;
+            textStyle5.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle5.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle5.Hover = System.Drawing.Color.Empty;
+            textStyle5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.ChbxFillNops.TextStyle = textStyle5;
             // 
             // BtnInjectAsmCode
             // 
@@ -303,11 +339,11 @@
             this.BtnInjectAsmCode.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BtnInjectAsmCode.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.BtnInjectAsmCode.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle5.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle5.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle5.Hover = System.Drawing.Color.Empty;
-            textStyle5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.BtnInjectAsmCode.TextStyle = textStyle5;
+            textStyle6.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle6.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle6.Hover = System.Drawing.Color.Empty;
+            textStyle6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnInjectAsmCode.TextStyle = textStyle6;
             this.BtnInjectAsmCode.Click += new System.EventHandler(this.BtnInjectAsmCode_Click);
             // 
             // BtnInjectBytes
@@ -336,11 +372,11 @@
             this.BtnInjectBytes.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BtnInjectBytes.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.BtnInjectBytes.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle6.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle6.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle6.Hover = System.Drawing.Color.Empty;
-            textStyle6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.BtnInjectBytes.TextStyle = textStyle6;
+            textStyle7.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle7.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle7.Hover = System.Drawing.Color.Empty;
+            textStyle7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnInjectBytes.TextStyle = textStyle7;
             this.BtnInjectBytes.Click += new System.EventHandler(this.BtnInjectBytes_Click);
             // 
             // LblByteOutput
@@ -348,7 +384,7 @@
             this.LblByteOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.LblByteOutput.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.LblByteOutput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblByteOutput.Location = new System.Drawing.Point(13, 192);
+            this.LblByteOutput.Location = new System.Drawing.Point(13, 207);
             this.LblByteOutput.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.LblByteOutput.Name = "LblByteOutput";
             this.LblByteOutput.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -366,11 +402,11 @@
             this.LblByteOutput.Text = "Saída em bytes:";
             this.LblByteOutput.TextAlignment = System.Drawing.StringAlignment.Near;
             this.LblByteOutput.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle7.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle7.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle7.Hover = System.Drawing.Color.Empty;
-            textStyle7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.LblByteOutput.TextStyle = textStyle7;
+            textStyle8.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle8.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle8.Hover = System.Drawing.Color.Empty;
+            textStyle8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.LblByteOutput.TextStyle = textStyle8;
             // 
             // RbtxByteOutput
             // 
@@ -386,20 +422,20 @@
             this.RbtxByteOutput.Border.Visible = true;
             this.RbtxByteOutput.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.RbtxByteOutput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.RbtxByteOutput.Location = new System.Drawing.Point(13, 222);
+            this.RbtxByteOutput.Location = new System.Drawing.Point(13, 237);
             this.RbtxByteOutput.MaxLength = 2147483647;
             this.RbtxByteOutput.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.RbtxByteOutput.Name = "RbtxByteOutput";
             this.RbtxByteOutput.ReadOnly = false;
             this.RbtxByteOutput.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
             this.RbtxByteOutput.ShowSelectionMargin = false;
-            this.RbtxByteOutput.Size = new System.Drawing.Size(284, 100);
+            this.RbtxByteOutput.Size = new System.Drawing.Size(284, 85);
             this.RbtxByteOutput.TabIndex = 12;
-            textStyle8.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle8.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle8.Hover = System.Drawing.Color.Empty;
-            textStyle8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.RbtxByteOutput.TextStyle = textStyle8;
+            textStyle9.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle9.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle9.Hover = System.Drawing.Color.Empty;
+            textStyle9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.RbtxByteOutput.TextStyle = textStyle9;
             // 
             // RbtxCode
             // 
@@ -415,20 +451,20 @@
             this.RbtxCode.Border.Visible = true;
             this.RbtxCode.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.RbtxCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.RbtxCode.Location = new System.Drawing.Point(13, 86);
+            this.RbtxCode.Location = new System.Drawing.Point(13, 116);
             this.RbtxCode.MaxLength = 2147483647;
             this.RbtxCode.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.RbtxCode.Name = "RbtxCode";
             this.RbtxCode.ReadOnly = false;
             this.RbtxCode.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Both;
             this.RbtxCode.ShowSelectionMargin = false;
-            this.RbtxCode.Size = new System.Drawing.Size(284, 100);
+            this.RbtxCode.Size = new System.Drawing.Size(284, 85);
             this.RbtxCode.TabIndex = 11;
-            textStyle9.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle9.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle9.Hover = System.Drawing.Color.Empty;
-            textStyle9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.RbtxCode.TextStyle = textStyle9;
+            textStyle10.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle10.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle10.Hover = System.Drawing.Color.Empty;
+            textStyle10.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.RbtxCode.TextStyle = textStyle10;
             this.RbtxCode.TextChanged += new System.EventHandler(this.RbtxCode_TextChanged);
             // 
             // LblAsmCode
@@ -436,7 +472,7 @@
             this.LblAsmCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.LblAsmCode.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.LblAsmCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblAsmCode.Location = new System.Drawing.Point(10, 57);
+            this.LblAsmCode.Location = new System.Drawing.Point(10, 87);
             this.LblAsmCode.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.LblAsmCode.Name = "LblAsmCode";
             this.LblAsmCode.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -454,11 +490,11 @@
             this.LblAsmCode.Text = "Código:";
             this.LblAsmCode.TextAlignment = System.Drawing.StringAlignment.Near;
             this.LblAsmCode.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle10.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle10.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle10.Hover = System.Drawing.Color.Empty;
-            textStyle10.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.LblAsmCode.TextStyle = textStyle10;
+            textStyle11.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle11.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle11.Hover = System.Drawing.Color.Empty;
+            textStyle11.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.LblAsmCode.TextStyle = textStyle11;
             // 
             // GbxReadMemory
             // 
@@ -494,11 +530,11 @@
             this.GbxReadMemory.TextAlignment = System.Drawing.StringAlignment.Center;
             this.GbxReadMemory.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.GbxReadMemory.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle16.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle16.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle16.Hover = System.Drawing.Color.Empty;
-            textStyle16.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.GbxReadMemory.TextStyle = textStyle16;
+            textStyle17.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle17.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle17.Hover = System.Drawing.Color.Empty;
+            textStyle17.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.GbxReadMemory.TextStyle = textStyle17;
             this.GbxReadMemory.TitleBoxHeight = 25;
             // 
             // TbxMemoryAddress
@@ -542,11 +578,11 @@
             this.TbxMemoryAddress.Size = new System.Drawing.Size(284, 25);
             this.TbxMemoryAddress.TabIndex = 19;
             this.TbxMemoryAddress.TextBoxWidth = 274;
-            textStyle12.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle12.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle12.Hover = System.Drawing.Color.Empty;
-            textStyle12.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.TbxMemoryAddress.TextStyle = textStyle12;
+            textStyle13.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle13.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle13.Hover = System.Drawing.Color.Empty;
+            textStyle13.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.TbxMemoryAddress.TextStyle = textStyle13;
             this.TbxMemoryAddress.Watermark.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.TbxMemoryAddress.Watermark.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.TbxMemoryAddress.Watermark.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
@@ -587,11 +623,11 @@
             this.LblTypeValueRead.Text = "Tipo/Valor:";
             this.LblTypeValueRead.TextAlignment = System.Drawing.StringAlignment.Near;
             this.LblTypeValueRead.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle13.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle13.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle13.Hover = System.Drawing.Color.Empty;
-            textStyle13.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.LblTypeValueRead.TextStyle = textStyle13;
+            textStyle14.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle14.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle14.Hover = System.Drawing.Color.Empty;
+            textStyle14.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.LblTypeValueRead.TextStyle = textStyle14;
             // 
             // TbxMemoryValue
             // 
@@ -634,11 +670,11 @@
             this.TbxMemoryValue.Size = new System.Drawing.Size(173, 25);
             this.TbxMemoryValue.TabIndex = 13;
             this.TbxMemoryValue.TextBoxWidth = 115;
-            textStyle14.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle14.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle14.Hover = System.Drawing.Color.Empty;
-            textStyle14.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.TbxMemoryValue.TextStyle = textStyle14;
+            textStyle15.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle15.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle15.Hover = System.Drawing.Color.Empty;
+            textStyle15.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.TbxMemoryValue.TextStyle = textStyle15;
             this.TbxMemoryValue.Watermark.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.TbxMemoryValue.Watermark.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.TbxMemoryValue.Watermark.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
@@ -668,11 +704,11 @@
             this.visualLabel2.Text = "Endereço:";
             this.visualLabel2.TextAlignment = System.Drawing.StringAlignment.Near;
             this.visualLabel2.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle15.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle15.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle15.Hover = System.Drawing.Color.Empty;
-            textStyle15.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.visualLabel2.TextStyle = textStyle15;
+            textStyle16.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle16.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle16.Hover = System.Drawing.Color.Empty;
+            textStyle16.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.visualLabel2.TextStyle = textStyle16;
             // 
             // BtnBack
             // 
@@ -700,11 +736,11 @@
             this.BtnBack.TextAlignment = System.Drawing.StringAlignment.Center;
             this.BtnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.BtnBack.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle17.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle17.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle17.Hover = System.Drawing.Color.Empty;
-            textStyle17.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.BtnBack.TextStyle = textStyle17;
+            textStyle18.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle18.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle18.Hover = System.Drawing.Color.Empty;
+            textStyle18.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnBack.TextStyle = textStyle18;
             this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // LblMemoryView
@@ -729,44 +765,57 @@
             this.LblMemoryView.Text = "Visualização da Memória - {0}";
             this.LblMemoryView.TextAlignment = System.Drawing.StringAlignment.Near;
             this.LblMemoryView.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle18.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle18.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle18.Hover = System.Drawing.Color.Empty;
-            textStyle18.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.LblMemoryView.TextStyle = textStyle18;
+            textStyle19.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle19.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle19.Hover = System.Drawing.Color.Empty;
+            textStyle19.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.LblMemoryView.TextStyle = textStyle19;
             // 
-            // BtnFillSelectedItemWithNops
+            // ChbxRelativeAddresses
             // 
-            this.BtnFillSelectedItemWithNops.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.BtnFillSelectedItemWithNops.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnFillSelectedItemWithNops.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.BtnFillSelectedItemWithNops.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnFillSelectedItemWithNops.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BtnFillSelectedItemWithNops.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.BtnFillSelectedItemWithNops.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.BtnFillSelectedItemWithNops.Border.HoverVisible = true;
-            this.BtnFillSelectedItemWithNops.Border.Rounding = 6;
-            this.BtnFillSelectedItemWithNops.Border.Thickness = 1;
-            this.BtnFillSelectedItemWithNops.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.BtnFillSelectedItemWithNops.Border.Visible = true;
-            this.BtnFillSelectedItemWithNops.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BtnFillSelectedItemWithNops.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BtnFillSelectedItemWithNops.Image = null;
-            this.BtnFillSelectedItemWithNops.Location = new System.Drawing.Point(13, 359);
-            this.BtnFillSelectedItemWithNops.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.BtnFillSelectedItemWithNops.Name = "BtnFillSelectedItemWithNops";
-            this.BtnFillSelectedItemWithNops.Size = new System.Drawing.Size(284, 25);
-            this.BtnFillSelectedItemWithNops.TabIndex = 17;
-            this.BtnFillSelectedItemWithNops.Text = "Preencher com NOP\'s a linha selecionada";
-            this.BtnFillSelectedItemWithNops.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.BtnFillSelectedItemWithNops.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.BtnFillSelectedItemWithNops.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            this.ChbxRelativeAddresses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.ChbxRelativeAddresses.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.ChbxRelativeAddresses.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.ChbxRelativeAddresses.Border.HoverVisible = true;
+            this.ChbxRelativeAddresses.Border.Rounding = 3;
+            this.ChbxRelativeAddresses.Border.Thickness = 1;
+            this.ChbxRelativeAddresses.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.ChbxRelativeAddresses.Border.Visible = true;
+            this.ChbxRelativeAddresses.Box = new System.Drawing.Size(14, 14);
+            this.ChbxRelativeAddresses.BoxColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ChbxRelativeAddresses.BoxColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.ChbxRelativeAddresses.BoxColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ChbxRelativeAddresses.BoxColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ChbxRelativeAddresses.BoxSpacing = 2;
+            this.ChbxRelativeAddresses.Checked = true;
+            this.ChbxRelativeAddresses.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChbxRelativeAddresses.CheckStyle.AutoSize = true;
+            this.ChbxRelativeAddresses.CheckStyle.Bounds = new System.Drawing.Rectangle(0, 0, 125, 23);
+            this.ChbxRelativeAddresses.CheckStyle.Character = '✔';
+            this.ChbxRelativeAddresses.CheckStyle.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(136)))), ((int)(((byte)(45)))));
+            this.ChbxRelativeAddresses.CheckStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ChbxRelativeAddresses.CheckStyle.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.ChbxRelativeAddresses.CheckStyle.ShapeRounding = 3;
+            this.ChbxRelativeAddresses.CheckStyle.ShapeType = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.ChbxRelativeAddresses.CheckStyle.Style = VisualPlus.Structure.CheckStyle.CheckType.Checkmark;
+            this.ChbxRelativeAddresses.CheckStyle.Thickness = 2F;
+            this.ChbxRelativeAddresses.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChbxRelativeAddresses.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ChbxRelativeAddresses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ChbxRelativeAddresses.IsBoxLarger = false;
+            this.ChbxRelativeAddresses.Location = new System.Drawing.Point(13, 57);
+            this.ChbxRelativeAddresses.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.ChbxRelativeAddresses.Name = "ChbxRelativeAddresses";
+            this.ChbxRelativeAddresses.Size = new System.Drawing.Size(295, 23);
+            this.ChbxRelativeAddresses.TabIndex = 18;
+            this.ChbxRelativeAddresses.Text = "Interpretar endereços como relativos em JMP/CALL";
+            this.ChbxRelativeAddresses.TextSize = new System.Drawing.Size(260, 16);
             textStyle3.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
             textStyle3.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             textStyle3.Hover = System.Drawing.Color.Empty;
             textStyle3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.BtnFillSelectedItemWithNops.TextStyle = textStyle3;
-            this.BtnFillSelectedItemWithNops.Click += new System.EventHandler(this.BtnFillSelectedItemWithNops_Click);
+            this.ChbxRelativeAddresses.TextStyle = textStyle3;
+            this.ChbxRelativeAddresses.ToggleChanged += new VisualPlus.Delegates.ToggleChangedEventHandler(this.ChbxRelativeAddresses_ToggleChanged);
             // 
             // UcMemoryViewer
             // 
@@ -818,5 +867,6 @@
         private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnInjectAsmCode;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox ChbxFillNops;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnFillSelectedItemWithNops;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox ChbxRelativeAddresses;
     }
 }

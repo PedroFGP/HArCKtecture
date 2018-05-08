@@ -72,6 +72,9 @@ namespace HArCKtecture.User_Controls
             HelpForm.Focus();
             HelpForm.TopMost = false;
 
+            ChallengeProcess.Memory.Windows.MainWindow.Activate();
+            ChallengeProcess.Memory.Windows.MainWindow.Flash(2, TimeSpan.FromMilliseconds(500));
+
             Watch.Start();
         }
 
@@ -158,6 +161,11 @@ namespace HArCKtecture.User_Controls
         private void LsvMemory_SizeChanged(object sender, EventArgs e)
         {
             LsvMemory.Columns[2].Width = LsvMemory.Width - 10;
+        }
+
+        private void ChbxRelativeAddresses_ToggleChanged(VisualPlus.EventArgs.ToggleEventArgs e)
+        {
+            RefreshMemoryView();
         }
 
         protected override void OnHandleDestroyed(EventArgs e)
@@ -249,6 +257,8 @@ namespace HArCKtecture.User_Controls
 
                     Thread.Sleep(100);
                 }
+
+                RefreshMemoryView();
 
                 TmrCheckAnswer.Start();
             }
@@ -568,7 +578,7 @@ namespace HArCKtecture.User_Controls
 
             byte[] bytes = ChallengeProcess.Memory.Read<byte>(ptrAddress, size, false);
 
-            var parsedInstructions = Disasm.DisassembleBytes(address, bytes);
+            var parsedInstructions = Disasm.DisassembleBytes(address, bytes, ChbxRelativeAddresses.Checked);
 
             bool addrBetween = false;
 
@@ -606,7 +616,7 @@ namespace HArCKtecture.User_Controls
 
         private void StartChallengeProcess()
         {
-            var proc = System.Diagnostics.Process.GetProcessesByName(CurrentChallenge.Name).FirstOrDefault();
+            var proc = Process.GetProcessesByName(CurrentChallenge.Name).FirstOrDefault();
 
             if (proc != null)
             {
@@ -615,12 +625,17 @@ namespace HArCKtecture.User_Controls
 
             while(proc != null)
             {
-                proc = System.Diagnostics.Process.GetProcessesByName(CurrentChallenge.Name).FirstOrDefault();
+                proc = Process.GetProcessesByName(CurrentChallenge.Name).FirstOrDefault();
 
                 Thread.Sleep(100);
             }
 
             File.WriteAllBytes(CurrentChallenge.Name + ".exe", CurrentChallenge.ExecutableBytes);
+
+            while(FileExtensions.IsFileLocked(CurrentChallenge.Name + ".exe"))
+            {
+                Thread.Sleep(100);
+            }
 
             ChallengeProcess = new WindowsProcess(CurrentChallenge.Name + ".exe", true);
 

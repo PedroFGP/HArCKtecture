@@ -119,6 +119,19 @@ namespace HArCKtecture.Forms
 
         private void TmrCheckChallengeFinished_Tick(object sender, EventArgs e)
         {
+            var frmChallenge = Application.OpenForms.Cast<VisualForm>().FirstOrDefault(form => form is FrmChallenge);
+
+            if(frmChallenge != null)
+            {
+                this.Text = "HArCKtecture - '" + frmChallenge.Text + "'";
+                this.Enabled = false;
+            }
+            else
+            {
+                this.Text = "HArCKtecture";
+                this.Enabled = true;  
+            }
+
             if (Globals.ResetChallenges)
             {
                 LoadChallenges();

@@ -234,7 +234,6 @@
             textStyle6.Hover = System.Drawing.Color.Empty;
             textStyle6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.BtnCreateChallenge.TextStyle = textStyle6;
-            this.BtnCreateChallenge.Visible = false;
             this.BtnCreateChallenge.Click += new System.EventHandler(this.BtnCreateChallenge_Click);
             // 
             // BtnExit

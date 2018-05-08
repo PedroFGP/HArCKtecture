@@ -47,7 +47,7 @@ namespace HArCKtecture.User_Controls
 
         private void BtnPlay_Click(object sender, EventArgs e)
         {
-            if(LoadedChallenge.Finished)
+            if (LoadedChallenge.Finished)
             {
                 LoadedChallenge.Finished = false;
                 LoadedChallenge.TotalTime = TimeSpan.Zero;

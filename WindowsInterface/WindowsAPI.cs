@@ -3,11 +3,47 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Binarysharp.Assemblers.Fasm;
-using System.Diagnostics;
 using System.Text;
+using SharpDisasm.Udis86;
+using System.IO;
+using System.Runtime.InteropServices;
 
 namespace WindowsAPI
 {
+    public static class FileExtensions
+    {
+        const int ERROR_SHARING_VIOLATION = 32;
+        const int ERROR_LOCK_VIOLATION = 33;
+
+        public static bool IsFileLocked(string file)
+        {
+            //check that problem is not in destination file
+            if (File.Exists(file) == true)
+            {
+                FileStream stream = null;
+                try
+                {
+                    stream = File.Open(file, FileMode.Open, FileAccess.ReadWrite, FileShare.None);
+                }
+                catch (Exception ex2)
+                {
+                    //_log.WriteLog(ex2, "Error in checking whether file is locked " + file);
+                    int errorCode = Marshal.GetHRForException(ex2) & ((1 << 16) - 1);
+                    if ((ex2 is IOException) && (errorCode == ERROR_SHARING_VIOLATION || errorCode == ERROR_LOCK_VIOLATION))
+                    {
+                        return true;
+                    }
+                }
+                finally
+                {
+                    if (stream != null)
+                        stream.Close();
+                }
+            }
+            return false;
+        }
+    }
+
     public static class Disasm
     {
         /// <summary>
@@ -36,9 +72,11 @@ namespace WindowsAPI
         /// <summary>
         /// Translates bytes to assembly instructions.
         /// </summary>
+        /// <param name="address"></param>
         /// <param name="bytes">Byte array to disassemble</param>
+        /// <param name="relativeAddresses"></param>
         /// <returns>Dictionary of strings with assembly instructions representing the bytes</returns>
-        public static List<InstructionRepresentation> DisassembleBytes(ulong address, byte[] bytes)
+        public static List<InstructionRepresentation> DisassembleBytes(ulong address, byte[] bytes, bool relativeAddresses = true)
         {
             Disassembler.Translator.IncludeAddress = true;
 
@@ -52,10 +90,25 @@ namespace WindowsAPI
 
                 var parts = instruction.ToString().Split(new[] { ' ' }, 2);
 
+                string opcode = parts.Last();
+
+                if(relativeAddresses)
+                {
+                    if (instruction.Bytes.Length == 2 && instruction.Mnemonic >= ud_mnemonic_code.UD_Ija && instruction.Mnemonic <= ud_mnemonic_code.UD_Ijz)
+                    {
+                        opcode = opcode.Split(' ')[0] + " 0x" + (instruction.Operands[0].LvalSByte + instruction.Bytes.Length).ToString("X").PadLeft(2, '0');
+                    }
+
+                    if (instruction.Bytes.Length == 5 && instruction.Mnemonic == ud_mnemonic_code.UD_Icall)
+                    {
+                        opcode = opcode.Split(' ')[0] + " 0x" + (instruction.Operands[0].Value + instruction.Bytes.Length).ToString("X").ToUpper();
+                    }
+                }
+
                 instructions.Add(new InstructionRepresentation() {
                     Address = parts[0],
                     Bytes = instruction.Bytes,
-                    Opcodes = parts.Last()
+                    Opcodes = opcode
                 });
             }
 
