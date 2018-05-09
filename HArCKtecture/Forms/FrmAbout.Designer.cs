@@ -213,6 +213,7 @@
             this.Name = "FrmAbout";
             this.Text = "Sobre";
             this.TextRectangle = new System.Drawing.Rectangle(192, 7, 37, 13);
+            this.Load += new System.EventHandler(this.FrmAbout_Load);
             this.Controls.SetChildIndex(this.RTbxAbout, 0);
             this.Controls.SetChildIndex(this.BtnBack, 0);
             this.Controls.SetChildIndex(this._visualControlBox, 0);
