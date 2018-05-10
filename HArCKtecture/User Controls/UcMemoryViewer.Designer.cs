@@ -32,6 +32,8 @@
             VisualPlus.Structure.TextStyle textStyle1 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle2 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle12 = new VisualPlus.Structure.TextStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcMemoryViewer));
+            VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle4 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle5 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle6 = new VisualPlus.Structure.TextStyle();
@@ -47,8 +49,6 @@
             VisualPlus.Structure.TextStyle textStyle16 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle18 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle19 = new VisualPlus.Structure.TextStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcMemoryViewer));
-            VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
             this.TmrCheckAnswer = new System.Windows.Forms.Timer(this.components);
             this.CbxMemoryAddress = new System.Windows.Forms.ComboBox();
             this.TmrCheckProcessAlive = new System.Windows.Forms.Timer(this.components);
@@ -58,6 +58,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.visualGroupBox1 = new VisualPlus.Toolkit.Controls.Layout.VisualGroupBox();
+            this.ChbxRelativeAddresses = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.BtnFillSelectedItemWithNops = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.ChbxFillNops = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.BtnInjectAsmCode = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
@@ -74,7 +75,6 @@
             this.visualLabel2 = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.BtnBack = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.LblMemoryView = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
-            this.ChbxRelativeAddresses = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.visualGroupBox1.SuspendLayout();
             this.GbxReadMemory.SuspendLayout();
             this.SuspendLayout();
@@ -161,7 +161,7 @@
             this.LsvMemory.Location = new System.Drawing.Point(12, 45);
             this.LsvMemory.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
             this.LsvMemory.Name = "LsvMemory";
-            this.LsvMemory.OwnerDraw = true;
+            this.LsvMemory.OwnerDraw = false;
             this.LsvMemory.ShowGroups = true;
             this.LsvMemory.Size = new System.Drawing.Size(907, 559);
             this.LsvMemory.SmallImageList = null;
@@ -234,6 +234,52 @@
             textStyle12.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.visualGroupBox1.TextStyle = textStyle12;
             this.visualGroupBox1.TitleBoxHeight = 25;
+            // 
+            // ChbxRelativeAddresses
+            // 
+            this.ChbxRelativeAddresses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.ChbxRelativeAddresses.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.ChbxRelativeAddresses.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.ChbxRelativeAddresses.Border.HoverVisible = true;
+            this.ChbxRelativeAddresses.Border.Rounding = 3;
+            this.ChbxRelativeAddresses.Border.Thickness = 1;
+            this.ChbxRelativeAddresses.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.ChbxRelativeAddresses.Border.Visible = true;
+            this.ChbxRelativeAddresses.Box = new System.Drawing.Size(14, 14);
+            this.ChbxRelativeAddresses.BoxColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ChbxRelativeAddresses.BoxColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.ChbxRelativeAddresses.BoxColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ChbxRelativeAddresses.BoxColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ChbxRelativeAddresses.BoxSpacing = 2;
+            this.ChbxRelativeAddresses.Checked = true;
+            this.ChbxRelativeAddresses.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChbxRelativeAddresses.CheckStyle.AutoSize = true;
+            this.ChbxRelativeAddresses.CheckStyle.Bounds = new System.Drawing.Rectangle(0, 0, 125, 23);
+            this.ChbxRelativeAddresses.CheckStyle.Character = '✔';
+            this.ChbxRelativeAddresses.CheckStyle.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(136)))), ((int)(((byte)(45)))));
+            this.ChbxRelativeAddresses.CheckStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ChbxRelativeAddresses.CheckStyle.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.ChbxRelativeAddresses.CheckStyle.ShapeRounding = 3;
+            this.ChbxRelativeAddresses.CheckStyle.ShapeType = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.ChbxRelativeAddresses.CheckStyle.Style = VisualPlus.Structure.CheckStyle.CheckType.Checkmark;
+            this.ChbxRelativeAddresses.CheckStyle.Thickness = 2F;
+            this.ChbxRelativeAddresses.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChbxRelativeAddresses.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ChbxRelativeAddresses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ChbxRelativeAddresses.IsBoxLarger = false;
+            this.ChbxRelativeAddresses.Location = new System.Drawing.Point(13, 57);
+            this.ChbxRelativeAddresses.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.ChbxRelativeAddresses.Name = "ChbxRelativeAddresses";
+            this.ChbxRelativeAddresses.Size = new System.Drawing.Size(295, 23);
+            this.ChbxRelativeAddresses.TabIndex = 18;
+            this.ChbxRelativeAddresses.Text = "Interpretar endereços como relativos em JMP/CALL";
+            this.ChbxRelativeAddresses.TextSize = new System.Drawing.Size(260, 16);
+            textStyle3.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle3.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle3.Hover = System.Drawing.Color.Empty;
+            textStyle3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.ChbxRelativeAddresses.TextStyle = textStyle3;
+            this.ChbxRelativeAddresses.ToggleChanged += new VisualPlus.Delegates.ToggleChangedEventHandler(this.ChbxRelativeAddresses_ToggleChanged);
             // 
             // BtnFillSelectedItemWithNops
             // 
@@ -770,52 +816,6 @@
             textStyle19.Hover = System.Drawing.Color.Empty;
             textStyle19.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.LblMemoryView.TextStyle = textStyle19;
-            // 
-            // ChbxRelativeAddresses
-            // 
-            this.ChbxRelativeAddresses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.ChbxRelativeAddresses.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.ChbxRelativeAddresses.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.ChbxRelativeAddresses.Border.HoverVisible = true;
-            this.ChbxRelativeAddresses.Border.Rounding = 3;
-            this.ChbxRelativeAddresses.Border.Thickness = 1;
-            this.ChbxRelativeAddresses.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.ChbxRelativeAddresses.Border.Visible = true;
-            this.ChbxRelativeAddresses.Box = new System.Drawing.Size(14, 14);
-            this.ChbxRelativeAddresses.BoxColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ChbxRelativeAddresses.BoxColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.ChbxRelativeAddresses.BoxColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ChbxRelativeAddresses.BoxColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ChbxRelativeAddresses.BoxSpacing = 2;
-            this.ChbxRelativeAddresses.Checked = true;
-            this.ChbxRelativeAddresses.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ChbxRelativeAddresses.CheckStyle.AutoSize = true;
-            this.ChbxRelativeAddresses.CheckStyle.Bounds = new System.Drawing.Rectangle(0, 0, 125, 23);
-            this.ChbxRelativeAddresses.CheckStyle.Character = '✔';
-            this.ChbxRelativeAddresses.CheckStyle.CheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(136)))), ((int)(((byte)(45)))));
-            this.ChbxRelativeAddresses.CheckStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ChbxRelativeAddresses.CheckStyle.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.ChbxRelativeAddresses.CheckStyle.ShapeRounding = 3;
-            this.ChbxRelativeAddresses.CheckStyle.ShapeType = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.ChbxRelativeAddresses.CheckStyle.Style = VisualPlus.Structure.CheckStyle.CheckType.Checkmark;
-            this.ChbxRelativeAddresses.CheckStyle.Thickness = 2F;
-            this.ChbxRelativeAddresses.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ChbxRelativeAddresses.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ChbxRelativeAddresses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ChbxRelativeAddresses.IsBoxLarger = false;
-            this.ChbxRelativeAddresses.Location = new System.Drawing.Point(13, 57);
-            this.ChbxRelativeAddresses.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.ChbxRelativeAddresses.Name = "ChbxRelativeAddresses";
-            this.ChbxRelativeAddresses.Size = new System.Drawing.Size(295, 23);
-            this.ChbxRelativeAddresses.TabIndex = 18;
-            this.ChbxRelativeAddresses.Text = "Interpretar endereços como relativos em JMP/CALL";
-            this.ChbxRelativeAddresses.TextSize = new System.Drawing.Size(260, 16);
-            textStyle3.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle3.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle3.Hover = System.Drawing.Color.Empty;
-            textStyle3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.ChbxRelativeAddresses.TextStyle = textStyle3;
-            this.ChbxRelativeAddresses.ToggleChanged += new VisualPlus.Delegates.ToggleChangedEventHandler(this.ChbxRelativeAddresses_ToggleChanged);
             // 
             // UcMemoryViewer
             // 
