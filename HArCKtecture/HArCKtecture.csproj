@@ -234,6 +234,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FormLogo.ico" />
+    <None Include="Tutorial Resources\Tutorial11.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
