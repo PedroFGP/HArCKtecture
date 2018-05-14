@@ -77,11 +77,13 @@ Para visualizar qualquer endereço basta digitar um endereço válido (hexadecim
 
             Stages.Add(Resources.Tutorial3, @"A janela de visualização de memória informa o endereço (hexadecimal) ao qual aquela sequência de bytes está além de uma representação em assembly x86 daqueles bytes (Opcodes, ou operation codes, também conhecidos como códigos de operação). 
 
-Ao selecionar uma linha seus bytes e código de operação irão ser mostrados na janela de 'Assembly x86'.");
+Ao selecionar uma linha seus bytes e código de operação irão ser mostrados na janela de 'Assembly x86'.
+
+As linhas vermelhas, verdes e azuis representam zonas de interesse, estas linhas servem como dicas para resolução do desafio, indicando que uma das possibilidades de resolução se encontra nessas linhas.");
 
             Stages.Add(Resources.Tutorial4, @"A janela de 'Memória' é responsável por possibilitar a leitura e a escrita de valores em endereços de memória. 
 
-Para ler um valor basta digitar um endereço válido (hexadecimal) no campo de entrada de texto abaixo do texto 'Endreço' e escolher como o dado deve ser interpretado na caixa de seleção abaixo do texto 'Tipo/Valor'. 
+Para ler um valor basta digitar um endereço válido (hexadecimal) no campo de entrada de texto abaixo do texto 'Endereço' e escolher como o dado deve ser interpretado na caixa de seleção abaixo do texto 'Tipo/Valor'. 
 
 Para se escrever um valor basta ter digitado um endereço válido e digitar qualquer valor válido no campo de entrada de texto abaixo ao lado esquerdo do botão escrever e apertar o botão escrever.");
 
