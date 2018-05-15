@@ -17,5 +17,8 @@ namespace HArCKtecture.Classes
 
         [Key(3)]
         public virtual TimeSpan ElapsedTime { get; set; }
+
+        [Key(4)]
+        public virtual DataType InterpretedType { get; set; }
     }
 }
