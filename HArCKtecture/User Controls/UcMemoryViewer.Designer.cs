@@ -36,7 +36,6 @@
             VisualPlus.Structure.TextStyle textStyle3 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle4 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle5 = new VisualPlus.Structure.TextStyle();
-            VisualPlus.Structure.TextStyle textStyle6 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle7 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle8 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle9 = new VisualPlus.Structure.TextStyle();
@@ -49,6 +48,7 @@
             VisualPlus.Structure.TextStyle textStyle16 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle18 = new VisualPlus.Structure.TextStyle();
             VisualPlus.Structure.TextStyle textStyle19 = new VisualPlus.Structure.TextStyle();
+            VisualPlus.Structure.TextStyle textStyle6 = new VisualPlus.Structure.TextStyle();
             this.TmrCheckAnswer = new System.Windows.Forms.Timer(this.components);
             this.CbxMemoryAddress = new System.Windows.Forms.ComboBox();
             this.TmrCheckProcessAlive = new System.Windows.Forms.Timer(this.components);
@@ -61,7 +61,6 @@
             this.ChbxRelativeAddresses = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
             this.BtnFillSelectedItemWithNops = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.ChbxFillNops = new VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox();
-            this.BtnInjectAsmCode = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.BtnInjectBytes = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.LblByteOutput = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.RbtxByteOutput = new VisualPlus.Toolkit.Controls.Editors.VisualRichTextBox();
@@ -75,6 +74,7 @@
             this.visualLabel2 = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
             this.BtnBack = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.LblMemoryView = new VisualPlus.Toolkit.Controls.Interactivity.VisualLabel();
+            this.BtnInjectAsmCode = new VisualPlus.Toolkit.Controls.Interactivity.VisualButton();
             this.visualGroupBox1.SuspendLayout();
             this.GbxReadMemory.SuspendLayout();
             this.SuspendLayout();
@@ -358,39 +358,6 @@
             textStyle5.Hover = System.Drawing.Color.Empty;
             textStyle5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.ChbxFillNops.TextStyle = textStyle5;
-            // 
-            // BtnInjectAsmCode
-            // 
-            this.BtnInjectAsmCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.BtnInjectAsmCode.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnInjectAsmCode.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.BtnInjectAsmCode.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnInjectAsmCode.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BtnInjectAsmCode.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.BtnInjectAsmCode.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
-            this.BtnInjectAsmCode.Border.HoverVisible = true;
-            this.BtnInjectAsmCode.Border.Rounding = 6;
-            this.BtnInjectAsmCode.Border.Thickness = 1;
-            this.BtnInjectAsmCode.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
-            this.BtnInjectAsmCode.Border.Visible = true;
-            this.BtnInjectAsmCode.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BtnInjectAsmCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BtnInjectAsmCode.Image = null;
-            this.BtnInjectAsmCode.Location = new System.Drawing.Point(13, 328);
-            this.BtnInjectAsmCode.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
-            this.BtnInjectAsmCode.Name = "BtnInjectAsmCode";
-            this.BtnInjectAsmCode.Size = new System.Drawing.Size(138, 25);
-            this.BtnInjectAsmCode.TabIndex = 15;
-            this.BtnInjectAsmCode.Text = "Injetar Assembly";
-            this.BtnInjectAsmCode.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.BtnInjectAsmCode.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.BtnInjectAsmCode.TextLineAlignment = System.Drawing.StringAlignment.Center;
-            textStyle6.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
-            textStyle6.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            textStyle6.Hover = System.Drawing.Color.Empty;
-            textStyle6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.BtnInjectAsmCode.TextStyle = textStyle6;
-            this.BtnInjectAsmCode.Click += new System.EventHandler(this.BtnInjectAsmCode_Click);
             // 
             // BtnInjectBytes
             // 
@@ -817,6 +784,40 @@
             textStyle19.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.LblMemoryView.TextStyle = textStyle19;
             // 
+            // BtnInjectAsmCode
+            // 
+            this.BtnInjectAsmCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.BtnInjectAsmCode.BackColorState.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnInjectAsmCode.BackColorState.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.BtnInjectAsmCode.BackColorState.Hover = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnInjectAsmCode.BackColorState.Pressed = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BtnInjectAsmCode.Border.Color = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.BtnInjectAsmCode.Border.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(183)))), ((int)(((byte)(230)))));
+            this.BtnInjectAsmCode.Border.HoverVisible = true;
+            this.BtnInjectAsmCode.Border.Rounding = 6;
+            this.BtnInjectAsmCode.Border.Thickness = 1;
+            this.BtnInjectAsmCode.Border.Type = VisualPlus.Enumerators.ShapeType.Rounded;
+            this.BtnInjectAsmCode.Border.Visible = true;
+            this.BtnInjectAsmCode.Enabled = false;
+            this.BtnInjectAsmCode.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BtnInjectAsmCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnInjectAsmCode.Image = null;
+            this.BtnInjectAsmCode.Location = new System.Drawing.Point(13, 328);
+            this.BtnInjectAsmCode.MouseState = VisualPlus.Enumerators.MouseStates.Normal;
+            this.BtnInjectAsmCode.Name = "BtnInjectAsmCode";
+            this.BtnInjectAsmCode.Size = new System.Drawing.Size(138, 25);
+            this.BtnInjectAsmCode.TabIndex = 15;
+            this.BtnInjectAsmCode.Text = "Injetar Assembly";
+            this.BtnInjectAsmCode.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.BtnInjectAsmCode.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.BtnInjectAsmCode.TextLineAlignment = System.Drawing.StringAlignment.Center;
+            textStyle6.Disabled = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            textStyle6.Enabled = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            textStyle6.Hover = System.Drawing.Color.Empty;
+            textStyle6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.BtnInjectAsmCode.TextStyle = textStyle6;
+            this.BtnInjectAsmCode.Click += new System.EventHandler(this.BtnInjectAsmCode_Click);
+            // 
             // UcMemoryViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -864,9 +865,9 @@
         private VisualPlus.Toolkit.Controls.Interactivity.VisualLabel LblExplore;
         private VisualPlus.Toolkit.Controls.Editors.VisualTextBox TbxMemoryAddress;
         private System.Windows.Forms.Timer TmrCheckProcessAlive;
-        private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnInjectAsmCode;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox ChbxFillNops;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnFillSelectedItemWithNops;
         private VisualPlus.Toolkit.Controls.Interactivity.VisualCheckBox ChbxRelativeAddresses;
+        private VisualPlus.Toolkit.Controls.Interactivity.VisualButton BtnInjectAsmCode;
     }
 }
