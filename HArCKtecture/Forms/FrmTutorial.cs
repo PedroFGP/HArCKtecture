@@ -67,6 +67,8 @@ O botão 'Jogar' mais a direita é responsável por carregar o desafio, uma vez 
 
             Stages.Add(Resources.Tutorial10, "O botão 'Sair' fecha o jogo HArCKtecture.");
 
+            Stages.Add(Resources.Tutorial11, "Agora vamos pegar o primeiro desafio como exemplo e ver a tela de desafios.");
+
             #endregion
 
             #region Challenge Window Tutorial

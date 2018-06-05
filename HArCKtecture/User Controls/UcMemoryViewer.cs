@@ -316,7 +316,8 @@ namespace HArCKtecture.User_Controls
                 Address = result,
                 OperationType = OperationType.WRITE,
                 Value = RbtxByteOutput.Text,
-                ElapsedTime = Watch.Elapsed
+                ElapsedTime = Watch.Elapsed,
+                InterpretedType = DataType.BYTE
             });
 
             RefreshMemoryView();
@@ -359,7 +360,8 @@ namespace HArCKtecture.User_Controls
                     Address = result,
                     OperationType = OperationType.ASM_OVERWRITE,
                     Value = RbtxCode.Text,
-                    ElapsedTime = Watch.Elapsed
+                    ElapsedTime = Watch.Elapsed,
+                    InterpretedType = DataType.BYTE
                 });
 
                 RefreshMemoryView();
@@ -389,7 +391,8 @@ namespace HArCKtecture.User_Controls
                     Address = result + (uint)offset,
                     OperationType = OperationType.WRITE,
                     Value = "0x90",
-                    ElapsedTime = Watch.Elapsed
+                    ElapsedTime = Watch.Elapsed,
+                    InterpretedType = DataType.BYTE
                 });
             }
 
@@ -522,7 +525,8 @@ namespace HArCKtecture.User_Controls
                 Address = result,
                 OperationType = (read) ? OperationType.READ : OperationType.WRITE,
                 Value = TbxMemoryValue.Text,
-                ElapsedTime = Watch.Elapsed
+                ElapsedTime = Watch.Elapsed,
+                InterpretedType = (DataType)CbxMemoryType.SelectedValue
             });
 
             if (!read)

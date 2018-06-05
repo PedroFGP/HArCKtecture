@@ -52,6 +52,9 @@ namespace HArCKtecture.Classes
         [Key(13)]
         public virtual List<Operation> Operations { get; set; }
 
+        [Key(14)]
+        public virtual uint BaseAddress { get; set; }
+
         #endregion
 
         public void Save()
