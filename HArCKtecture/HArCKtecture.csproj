@@ -55,6 +55,18 @@
   <PropertyGroup>
     <ApplicationIcon>FormLogo.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Fasm.NET, Version=1.0.4939.27955, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\packages\Fasm.NET.1.70.03.2\lib\Fasm.NET.dll</HintPath>
@@ -185,6 +197,9 @@
     <EmbeddedResource Include="User Controls\UcMemoryViewer.resx">
       <DependentUpon>UcMemoryViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -198,12 +213,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WindowsInterface\WindowsInterface.csproj">
-      <Project>{a4c4281d-f3c8-4e1f-842f-f4640ded91f6}</Project>
-      <Name>WindowsInterface</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FormLogo.ico" />
@@ -235,6 +244,12 @@
   <ItemGroup>
     <Content Include="FormLogo.ico" />
     <None Include="Tutorial Resources\Tutorial11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WindowsInterface\WindowsInterface.csproj">
+      <Project>{a4c4281d-f3c8-4e1f-842f-f4640ded91f6}</Project>
+      <Name>WindowsInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

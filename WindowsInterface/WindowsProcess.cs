@@ -1,4 +1,5 @@
 ﻿using Binarysharp.MemoryManagement;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -16,20 +17,29 @@ namespace WindowsAPI
         /// <param name="startProcess">if set to <c>true</c> [start process] then starts the process by it's path.</param>
         public WindowsProcess(string processName, bool startProcess)
         {
-            if(startProcess && File.Exists(processName))
+            try
             {
-                Memory = new MemorySharp(Process.Start(processName));
-            }
-            else
-            {
-                processName = processName.Replace(".exe", "");
-
-                var procHandle = Process.GetProcessesByName(processName).FirstOrDefault();
-
-                if (procHandle != null)
+                if (startProcess && File.Exists(processName))
                 {
-                    Memory = new MemorySharp(procHandle);
+                    Memory = null;
+
+                    Memory = new MemorySharp(Process.Start(processName));
                 }
+                else
+                {
+                    processName = processName.Replace(".exe", "");
+
+                    var procHandle = Process.GetProcessesByName(processName).FirstOrDefault();
+
+                    if (procHandle != null)
+                    {
+                        Memory = new MemorySharp(procHandle);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                var c = ex;
             }
         }
 

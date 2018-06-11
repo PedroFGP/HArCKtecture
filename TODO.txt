@@ -1,0 +1,21 @@
+TODO TCC:
+
+- Corrigir desafio 6;
+ - Corrigir texto dentro do desafio (recompilar)
+ - Corrigir logica para decisão sobre conclusão
+	 
+- Adicionar Crash no log;
+
+- Verificar o pq do objeto nulo ao atribuir um handle pro novo processo (carregar outro desafio);
+	(Memory = new MemorySharp(Process.Start(processName));)
+
+- Corrigir label no tutorial "intepetar";
+
+- Colocar toUpper na coluna de endereço;
+
+- Interpretar 0x como hexa e resto como inteiro...
+
+TODO FERRAMENTA CORREÇÃO:
+
+- Adicionar log no texto entre operações
+
