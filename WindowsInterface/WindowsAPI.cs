@@ -15,10 +15,16 @@ namespace WindowsAPI
         const int ERROR_SHARING_VIOLATION = 32;
         const int ERROR_LOCK_VIOLATION = 33;
 
+        /// <summary>
+        /// Determines whether the file is being used.
+        /// </summary>
+        /// <param name="file">Path to the file including extension.</param>
+        /// <returns>
+        ///   <c>true</c> if the file is being used; otherwise, <c>false</c>.
+        /// </returns>
         public static bool IsFileLocked(string file)
         {
-            //check that problem is not in destination file
-            if (File.Exists(file) == true)
+            if (File.Exists(file))
             {
                 FileStream stream = null;
                 try
@@ -27,8 +33,8 @@ namespace WindowsAPI
                 }
                 catch (Exception ex2)
                 {
-                    //_log.WriteLog(ex2, "Error in checking whether file is locked " + file);
                     int errorCode = Marshal.GetHRForException(ex2) & ((1 << 16) - 1);
+
                     if ((ex2 is IOException) && (errorCode == ERROR_SHARING_VIOLATION || errorCode == ERROR_LOCK_VIOLATION))
                     {
                         return true;
@@ -36,8 +42,7 @@ namespace WindowsAPI
                 }
                 finally
                 {
-                    if (stream != null)
-                        stream.Close();
+                    stream?.Close();
                 }
             }
             return false;
@@ -72,9 +77,9 @@ namespace WindowsAPI
         /// <summary>
         /// Translates bytes to assembly instructions.
         /// </summary>
-        /// <param name="address"></param>
+        /// <param name="address">Address to start disassemblying from</param>
         /// <param name="bytes">Byte array to disassemble</param>
-        /// <param name="relativeAddresses"></param>
+        /// <param name="relativeAddresses">Boolean wheter to interpret addresses as relative or not</param>
         /// <returns>Dictionary of strings with assembly instructions representing the bytes</returns>
         public static List<InstructionRepresentation> DisassembleBytes(ulong address, byte[] bytes, bool relativeAddresses = true)
         {
@@ -92,6 +97,7 @@ namespace WindowsAPI
 
                 string opcode = parts.Last();
 
+                //if needed convert addresses to relatives on specific mnemonics
                 if(relativeAddresses)
                 {
                     if (instruction.Bytes.Length == 2 && instruction.Mnemonic >= ud_mnemonic_code.UD_Ija && instruction.Mnemonic <= ud_mnemonic_code.UD_Ijz)
@@ -142,6 +148,11 @@ namespace WindowsAPI
 
     public static class ByteExtension
     {
+        /// <summary>
+        /// Bytes to hexadecimal bit fiddle.
+        /// </summary>
+        /// <param name="bytes">The bytes.</param>
+        /// <returns>String representing the bytes in pairs.</returns>
         public static string ByteToHexBitFiddle(byte[] bytes)
         {
             char[] c = new char[bytes.Length * 2];
@@ -152,25 +163,37 @@ namespace WindowsAPI
                 b = bytes[i] >> 4;
                 c[i * 2] = (char)(55 + b + (((b - 10) >> 31) & -7));
                 b = bytes[i] & 0xF;
-                c[i * 2 + 1] = (char)(55 + b + (((b - 10) >> 31) & -7));
+                c[(i * 2) + 1] = (char)(55 + b + (((b - 10) >> 31) & -7));
             }
 
             return new string(c);
         }
 
+        /// <summary>
+        /// Bytes to hexadecimal split.
+        /// </summary>
+        /// <param name="bytes">The bytes.</param>
+        /// <param name="chunkSize">Size of the chunk.</param>
+        /// <returns></returns>
         public static string ByteToHexSplit(byte[] bytes, int chunkSize)
         {
             var finalString = new StringBuilder();
 
             foreach(var chunk in Split(ByteToHexBitFiddle(bytes), chunkSize))
             {
-                finalString.Append(chunk + " ");
+                finalString.Append(chunk).Append(" ");
             }
 
             return finalString.ToString();
         }
 
-        static IEnumerable<string> Split(string str, int chunkSize)
+        /// <summary>
+        /// Splits the specified string.
+        /// </summary>
+        /// <param name="str">The string.</param>
+        /// <param name="chunkSize">Size of the chunk.</param>
+        /// <returns></returns>
+        private static IEnumerable<string> Split(string str, int chunkSize)
         {
             return Enumerable.Range(0, str.Length / chunkSize)
                 .Select(i => str.Substring(i * chunkSize, chunkSize));

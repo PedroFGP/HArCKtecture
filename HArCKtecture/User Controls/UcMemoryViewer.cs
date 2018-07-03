@@ -163,7 +163,7 @@ namespace HArCKtecture.User_Controls
             LsvMemory.Columns[2].Width = LsvMemory.Width - 10;
         }
 
-        private void ChbxRelativeAddresses_ToggleChanged(VisualPlus.EventArgs.ToggleEventArgs e)
+        private void ChbxRelativeAddresses_ToggleChanged(VisualPlus.Events.ToggleEventArgs e)
         {
             RefreshMemoryView();
         }
